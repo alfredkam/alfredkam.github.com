@@ -1,0 +1,41 @@
+<p><strong>To enable access to whitelist domain</strong><br />
+http://docs.phonegap.com/en/1.9.0/guide_whitelist_index.md.html</p>
+<p><strong>To open site in app itself<br />
+for Android</strong></p>
+<p>ref: <a href="http://stackoverflow.com/questions/8596772/how-can-i-load-a-webpage-inside-the-phonegap-webview" title="Stackoverflow">Stack Over Flow</a></p>
+<p><strong>for iOS</strong><br />
+in AppDelegate.m<br />
+Change</p>
+<p><code>- (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType<br />
+{<br />
+return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];<br />
+}</code></p>
+<p>with </p>
+<p><code>- (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType<br />
+{<br />
+ NSURL *url = [request URL];<br />
+if ([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) {<br />
+    return YES;<br />
+}<br />
+else {<br />
+return [ super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType ];<br />
+}<br />
+}<br />
+</code><br />
+ref: <a href="http://stackoverflow.com/questions/5911255/phonegap-for-iphone-problem-loading-external-url" title="stack over flow">stack over flow</a></p>
+<p><strong>if to open site in app and open in browser<br />
+in iOS</strong></p>
+<p><code>- (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType<br />
+{<br />
+    NSURL *url = [request URL];<br />
+    if ( ([url fragment] != NULL) && ([[url fragment] rangeOfString:@"phonegap=external"].location != NSNotFound))<br />
+    {<br />
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {<br />
+            [[UIApplication sharedApplication] openURL:url];<br />
+            return NO;<br />
+        }<br />
+    }</p>
+<p>  return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];<br />
+}</code></p>
+<p>and in the html href include hash #phonegap=external</p>
+<p>ref: <a href="http://www.rigelgroupllc.com/blog/2012/05/22/opening-links-in-phonegap-apps-in-mobile-safari/">reference</a></p>

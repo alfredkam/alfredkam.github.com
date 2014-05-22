@@ -1,0 +1,9 @@
+name: Alfred Kam
+markdown: redcarpet
+highlighter: pygments
+baseurl:
+permalink: /:title
+paginate: 10
+paginate_path: /blog/page/:num
+description: Ups and Downs of Entrepreneurship
+url: http://www.alfredkam.com
