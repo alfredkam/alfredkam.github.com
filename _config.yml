@@ -7,3 +7,5 @@ paginate: 10
 paginate_path: /blog/page/:num
 description: Ups and Downs of Entrepreneurship
 url: http://www.alfredkam.com
+sass:
+    style: compressed
