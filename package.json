@@ -1,0 +1,17 @@
+{
+  "name": "alfred-website",
+  "version": "0.0.1",
+  "main": "",
+  "keyword": [
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-sass": "~0.7.3"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
