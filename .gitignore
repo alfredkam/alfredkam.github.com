@@ -5,7 +5,7 @@
 .tmp/
 .sass-cache/
 .build_jsx/
-dist/
+/dist/
 uploads/*
 node_modules/
 *.iml
