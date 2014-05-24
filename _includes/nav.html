@@ -1,6 +1,6 @@
 <nav class="nav-primary" role="navigation" >
     <ul>
-        <li><a {% if p.url == page.url %}class='active'{% endif %} href='/'>Home</a></li>
-        <li><a {% if p.url == page.url %}class='active'{% endif %} href='/about'>About</a></li>
+        <li><a {% if p.url == page.url %}class='active'{% endif %} href='{{ site.baseurl }}'>Home</a></li>
+        <li><a {% if p.url == page.url %}class='active'{% endif %} href='{{ site.baseurl }}/about'>About</a></li>
     </ul>
 </nav>
