@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Home</title>
+
+        <link rel='stylesheet' href='/assets/css/base.css' />
+        <link rel='stylesheet' href='/assets/components/bootstrap/dist/css/bootstrap.min.css' />
+
+        <!-- open sans font -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
+    </head>
+    <body>
+    <header>
+    <nav class="nav-primary" role="navigation" >
+    <ul>
+        <li><a  href='/'>Home</a></li>
+        <li><a  href='/about'>About</a></li>
+    </ul>
+</nav>
+    </header>
+    <!-- This loops through the paginated posts -->
+
+  <h1><a href="/importance-of-early-adopters">Importance of Early Adopters</a></h1>
+  <p class="author">
+    <span class="date">2013-01-25 00:00:00 -0500</span>
+  </p>
+  <div class="content">
+    <p>When your startup is in the early stage, early adopters are your up most important customers.  Let them use if for free of charge because they will become your key opinion leaders, they will be the ones who will help you break, change and polish your product.  Remember to always respect them, understand why they like or dont like about it and have a fast iteration release to show dedication to serve them well.</p>
+
+  </div>
+
+  <h1><a href="/twitter-ios-integration-with-phonegap">Twitter iOS integration with phonegap [developing]</a></h1>
+  <p class="author">
+    <span class="date">2012-12-20 00:00:00 -0500</span>
+  </p>
+  <div class="content">
+    <p>Download the twitter integration from <a href='https://github.com/purplecabbage/phonegap-plugins/tree/master/iOS/Twitter'>github</a>, and follow the read me to add the framework.</p>
+
+  </div>
+
+  <h1><a href="/best-way-to-develop-a-dynamic-website">Best way to develop a dynamic website</a></h1>
+  <p class="author">
+    <span class="date">2012-12-20 00:00:00 -0500</span>
+  </p>
+  <div class="content">
+    <p>The develop a dynamic website, with all those smooth page transitions similar to gmail.  As per design we will use <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, Bootstrap provides all the css tools you need to setup a quick website.</p>
+<p><strong>Frontend skills you will need</strong><br />
+- javascript<br />
+- html</p>
+<p><strong>Frameworks</strong><br />
+First of all we will start of with a model view controller + observer design patterns to achieve a maintainable site.<br />
+The web frameworks that we will use are<br />
+- <a href='http://backbonejs.org'>backbone js</a>   , giving a "structure" to the code<br />
+- <a href='http://requirejs.org'>require js</a>    , setting up javascript dependencies, works like php include<br />
+- <a href='http://mustache.github.com'>mustache</a>      , page templates<br />
+- <a href='http://jquery.com'>jquery</a>        , dom manipulations</p>
+<p>as font icons we can get them for free at <a href="http://fontello.com">fontello</a>, their package includes font-awesome</p>
+<p><strong>Folder Structure</strong><br />
+<code><br />
+        index.html<br />
+        css/<br />
+        templates/      <=== contains the html templates<br />
+	js/views/	<=== responsible for inital html materials and listenes to model changes / actions / events<br />
+	js/models/ 	<=== responsible for data models<br />
+	js/controller/ 	<=== defines the site routes<br />
+        blueprints/     <=== contains all the 3rd party library<br />
+</code></p>
+<p>To setup hashbang (similar to gmail) for page manipulations, there is a backbone module - backbone router.  Using backbone router we can set up page to change dynamically depending on the hashbang setup. To let your hash bang searchable / crawable, checkout this <a href='http://www.alfredkam.com/searchable-hash-bang-seo'>post</a>.</p>
+<p>You can checkout the <a href='https://github.com/alfredkam/boilerplates'>Boiler Plate</a> i've setup using this structure for off the shelve deployment.</p>
+<p><strong>Further Readings</strong><br />
+Backbone Router<br />
+- http://backbonetutorials.com/what-is-a-router/</p>
+<p>Backbone + MVC<br />
+- http://backbonetutorials.com/organizing-backbone-using-modules/<br />
+- http://coenraets.org/blog/2011/12/backbone-js-wine-cellar-tutorial-part-1-getting-started/<br />
+- http://blog.andyet.com/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/<br />
+- http://backbonetutorials.com/what-is-a-model/</p>
+
+  </div>
+
+  <h1><a href="/phonegap-apps-load-external-url">PhoneGap Apps + Load External Url</a></h1>
+  <p class="author">
+    <span class="date">2012-12-17 00:00:00 -0500</span>
+  </p>
+  <div class="content">
+    <p><strong>To enable access to whitelist domain</strong><br />
+http://docs.phonegap.com/en/1.9.0/guide_whitelist_index.md.html</p>
+<p><strong>To open site in app itself<br />
+for Android</strong></p>
+<p>ref: <a href="http://stackoverflow.com/questions/8596772/how-can-i-load-a-webpage-inside-the-phonegap-webview" title="Stackoverflow">Stack Over Flow</a></p>
+<p><strong>for iOS</strong><br />
+in AppDelegate.m<br />
+Change</p>
+<p><code>- (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType<br />
+{<br />
+return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];<br />
+}</code></p>
+<p>with </p>
+<p><code>- (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType<br />
+{<br />
+ NSURL *url = [request URL];<br />
+if ([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) {<br />
+    return YES;<br />
+}<br />
+else {<br />
+return [ super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType ];<br />
+}<br />
+}<br />
+</code><br />
+ref: <a href="http://stackoverflow.com/questions/5911255/phonegap-for-iphone-problem-loading-external-url" title="stack over flow">stack over flow</a></p>
+<p><strong>if to open site in app and open in browser<br />
+in iOS</strong></p>
+<p><code>- (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType<br />
+{<br />
+    NSURL *url = [request URL];<br />
+    if ( ([url fragment] != NULL) && ([[url fragment] rangeOfString:@"phonegap=external"].location != NSNotFound))<br />
+    {<br />
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {<br />
+            [[UIApplication sharedApplication] openURL:url];<br />
+            return NO;<br />
+        }<br />
+    }</p>
+<p>  return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];<br />
+}</code></p>
+<p>and in the html href include hash #phonegap=external</p>
+<p>ref: <a href="http://www.rigelgroupllc.com/blog/2012/05/22/opening-links-in-phonegap-apps-in-mobile-safari/">reference</a></p>
+
+  </div>
+
+  <h1><a href="/git-cheat-sheet">Git Cheat Sheet</a></h1>
+  <p class="author">
+    <span class="date">2012-12-17 00:00:00 -0500</span>
+  </p>
+  <div class="content">
+    <pre><code class='language-bash'>
+<strong>#Setting up git from scratch</strong>
+git init                                             #initialize git 
+git remote add < remote_label > < destination >      #adds a new remote destination with a label
+git fetch < remote_label >                           #fetches the head of the repo
+git checkout master                                  #checkouts the master branch
+
+<strong>#Setting up git from another repo</strong>
+git clone < remote_label >  < optional_dir_location >  #clone a repo with git config ready 
+
+<strong>#Branching</strong>
+git branch                                     #list all branches
+git branch < branch_label >                    #creates a new local branch with name < branch_label >
+git branch -d < branch_label >                 #deletes the local branch with name < branch_label >
+git push < remote_label> :< branch_label >     #deletes remote branch
+
+<strong>#Merging</strong>
+git checkout < branch to be merge >           
+git merge < branch_name >                      #merge recursively and auto commit
+
+additional info - <a href="http://www.kernel.org/pub/software/scm/git/docs/git-merge.html" title="git merge">git merge man page</a>
+
+<strong>#fetch & pulling</strong>
+git pull < remote_label > < branch_label>      #it will recursively merge with your repo
+git fetch < remote_label >
+
+<strong>#Commit</strong>
+git commit -a -m < message >                   #local commit
+git commit -amend -m < message >               #edit last commit message
+git push < remote_label > < branch_label >     #commits to remote branch
+
+<strong>#Tagging</strong>
+git tag -a < comment >                         #to remember a specific point
+git push --tag                                 #pushes tag
+
+#To delete a tag
+git tag -d < tag_name >
+git push origin :< tag_name >
+
+#if tag name is same as one of your branch name
+git tag -d < tag_name >
+git push origin :refs/tag/< tag_name >
+
+<strong>#Logging</strong>
+git log                                        #shows the commit log
+
+<strong>#Untrack a file</strong>
+git rm --cache < file_name >                   #untracks a file, thus not included in repo
+
+<strong>#Stashing</strong>
+git stash
+
+<strong>#cloning a bare repo for deployment purpose</strong>
+git clone --bare
+</code></pre>
+<p>additional info <a href='http://www.kernel.org/pub/software/scm/git/docs/git-stash.html' title='git stash man page'>git stash man page</a></p>
+<pre><code class='language-bash'>
+<strong>#reverting to previous commits  [Advance]</strong>
+git checkout < commit_hash >                     #checkout the indicated commit hash
+git checkout -b < branch_label > < commit_hash>  #branches with < branch_label > and checkout to the commit hash
+git reset --hard < commit_hash >                 #destroys the local modification, you will loose the uncommit work
+git revert < commit_hash >                       #reverts to the previous commit
+
+</code></pre>
+<p>additional info - <a href="http://schacon.github.com/git/git-revert.html" title="git revert man page">git revert man page</a> & <a href="http://stackoverflow.com/questions/4114095/git-revert-to-previous-commit-how" title="stack over flow git revert qa">stack over flow git revert qa</a></p>
+<pre><code class='language-bash'>
+<strong>#splitting a subpath out into a new repo</strong>
+git filter-branch --prune-empty --subdirectory-filter lib master
+</code></pre>
+<p>additional info - <a href="https://help.github.com/articles/splitting-a-subpath-out-into-a-new-repo">github:help</a></p>
+
+  </div>
+
+
+<!-- Pagination links -->
+
+<div class="pagination">
+  
+    <a href="/blog/page2">&laquo; Prev</a>
+  
+
+  
+    
+      <a href="/index.html">1</a>
+    
+  
+    
+      <a href="/blog/page2">2</a>
+    
+  
+    
+      <em>3</em>
+    
+  
+    
+      <a href="/blog/page4">4</a>
+    
+  
+
+  
+    <a href="/blog/page4">Next &raquo;</a>
+  
+</div>
+
+</body>
+    <footer>
+        
+    </footer>
+</html>
