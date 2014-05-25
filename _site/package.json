@@ -2,14 +2,13 @@
   "name": "alfred-website",
   "version": "0.0.1",
   "main": "",
-  "keyword": [
-  ],
-  "dependencies": {
-  },
+  "keyword": [],
+  "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-sass": "~0.7.3"
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-jekyll": "~0.4.2"
   },
   "engines": {
     "node": ">=0.8.0"

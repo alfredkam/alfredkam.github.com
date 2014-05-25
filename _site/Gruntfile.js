@@ -38,11 +38,21 @@ module.exports = function (grunt) {
                     ext : '.css'
                 }]
             }
+        },
+        jekyll: {
+            dev: {
+                options: {
+                    config: '_config.yml',
+                },
+                serve : true,
+                drafts : true
+            }
         }
     });
 
     grunt.registerTask('dev', [
         'sass:dev',
+        // 'jekyll:dev',
         'watch:sass'
     ]);
 };

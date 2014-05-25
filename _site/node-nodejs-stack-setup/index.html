@@ -10,22 +10,43 @@
         <meta name="viewport" content="width=device-width">
         <title>nginx / nodejs stack setup</title>
 
-        <link rel='stylesheet' href='/assets/css/base.css' />
         <link rel='stylesheet' href='/assets/components/bootstrap/dist/css/bootstrap.min.css' />
+        <link rel='stylesheet' href='/assets/css/base.css' />
 
         <!-- open sans font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
     </head>
     <body>
     <header>
-    <nav class="nav-primary" role="navigation" >
-    <ul>
-        <li><a  href='/'>Home</a></li>
-        <li><a  href='/about'>About</a></li>
-    </ul>
+    <!-- nav -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class='container'>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <ul class="nav navbar-nav bold col-md-4">
+            <li><a  href='/'>Home</a></li>
+            <li><a  href='/about'>About</a></li>
+        </ul>
+        <div class="navbar-header col-md-4">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="/"><span id='logo'></span>Yako <span>Beta</span></a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right bold col-md-4">
+            <!-- for logout usage -->
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
 </nav>
     </header>
     <h1>nginx / nodejs stack setup</h1>
+    <div class='container'>
     <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
 <p>my nodejs uses forever to run on port 3000.</p>
 <p>here is the nginx config setup</p>
@@ -57,6 +78,7 @@ location / {
 </pre>
 <p>Cheers</p>
 
+    </div>
 </body>
     <footer>
         

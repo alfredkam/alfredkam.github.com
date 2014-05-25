@@ -10,22 +10,43 @@
         <meta name="viewport" content="width=device-width">
         <title>using git hooks to deploy server with forever</title>
 
-        <link rel='stylesheet' href='/assets/css/base.css' />
         <link rel='stylesheet' href='/assets/components/bootstrap/dist/css/bootstrap.min.css' />
+        <link rel='stylesheet' href='/assets/css/base.css' />
 
         <!-- open sans font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
     </head>
     <body>
     <header>
-    <nav class="nav-primary" role="navigation" >
-    <ul>
-        <li><a  href='/'>Home</a></li>
-        <li><a  href='/about'>About</a></li>
-    </ul>
+    <!-- nav -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class='container'>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <ul class="nav navbar-nav bold col-md-4">
+            <li><a  href='/'>Home</a></li>
+            <li><a  href='/about'>About</a></li>
+        </ul>
+        <div class="navbar-header col-md-4">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="/"><span id='logo'></span>Yako <span>Beta</span></a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right bold col-md-4">
+            <!-- for logout usage -->
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
 </nav>
     </header>
     <h1>using git hooks to deploy server with forever</h1>
+    <div class='container'>
     <p>If you love deploying with automation and you love the fact you dont need to touch your server (which you should!).  I've setup this up on an ec2 ubuntu 12.04 LTS, shouldnt differ too much with other ubuntu versions.  At this time of writing i'm setting up a nodejs / flask server</p>
 <p>On your remote server</p>
 <pre><code class='language-markup'>
@@ -161,6 +182,7 @@ git push deploy master
 </code></pre>
 <p>This should be it, and the service should automatically stop and restart itself.  If i missed anything let me know :)</p>
 
+    </div>
 </body>
     <footer>
         

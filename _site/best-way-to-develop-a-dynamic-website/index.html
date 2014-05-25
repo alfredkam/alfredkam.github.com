@@ -10,22 +10,43 @@
         <meta name="viewport" content="width=device-width">
         <title>Best way to develop a dynamic website</title>
 
-        <link rel='stylesheet' href='/assets/css/base.css' />
         <link rel='stylesheet' href='/assets/components/bootstrap/dist/css/bootstrap.min.css' />
+        <link rel='stylesheet' href='/assets/css/base.css' />
 
         <!-- open sans font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
     </head>
     <body>
     <header>
-    <nav class="nav-primary" role="navigation" >
-    <ul>
-        <li><a  href='/'>Home</a></li>
-        <li><a  href='/about'>About</a></li>
-    </ul>
+    <!-- nav -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class='container'>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <ul class="nav navbar-nav bold col-md-4">
+            <li><a  href='/'>Home</a></li>
+            <li><a  href='/about'>About</a></li>
+        </ul>
+        <div class="navbar-header col-md-4">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="/"><span id='logo'></span>Yako <span>Beta</span></a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right bold col-md-4">
+            <!-- for logout usage -->
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
 </nav>
     </header>
     <h1>Best way to develop a dynamic website</h1>
+    <div class='container'>
     <p>The develop a dynamic website, with all those smooth page transitions similar to gmail.  As per design we will use <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, Bootstrap provides all the css tools you need to setup a quick website.</p>
 <p><strong>Frontend skills you will need</strong><br />
 - javascript<br />
@@ -59,6 +80,7 @@ Backbone Router<br />
 - http://blog.andyet.com/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/<br />
 - http://backbonetutorials.com/what-is-a-model/</p>
 
+    </div>
 </body>
     <footer>
         
