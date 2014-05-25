@@ -59,6 +59,19 @@ a.navbar-brand span {
 .subtitle {
   font-size: 10px; }
 
+/* header mobile */
+.navbar-header button {
+  z-index: 99; }
+
+.isMobile {
+  display: none; }
+
+@media screen and (max-width: 767px) {
+  .isMobile {
+    display: block; }
+
+  .nonMobile {
+    display: none; } }
 /* end of header */
 /* footer */
 footer {
