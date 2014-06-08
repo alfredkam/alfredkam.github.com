@@ -57,9 +57,193 @@
         <!-- This loops through the paginated posts -->
 
 <section class='post'>
-  <h1><a href="/nginx-with-phpmyadmin-setup#disqus_thread">nginx with changed phpmyadmin directory setup</a></h1>
+  <h1><a href="/using-git-hooks-to-deploy-server-with-forever">using git hooks to deploy server with forever</a></h1>
   <p class="author">
-    <span class="date">2014-02-17 00:00:00 -0500</span>
+    <span class="date">2014-02-17 00:00:00 -0500</span>&nbsp;&nbsp;<span><a href="/using-git-hooks-to-deploy-server-with-forever#disqus_thread">0 Comments</a></span>
+  </p>
+  <div class="content">
+    <p>If you love deploying with automation and you love the fact you dont need to touch your server (which you should!).  I've setup this up on an ec2 ubuntu 12.04 LTS, shouldnt differ too much with other ubuntu versions.  At this time of writing i'm setting up a nodejs / flask server</p>
+<p>On your remote server</p>
+<pre><code class='language-markup'>
+#install forever and give it global access
+sudo npm install -g forever
+</code></pre>
+<pre><code class='language-markup'>
+#setup git bare at your deployment server
+git clone --bare [repo url]
+</code></pre>
+<pre><code class='language-markup'>
+#add the hooks
+#navigate into your git folder
+cd path/to/repo/hooks
+vi pre-receive
+</code></pre>
+<pre><code class='language-bash'>
+#!/bin/sh
+echo "stopping server service"
+service nodejs-www stop
+</code></pre>
+<pre><code class='language-bash'>
+vi post-receive
+</code></pre>
+<pre><code class='language-bash'>
+#!/bin/sh
+echo "checkout the files"
+
+branch=$(git branch | grep "*" | sed "s/* //")
+
+if [ "$branch" = "master" ]
+then
+        echo "Master branch"
+        git --work-tree=/home/ubuntu/app/www checkout -f
+        echo "Successfully checked out master branch"
+else
+        echo "Not master branch"
+fi
+
+echo "start service"
+service nodejs-www start
+</code></pre>
+<pre><code class='language-markup'>
+sudo chmod +x pre-receive;
+sudo chmod +x post-receive;
+</code></pre>
+<p>FYI: Just make sure the folders are created for the "git --work-tree"</p>
+<pre><code class='language-markup'>
+#navigate into init.d to create a service
+cd /etc/init.d
+sudo vi nodejs-www
+</code></pre>
+<pre><code class='language-bash'>
+#! /bin/sh
+# /etc/init.d/nodejs-www
+#
+
+NAME=nodejs-www
+APP=index.js
+APP_DIR=/home/ubuntu/app/www
+forever=/usr/local/bin/forever
+export PATH=$PATH:/usr/local/bin/
+LOG=/var/log/nodejs-www.log
+
+case "$1" in
+  start)
+    cd $APP_DIR
+    echo "Starting $NAME"
+    #I detached the message to 'screen', it is not a requirement
+    screen -d -m /usr/bin/sudo -u ubuntu $forever --minUptime 5000 --spinSleepTime 2000 -a -l $LOG start $APP
+    #if to run a python server use
+    #screen -d -m /usr/bin/sudo -u ubuntu $forever --minUptime 5000 --spinSleepTime 2000 -a -l $LOG start -c python $APP
+    echo "Started $Name"
+    exit 0
+    ;;
+  stop)
+    echo "Stopping script $NAME"
+    cd $APP_DIR
+    /usr/bin/sudo -u ubuntu $forever stop $APP
+    exit 0
+    ;;
+  list)
+    echo "List"
+    /usr/bin/sudo -u ubuntu $forever list
+    exit 0
+    ;;
+  *)
+    echo "Usage: /etc/init.d/nodejs-www {start|stop|list}"
+    exit 1
+    ;;
+esac
+
+exit 0
+</code></pre>
+<p>FYI: Many others were able to run forever directly without having "/usr/bin/sudo -u ubuntu" (ubuntu is the user account) or substituting it with "sudo".  For my case on an amazon aws, without it, i ran into permission issues with forever and nodejs directory mapping issues.</p>
+<p>A permission error similar to this:</p>
+<pre><code class='language-javascript'>
+fs.js:0
+(function (exports, require, module, __filename, __dirname) { // Copyright Joy
+^
+Error: EACCES, permission denied '/root/.forever/pids/FepR.pid'
+    at Object.fs.openSync (fs.js:410:18)
+    at Object.fs.writeFileSync (fs.js:956:15)
+    at writePid (/usr/local/lib/node_modules/forever/bin/monitor:13:6)
+    at null.<anonymous> (/usr/local/lib/node_modules/forever/bin/monitor:46:5)
+    at EventEmitter.emit (/usr/local/lib/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/eventemitter2/lib/eventemitter2.js:332:22)
+    at /usr/local/lib/node_modules/forever/node_modules/forever-monitor/lib/forever-monitor/monitor.js:153:10
+</code></pre>
+<p>Now to wrap up the server side</p>
+<pre><code class='language-markup'>
+sudo chmod a+x nodejs-www
+cd /var/log
+sudo touch nodejs-www.log
+sudo chmod 777 nodejs-www.log
+</code></pre>
+<p>Add to rc.local to start upon server start</p>
+<pre><code class='language-markup'>
+sudo vi /etc/rc.local
+</code></pre>
+<pre><code class='language-markup'>
+#!/bin/sh -e
+service nodejs-www start
+exit 0
+</code></pre>
+<p>For some you may need to change the rc.local permission to executable.</p>
+<p>If i didnt miss anything this should it for the server</p>
+<p>Now on client side</p>
+<pre><code class='language-markup'>
+cd path/to/repo
+git remote add deploy [remote server repo url]
+git commit -am 'test deploy'
+git push deploy master
+</code></pre>
+<p>This should be it, and the service should automatically stop and restart itself.  If i missed anything let me know :)</p>
+
+  </div>
+</section>
+
+<section class='post'>
+  <h1><a href="/node-nodejs-stack-setup">nginx / nodejs stack setup</a></h1>
+  <p class="author">
+    <span class="date">2014-02-17 00:00:00 -0500</span>&nbsp;&nbsp;<span><a href="/node-nodejs-stack-setup#disqus_thread">0 Comments</a></span>
+  </p>
+  <div class="content">
+    <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
+<p>my nodejs uses forever to run on port 3000.</p>
+<p>here is the nginx config setup</p>
+<pre>
+<code class="language-bash">
+sudo vi /etc/nginx/site-enabled/default
+</code>
+</pre>
+<pre>
+<code class="language-bash">
+#add this line before server { ... }
+[...]
+upstream app_nodejs {
+        server localhost:3000;
+}
+[...]
+
+#now in server {...}, assuming you want to map your url root to point to nodejs
+location / {
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_set_header X-NginX-Proxy true;
+
+               proxy_pass http://app_nodejs;
+               proxy_redirect off;
+           }
+
+</code>
+</pre>
+<p>Cheers</p>
+
+  </div>
+</section>
+
+<section class='post'>
+  <h1><a href="/nginx-with-phpmyadmin-setup">nginx with changed phpmyadmin directory setup</a></h1>
+  <p class="author">
+    <span class="date">2014-02-17 00:00:00 -0500</span>&nbsp;&nbsp;<span><a href="/nginx-with-phpmyadmin-setup#disqus_thread">0 Comments</a></span>
   </p>
   <div class="content">
     <p>Recently decided to setup a nginx / python / mysql lightweight backend to interact with a nodejs services.   So decided to change phpmyadmin directory as well - i did run into 502 / 403 nginx errors, hope this post will help anyone who had the same issues too.</p>
@@ -154,9 +338,9 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 </section>
 
 <section class='post'>
-  <h1><a href="/typical-way-of-starting-a-startup#disqus_thread">Typical way of starting a startup</a></h1>
+  <h1><a href="/typical-way-of-starting-a-startup">Typical way of starting a startup</a></h1>
   <p class="author">
-    <span class="date">2013-05-24 00:00:00 -0400</span>
+    <span class="date">2013-05-24 00:00:00 -0400</span>&nbsp;&nbsp;<span><a href="/typical-way-of-starting-a-startup#disqus_thread">0 Comments</a></span>
   </p>
   <div class="content">
     <p>Found this gold on the net.  Felt should keep a record here :)</p>
@@ -166,9 +350,9 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 </section>
 
 <section class='post'>
-  <h1><a href="/online-presence#disqus_thread">Online Presence</a></h1>
+  <h1><a href="/online-presence">Online Presence</a></h1>
   <p class="author">
-    <span class="date">2013-05-16 00:00:00 -0400</span>
+    <span class="date">2013-05-16 00:00:00 -0400</span>&nbsp;&nbsp;<span><a href="/online-presence#disqus_thread">0 Comments</a></span>
   </p>
   <div class="content">
     <p>Previously my co-founder <a href="http://twitter.com/andrewcboos">Andrew Boos</a> followed up on the topic of <a href='http://andrewboos.com/the-difference-between-vcs-and-angels-reboot/'>difference of VCs and Angels</a>. Continuo on the topic of start ups, this time lets cover online presence.</p>
@@ -189,51 +373,6 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
 <p>There are tools such as <a href="http://hittail.com">hittail</a> and google analytics to help you drill down to specific keywords that are driving traffic to your site.</p>
 <p>As for ours we spiced up our blog a little bit just so the travellers can read the relavent posts, picture below.</p>
 <p><a href="/assets/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png"><img class="alignnone size-medium wp-image-233" alt="IAMA - mortal - dev - show all" src="/assets/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png" width="600" height="114" /></a></p>
-
-  </div>
-</section>
-
-<section class='post'>
-  <h1><a href="/js-function-crib-sheet#disqus_thread">JavaScript Function Crib Sheet</a></h1>
-  <p class="author">
-    <span class="date">2013-05-08 00:00:00 -0400</span>
-  </p>
-  <div class="content">
-    <p>Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.</p>
-<p>The cryptsheet includes these functions and can be found here : <a href='https://github.com/alfredkam/jsFunctions'>https://github.com/alfredkam/jsFunctions</a></p>
-<p>General Laziness::<br />
-- jquery toggle string<br />
-- jquery enter keyup event</p>
-<p>Mathematical Functions::<br />
-- n choose r<br />
-- Binomial Distribution<br />
-- Probability Mass Function  (Useful when wanted to create a bell curve)<br />
-- Summation</p>
-<p>If the function your missing is not listed, comment below and i may be able to write one.</p>
-
-  </div>
-</section>
-
-<section class='post'>
-  <h1><a href="/searchable-hash-bang-seo#disqus_thread">Searchable Hash Bang (SEO)</a></h1>
-  <p class="author">
-    <span class="date">2013-02-01 00:00:00 -0500</span>
-  </p>
-  <div class="content">
-    <p>Having a dynamic website, AJAX is often used and rely on hash bang to act as a http GET to let the site be interactive.  Inorder to have your application searchable / crawable, there are couple of rules to follow as suggested by <a href='https://developers.google.com/webmasters/ajax-crawling/docs/specification'>the google specs</a>.</p>
-<p>Assuming your too lazy to checkout the specs. In summary the hash bang should be setup this way:</p>
-<p>In a typical site, you will notice the url with http GET are written in this format<br />
-<code><br />
-http://yoursite.com?key1=value1&key2=value2<br />
-</code><br />
-Now in your hashbang, your will want to transform<br />
-<code><br />
-http://yoursite.com#value1&value2<br />
-</code><br />
-into beautiful url<br />
-<code><br />
-http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
-</code></p>
 
   </div>
 </section>
@@ -261,6 +400,10 @@ http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
   
     
       <a href="/page/4">4</a>
+    
+  
+    
+      <a href="/page/5">5</a>
     
   
 

@@ -57,13 +57,119 @@
         <!-- This loops through the paginated posts -->
 
 <section class='post'>
-  <h1><a href="/goodbye-marionette-hello-react#disqus_thread">Goodbye Marionette & Hello React</a></h1>
+  <h1><a href="/draft">Draft</a></h1>
   <p class="author">
-    <span class="date">2014-05-28 00:00:00 -0400</span>
+    <span class="date">2014-06-08 03:12:25 -0400</span>&nbsp;&nbsp;<span><a href="/draft#disqus_thread">0 Comments</a></span>
+  </p>
+  <div class="content">
+    
+  </div>
+</section>
+
+<section class='post'>
+  <h1><a href="/Angular-React-v-Backbone-React">The recent MVC landscape with Angular+React and Backbone+React</a></h1>
+  <p class="author">
+    <span class="date">2014-06-08 00:00:00 -0400</span>&nbsp;&nbsp;<span><a href="/Angular-React-v-Backbone-React#disqus_thread">0 Comments</a></span>
   </p>
   <div class="content">
     <p>
-     I have been developing alot of large javascript web apps that requires a lot of subview management or componets and decentralize the model dependecies to better suit the component re-usability.  It was not till early this year, I was still designing them with Backbone + Marionette.  Now its <b>Backbone + React or Angular + React</b>.  For this post lets concentrate in comparing Backbone + Mariontte & Backbone + React.   
+    This post might bring in some arguments for both parties that favour one of the framework then the other, but this will be a worth while comparision to take a look at the recent MVC landscape.  Just to clarify - I'm still relatively new to Angular.
+</p>
+<p>
+    Lets be clear - React is a component that is designed and focused to replace the 'V' component under a MVC framework.  The most recognise MVC frameworks are Backbone & Angular, and it's starting to increasingly standout that React is able to replace the 'V' component due to its virtual dom design, minimal exposure of real dom elements and data-binding handling.  It is also <a href='http://williambrownstreet.net/blog/2014/04/faster-angularjs-rendering-angularjs-and-reactjs/'>proven from this post</a> that Angular + React provides the fastest rendering.
+</p>
+<p>
+    To achieve fast render and low inital load speed, the design of the component hierarchy structure is relatively important.  In Angular, React needs to be initiated at the controller. For Backbone, on the other hand needs to be initiated at the router.
+</p>
+<p>
+    Link to <a href='http://plnkr.co/edit/7DKHQ6tR7TCKkR5bFURu?p=preview'>Angular+React Demo</a><br>
+    Link to <a href='http://plnkr.co/edit/1mwjMNh0RQP8PVrinOmD?p=preview'>Backbone+React Demo</a><br>
+</p>
+<div class='row'>
+    <div class='col-md-12'>
+        <pre class='col-md-6'>
+            <code class='language-javascript'>
+                //Angular Example
+                angular.module('fasterAngular', []).
+                controller('mycontroller', ['$scope', function($scope){
+                   $scope.framework = 'ReactJs';
+                   $scope.data = [];
+                   // Fill the data map with random data
+                   $scope.refresh = function(){
+                       for(var i = 0; i < 1500; ++i) {
+                           $scope.data[i] = {};
+                           for(var j = 0; j < 5; ++j) {
+                               $scope.data[i][j] = Math.random();
+                           }
+                       }
+                   }
+
+                   $scope.refresh();
+                   
+                   $scope.$watchCollection('data', function(newValue, oldValue){
+                       React.renderComponent(
+                           MYLIST({data:newValue}),
+                           document.getElementById("fastRepeatArea")
+                       );
+                   })
+                }])
+            </code>
+        </pre>
+
+        <pre class='col-md-6'>
+            <code class='language-javascript'>
+                //Backbone example
+                $(document).ready(function () {
+                    var Router = Backbone.Router.extend({
+                      initialize : function () {
+                          var data = [];
+                          var refresh = function () {
+                            for(var i = 0; i < 1500; ++i) {
+                                data[i] = {};
+                                for(var j = 0; j < 5; ++j) {
+                                    data[i][j] = Math.random();
+                                }
+                            }
+                            React.renderComponent(
+                              MYLIST({data:data}),
+                              document.getElementById("fastRepeatArea")
+                            );
+                          };
+                          refresh();
+                          $('button#refreshBtn').click(function () {
+                            refresh();
+                          });
+                      },
+                    });
+                    new Router();
+                });
+            </code>
+        </pre>
+    </div>
+</div>
+<p>
+    Although React is called under the same flow, it would achieve the same render speed.  Also this example can be further improved by delegating the data change event and click event to React or using mixins to listen to partial changes. Instead of having it through the Angular controller or Backbone router.
+</p>
+<p>
+    At this point, Angular+React and Backbone+React would be equivalent. Now lets take a look at the required components and initial loading speed.
+</p>
+<p>
+    According to <a href='http://lhorie.github.io/mithril/'>Mithril</a> Angular takes 7.49ms to load and Backbone takes 18.54ms to load.  Another important to note is Backbone is light weight but it still depends upon underscore & jquery.  Those add up during initial script request!
+</p>
+<p>
+    I believe this pretty much dictates which combination is the go to framework for heavy web apps.  Every second counts to keep your user on your site!
+</p>
+  </div>
+</section>
+
+<section class='post'>
+  <h1><a href="/goodbye-marionette-hello-react">Goodbye Marionette & Hello React</a></h1>
+  <p class="author">
+    <span class="date">2014-05-28 00:00:00 -0400</span>&nbsp;&nbsp;<span><a href="/goodbye-marionette-hello-react#disqus_thread">0 Comments</a></span>
+  </p>
+  <div class="content">
+    <p>
+     I have been developing a lot of large javascript web apps that requires a lot of subview management or componets and decentralize the model dependecies to better suit the component re-usability.  It was not till early this year, I was still designing them with Backbone + Marionette.  Now it's <b>Backbone + React or Angular + React</b>.  For this post let's concentrate in comparing Backbone + Mariontte & Backbone + React.   
 
      As we all know, Backbone 'View' itself is a design flaw.  It had a lot of issues regarding its memory management and sub view management.  Marionette on the other hand, did help solved the sub view management and memory issues by offering a wide range of common designs and design patterns to help build the application.
 </p>
@@ -177,7 +283,7 @@
   In this example we will run into a render issue with the sub region fire before the parent does.
 </p>
 <p>
-  Now came 2014 and there is a new toy in the market called Facebook React, ill just call it React for short.  React on the other hand is a 'View' Framework.  So in terms of a MVC, its the 'V' Component.  Suprisingly React further simplified the entire landscape of 'View' framework.  It only expose the real nodes that you have
+  Now came 2014 and there is a new contender in the market called Facebook React, I'll just call it React for short.  React is a 'View' Framework.  So in terms of a MVC, its the 'V' Component.  Suprisingly React further simplified the entire landscape of 'View' framework.  It only expose the real nodes that you have
 </p>
 <p>
   Lets see how this will look like in React, ive also included the propeller <a href='https://github.com/usepropeller/react.backbone'>react.backbone</a>.  It allows us to feed in backbone models into react and databind with mixin.
@@ -265,15 +371,15 @@
   </code>
 </pre>
 <p>
-  The code base is smaller, easier to understand and to control.  Now some may ask about Angular + React comparing with Backbone + React.  For this ill leave it to next post, but this is now pretty clear Marionette is out of the game.
+  The code base is smaller, easier to understand and to control.  Now some may ask about Angular + React comparing with Backbone + React.  For this I'll leave it to next post, but this is now pretty clear Marionette is out of the game.
 </p>
   </div>
 </section>
 
 <section class='post'>
-  <h1><a href="/Moving-to-Jekyll#disqus_thread">moving to jekyll</a></h1>
+  <h1><a href="/Moving-to-Jekyll">moving to jekyll</a></h1>
   <p class="author">
-    <span class="date">2014-05-25 00:00:00 -0400</span>
+    <span class="date">2014-05-25 00:00:00 -0400</span>&nbsp;&nbsp;<span><a href="/Moving-to-Jekyll#disqus_thread">0 Comments</a></span>
   </p>
   <div class="content">
     <p>Alright I'm a hacker and lazy to work myself around Wordpress - which is in php & dynamic content.  Now recently migrated into Jekyll and use github to serve my pages - free CDN and fast static content! Woohoo</p>
@@ -285,9 +391,9 @@
 </section>
 
 <section class='post'>
-  <h1><a href="/installing-mysql-python-on-mac#disqus_thread">installing mysql-python on mac</a></h1>
+  <h1><a href="/installing-mysql-python-on-mac">installing mysql-python on mac</a></h1>
   <p class="author">
-    <span class="date">2014-02-18 00:00:00 -0500</span>
+    <span class="date">2014-02-18 00:00:00 -0500</span>&nbsp;&nbsp;<span><a href="/installing-mysql-python-on-mac#disqus_thread">0 Comments</a></span>
   </p>
   <div class="content">
     <p>Awesome next challenge - running a flask server to connect to a MAMP [2.1.3] sql server on a mac (mavericks).  Flask is a light weight python server and uses flask-sqlalchemy to connect.  Installing mysql-python seems to be a challenge.</p>
@@ -327,190 +433,6 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
   </div>
 </section>
 
-<section class='post'>
-  <h1><a href="/using-git-hooks-to-deploy-server-with-forever#disqus_thread">using git hooks to deploy server with forever</a></h1>
-  <p class="author">
-    <span class="date">2014-02-17 00:00:00 -0500</span>
-  </p>
-  <div class="content">
-    <p>If you love deploying with automation and you love the fact you dont need to touch your server (which you should!).  I've setup this up on an ec2 ubuntu 12.04 LTS, shouldnt differ too much with other ubuntu versions.  At this time of writing i'm setting up a nodejs / flask server</p>
-<p>On your remote server</p>
-<pre><code class='language-markup'>
-#install forever and give it global access
-sudo npm install -g forever
-</code></pre>
-<pre><code class='language-markup'>
-#setup git bare at your deployment server
-git clone --bare [repo url]
-</code></pre>
-<pre><code class='language-markup'>
-#add the hooks
-#navigate into your git folder
-cd path/to/repo/hooks
-vi pre-receive
-</code></pre>
-<pre><code class='language-bash'>
-#!/bin/sh
-echo "stopping server service"
-service nodejs-www stop
-</code></pre>
-<pre><code class='language-bash'>
-vi post-receive
-</code></pre>
-<pre><code class='language-bash'>
-#!/bin/sh
-echo "checkout the files"
-
-branch=$(git branch | grep "*" | sed "s/* //")
-
-if [ "$branch" = "master" ]
-then
-        echo "Master branch"
-        git --work-tree=/home/ubuntu/app/www checkout -f
-        echo "Successfully checked out master branch"
-else
-        echo "Not master branch"
-fi
-
-echo "start service"
-service nodejs-www start
-</code></pre>
-<pre><code class='language-markup'>
-sudo chmod +x pre-receive;
-sudo chmod +x post-receive;
-</code></pre>
-<p>FYI: Just make sure the folders are created for the "git --work-tree"</p>
-<pre><code class='language-markup'>
-#navigate into init.d to create a service
-cd /etc/init.d
-sudo vi nodejs-www
-</code></pre>
-<pre><code class='language-bash'>
-#! /bin/sh
-# /etc/init.d/nodejs-www
-#
-
-NAME=nodejs-www
-APP=index.js
-APP_DIR=/home/ubuntu/app/www
-forever=/usr/local/bin/forever
-export PATH=$PATH:/usr/local/bin/
-LOG=/var/log/nodejs-www.log
-
-case "$1" in
-  start)
-    cd $APP_DIR
-    echo "Starting $NAME"
-    #I detached the message to 'screen', it is not a requirement
-    screen -d -m /usr/bin/sudo -u ubuntu $forever --minUptime 5000 --spinSleepTime 2000 -a -l $LOG start $APP
-    #if to run a python server use
-    #screen -d -m /usr/bin/sudo -u ubuntu $forever --minUptime 5000 --spinSleepTime 2000 -a -l $LOG start -c python $APP
-    echo "Started $Name"
-    exit 0
-    ;;
-  stop)
-    echo "Stopping script $NAME"
-    cd $APP_DIR
-    /usr/bin/sudo -u ubuntu $forever stop $APP
-    exit 0
-    ;;
-  list)
-    echo "List"
-    /usr/bin/sudo -u ubuntu $forever list
-    exit 0
-    ;;
-  *)
-    echo "Usage: /etc/init.d/nodejs-www {start|stop|list}"
-    exit 1
-    ;;
-esac
-
-exit 0
-</code></pre>
-<p>FYI: Many others were able to run forever directly without having "/usr/bin/sudo -u ubuntu" (ubuntu is the user account) or substituting it with "sudo".  For my case on an amazon aws, without it, i ran into permission issues with forever and nodejs directory mapping issues.</p>
-<p>A permission error similar to this:</p>
-<pre><code class='language-javascript'>
-fs.js:0
-(function (exports, require, module, __filename, __dirname) { // Copyright Joy
-^
-Error: EACCES, permission denied '/root/.forever/pids/FepR.pid'
-    at Object.fs.openSync (fs.js:410:18)
-    at Object.fs.writeFileSync (fs.js:956:15)
-    at writePid (/usr/local/lib/node_modules/forever/bin/monitor:13:6)
-    at null.<anonymous> (/usr/local/lib/node_modules/forever/bin/monitor:46:5)
-    at EventEmitter.emit (/usr/local/lib/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/eventemitter2/lib/eventemitter2.js:332:22)
-    at /usr/local/lib/node_modules/forever/node_modules/forever-monitor/lib/forever-monitor/monitor.js:153:10
-</code></pre>
-<p>Now to wrap up the server side</p>
-<pre><code class='language-markup'>
-sudo chmod a+x nodejs-www
-cd /var/log
-sudo touch nodejs-www.log
-sudo chmod 777 nodejs-www.log
-</code></pre>
-<p>Add to rc.local to start upon server start</p>
-<pre><code class='language-markup'>
-sudo vi /etc/rc.local
-</code></pre>
-<pre><code class='language-markup'>
-#!/bin/sh -e
-service nodejs-www start
-exit 0
-</code></pre>
-<p>For some you may need to change the rc.local permission to executable.</p>
-<p>If i didnt miss anything this should it for the server</p>
-<p>Now on client side</p>
-<pre><code class='language-markup'>
-cd path/to/repo
-git remote add deploy [remote server repo url]
-git commit -am 'test deploy'
-git push deploy master
-</code></pre>
-<p>This should be it, and the service should automatically stop and restart itself.  If i missed anything let me know :)</p>
-
-  </div>
-</section>
-
-<section class='post'>
-  <h1><a href="/node-nodejs-stack-setup#disqus_thread">nginx / nodejs stack setup</a></h1>
-  <p class="author">
-    <span class="date">2014-02-17 00:00:00 -0500</span>
-  </p>
-  <div class="content">
-    <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
-<p>my nodejs uses forever to run on port 3000.</p>
-<p>here is the nginx config setup</p>
-<pre>
-<code class="language-bash">
-sudo vi /etc/nginx/site-enabled/default
-</code>
-</pre>
-<pre>
-<code class="language-bash">
-#add this line before server { ... }
-[...]
-upstream app_nodejs {
-        server localhost:3000;
-}
-[...]
-
-#now in server {...}, assuming you want to map your url root to point to nodejs
-location / {
-               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-               proxy_set_header Host $http_host;
-               proxy_set_header X-NginX-Proxy true;
-
-               proxy_pass http://app_nodejs;
-               proxy_redirect off;
-           }
-
-</code>
-</pre>
-<p>Cheers</p>
-
-  </div>
-</section>
-
 
 <!-- Pagination links -->
 
@@ -534,6 +456,10 @@ location / {
   
     
       <a href="/page/4">4</a>
+    
+  
+    
+      <a href="/page/5">5</a>
     
   
 

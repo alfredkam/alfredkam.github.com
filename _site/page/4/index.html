@@ -57,9 +57,62 @@
         <!-- This loops through the paginated posts -->
 
 <section class='post'>
-  <h1><a href="/phonegap-apps-load-external-url#disqus_thread">PhoneGap Apps + Load External Url</a></h1>
+  <h1><a href="/twitter-ios-integration-with-phonegap">Twitter iOS integration with phonegap [developing]</a></h1>
   <p class="author">
-    <span class="date">2012-12-17 00:00:00 -0500</span>
+    <span class="date">2012-12-20 00:00:00 -0500</span>&nbsp;&nbsp;<span><a href="/twitter-ios-integration-with-phonegap#disqus_thread">0 Comments</a></span>
+  </p>
+  <div class="content">
+    <p>Download the twitter integration from <a href='https://github.com/purplecabbage/phonegap-plugins/tree/master/iOS/Twitter'>github</a>, and follow the read me to add the framework.</p>
+
+  </div>
+</section>
+
+<section class='post'>
+  <h1><a href="/best-way-to-develop-a-dynamic-website">Best way to develop a dynamic website</a></h1>
+  <p class="author">
+    <span class="date">2012-12-20 00:00:00 -0500</span>&nbsp;&nbsp;<span><a href="/best-way-to-develop-a-dynamic-website#disqus_thread">0 Comments</a></span>
+  </p>
+  <div class="content">
+    <p>The develop a dynamic website, with all those smooth page transitions similar to gmail.  As per design we will use <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, Bootstrap provides all the css tools you need to setup a quick website.</p>
+<p><strong>Frontend skills you will need</strong><br />
+- javascript<br />
+- html</p>
+<p><strong>Frameworks</strong><br />
+First of all we will start of with a model view controller + observer design patterns to achieve a maintainable site.<br />
+The web frameworks that we will use are<br />
+- <a href='http://backbonejs.org'>backbone js</a>   , giving a "structure" to the code<br />
+- <a href='http://requirejs.org'>require js</a>    , setting up javascript dependencies, works like php include<br />
+- <a href='http://mustache.github.com'>mustache</a>      , page templates<br />
+- <a href='http://jquery.com'>jquery</a>        , dom manipulations</p>
+<p>as font icons we can get them for free at <a href="http://fontello.com">fontello</a>, their package includes font-awesome</p>
+<p><strong>Folder Structure</strong><br />
+<code><br />
+        index.html<br />
+        css/<br />
+        templates/      <=== contains the html templates<br />
+	js/views/	<=== responsible for inital html materials and listenes to model changes / actions / events<br />
+	js/models/ 	<=== responsible for data models<br />
+	js/controller/ 	<=== defines the site routes<br />
+        blueprints/     <=== contains all the 3rd party library<br />
+</code></p>
+<p>To setup hashbang (similar to gmail) for page manipulations, there is a backbone module - backbone router.  Using backbone router we can set up page to change dynamically depending on the hashbang setup. To let your hash bang searchable / crawable, checkout this <a href='http://www.alfredkam.com/searchable-hash-bang-seo'>post</a>.</p>
+<p>You can checkout the <a href='https://github.com/alfredkam/boilerplates'>Boiler Plate</a> i've setup using this structure for off the shelve deployment.</p>
+<p><strong>Further Readings</strong><br />
+Backbone Router<br />
+- http://backbonetutorials.com/what-is-a-router/</p>
+<p>Backbone + MVC<br />
+- http://backbonetutorials.com/organizing-backbone-using-modules/<br />
+- http://coenraets.org/blog/2011/12/backbone-js-wine-cellar-tutorial-part-1-getting-started/<br />
+- http://blog.andyet.com/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/<br />
+- http://backbonetutorials.com/what-is-a-model/</p>
+
+  </div>
+</section>
+
+<section class='post'>
+  <h1><a href="/phonegap-apps-load-external-url">PhoneGap Apps + Load External Url</a></h1>
+  <p class="author">
+    <span class="date">2012-12-17 00:00:00 -0500</span>&nbsp;&nbsp;<span><a href="/phonegap-apps-load-external-url#disqus_thread">0 Comments</a></span>
   </p>
   <div class="content">
     <p><strong>To enable access to whitelist domain</strong><br />
@@ -108,9 +161,9 @@ in iOS</strong></p>
 </section>
 
 <section class='post'>
-  <h1><a href="/git-cheat-sheet#disqus_thread">Git Cheat Sheet</a></h1>
+  <h1><a href="/git-cheat-sheet">Git Cheat Sheet</a></h1>
   <p class="author">
-    <span class="date">2012-12-17 00:00:00 -0500</span>
+    <span class="date">2012-12-17 00:00:00 -0500</span>&nbsp;&nbsp;<span><a href="/git-cheat-sheet#disqus_thread">0 Comments</a></span>
   </p>
   <div class="content">
     <pre><code class='language-bash'>
@@ -188,9 +241,9 @@ git filter-branch --prune-empty --subdirectory-filter lib master
 </section>
 
 <section class='post'>
-  <h1><a href="/jailbreaking-ios6-0-ios6-0-1-a4-devices#disqus_thread">JailBreaking iOS 6.0 / 6.0.1 for A4 Devices</a></h1>
+  <h1><a href="/jailbreaking-ios6-0-ios6-0-1-a4-devices">JailBreaking iOS 6.0 / 6.0.1 for A4 Devices</a></h1>
   <p class="author">
-    <span class="date">2012-12-15 00:00:00 -0500</span>
+    <span class="date">2012-12-15 00:00:00 -0500</span>&nbsp;&nbsp;<span><a href="/jailbreaking-ios6-0-ios6-0-1-a4-devices#disqus_thread">0 Comments</a></span>
   </p>
   <div class="content">
     <p>Note :: Only works for A4 devices eg - iPhone 4<br />
@@ -221,17 +274,6 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
   </div>
 </section>
 
-<section class='post'>
-  <h1><a href="/site-clean-up-done#disqus_thread">site clean up done!</a></h1>
-  <p class="author">
-    <span class="date">2012-07-27 00:00:00 -0400</span>
-  </p>
-  <div class="content">
-    <p>Took a couple of months to finally squeeze some time to clean my site up, but finally finish cleaning it :)</p>
-
-  </div>
-</section>
-
 
 <!-- Pagination links -->
 
@@ -257,9 +299,13 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
       <em>4</em>
     
   
+    
+      <a href="/page/5">5</a>
+    
+  
 
   
-    <span>Next &raquo;</span>
+    <a href="/page/5">Next &raquo;</a>
   
 </div>
 
