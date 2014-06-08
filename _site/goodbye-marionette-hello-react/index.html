@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>Thoughts of Coding & Entrepreneurship</title>
+        <title>Goodbye Marionette & Hello React</title>
 
         <link rel='stylesheet' href='/assets/components/bootstrap/dist/css/bootstrap.min.css' />
         <link rel='stylesheet' href='/assets/css/base.css' />
@@ -54,15 +54,9 @@
 </nav>
     </header>
     <div class='container'>
-        <!-- This loops through the paginated posts -->
-
-<section class='post'>
-  <h1><a href="/goodbye-marionette-hello-react">Goodbye Marionette & Hello React</a></h1>
-  <p class="author">
-    <span class="date">2014-05-28 00:00:00 -0400</span>
-  </p>
-  <div class="content">
-    <p>
+        <div>
+            <h1>Goodbye Marionette & Hello React</h1>
+            <p>
      I have been developing alot of large javascript web apps that requires a lot of subview management or componets and decentralize the model dependecies to better suit the component re-usability.  It was not till early this year, I was still designing them with Backbone + Marionette.  Now its <b>Backbone + React or Angular + React</b>.  For this post lets concentrate in comparing Backbone + Mariontte & Backbone + React.   
 
      As we all know, Backbone 'View' itself is a design flaw.  It had a lot of issues regarding its memory management and sub view management.  Marionette on the other hand, did help solved the sub view management and memory issues by offering a wide range of common designs and design patterns to help build the application.
@@ -267,283 +261,37 @@
 <p>
   The code base is smaller, easier to understand and to control.  Now some may ask about Angular + React comparing with Backbone + React.  For this ill leave it to next post, but this is now pretty clear Marionette is out of the game.
 </p>
-  </div>
-</section>
-
-<section class='post'>
-  <h1><a href="/Moving-to-Jekyll">moving to jekyll</a></h1>
-  <p class="author">
-    <span class="date">2014-05-25 00:00:00 -0400</span>
-  </p>
-  <div class="content">
-    <p>Alright I'm a hacker and lazy to work myself around Wordpress - which is in php & dynamic content.  Now recently migrated into Jekyll and use github to serve my pages - free CDN and fast static content! Woohoo</p>
-
-<p>I will be re-building the site from scratch, so beware for the next couple of weeks</p>
-
-
-  </div>
-</section>
-
-<section class='post'>
-  <h1><a href="/installing-mysql-python-on-mac">installing mysql-python on mac</a></h1>
-  <p class="author">
-    <span class="date">2014-02-18 00:00:00 -0500</span>
-  </p>
-  <div class="content">
-    <p>Awesome next challenge - running a flask server to connect to a MAMP [2.1.3] sql server on a mac (mavericks).  Flask is a light weight python server and uses flask-sqlalchemy to connect.  Installing mysql-python seems to be a challenge.</p>
-<pre><code class='language-bash'>
-#assuming you've already installed xcode & homebrew
-brew install mysql   #use brew install mysql --universal if your not using 64bit
-</code></pre>
-<p>Go to <a href="http://dev.mysql.com/downloads/mysql/">dev mysql</a><br />
-download the latest release and decompress the file.</p>
-<pre><code class='language-bash'>
-cd /path/to/download/
-tar -xvf mysql-*.tar.gz
-cd /path/to/extract/
-mkdir /Applications/MAMP/Library/include
-cp -r include/* /Applications/MAMP/Library/include
-cp -r lib/* /Applications/MAMP/Library/lib
-
-export ARCHFLAGS="-arch $(uname -m)"
-export PATH=$PATH:/Applications/MAMP/Library/bin
-export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
-
-sudo easy_install mysql-python
-</code></pre>
-<p>FYI: this line will cause trouble with git</p>
-<pre><code class='language-bash'>
-export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
-</code></pre>
-<p>Rebooting your computer will clear it.</p>
-<p>On a side note, when your connecting to the MAMP sql, python may complain mysql.sock is missing.  It is located under</p>
-<pre><code class='language-bash'>
-/Applications/MAMP/tmp/mysql/mysql.sock
-</code></pre>
-<p><strong>Additional Source</strong><br />
-<a href="http://racingtadpole.com/blog/mamp-python-and-mysqldb/">mamp-python-mysql</a><br />
-<a href="http://stackoverflow.com/questions/17920115/python-mysqldb-again-symbol-not-found-mysql-affected-rows">stackoverflow</a></p>
-
-  </div>
-</section>
-
-<section class='post'>
-  <h1><a href="/using-git-hooks-to-deploy-server-with-forever">using git hooks to deploy server with forever</a></h1>
-  <p class="author">
-    <span class="date">2014-02-17 00:00:00 -0500</span>
-  </p>
-  <div class="content">
-    <p>If you love deploying with automation and you love the fact you dont need to touch your server (which you should!).  I've setup this up on an ec2 ubuntu 12.04 LTS, shouldnt differ too much with other ubuntu versions.  At this time of writing i'm setting up a nodejs / flask server</p>
-<p>On your remote server</p>
-<pre><code class='language-markup'>
-#install forever and give it global access
-sudo npm install -g forever
-</code></pre>
-<pre><code class='language-markup'>
-#setup git bare at your deployment server
-git clone --bare [repo url]
-</code></pre>
-<pre><code class='language-markup'>
-#add the hooks
-#navigate into your git folder
-cd path/to/repo/hooks
-vi pre-receive
-</code></pre>
-<pre><code class='language-bash'>
-#!/bin/sh
-echo "stopping server service"
-service nodejs-www stop
-</code></pre>
-<pre><code class='language-bash'>
-vi post-receive
-</code></pre>
-<pre><code class='language-bash'>
-#!/bin/sh
-echo "checkout the files"
-
-branch=$(git branch | grep "*" | sed "s/* //")
-
-if [ "$branch" = "master" ]
-then
-        echo "Master branch"
-        git --work-tree=/home/ubuntu/app/www checkout -f
-        echo "Successfully checked out master branch"
-else
-        echo "Not master branch"
-fi
-
-echo "start service"
-service nodejs-www start
-</code></pre>
-<pre><code class='language-markup'>
-sudo chmod +x pre-receive;
-sudo chmod +x post-receive;
-</code></pre>
-<p>FYI: Just make sure the folders are created for the "git --work-tree"</p>
-<pre><code class='language-markup'>
-#navigate into init.d to create a service
-cd /etc/init.d
-sudo vi nodejs-www
-</code></pre>
-<pre><code class='language-bash'>
-#! /bin/sh
-# /etc/init.d/nodejs-www
-#
-
-NAME=nodejs-www
-APP=index.js
-APP_DIR=/home/ubuntu/app/www
-forever=/usr/local/bin/forever
-export PATH=$PATH:/usr/local/bin/
-LOG=/var/log/nodejs-www.log
-
-case "$1" in
-  start)
-    cd $APP_DIR
-    echo "Starting $NAME"
-    #I detached the message to 'screen', it is not a requirement
-    screen -d -m /usr/bin/sudo -u ubuntu $forever --minUptime 5000 --spinSleepTime 2000 -a -l $LOG start $APP
-    #if to run a python server use
-    #screen -d -m /usr/bin/sudo -u ubuntu $forever --minUptime 5000 --spinSleepTime 2000 -a -l $LOG start -c python $APP
-    echo "Started $Name"
-    exit 0
-    ;;
-  stop)
-    echo "Stopping script $NAME"
-    cd $APP_DIR
-    /usr/bin/sudo -u ubuntu $forever stop $APP
-    exit 0
-    ;;
-  list)
-    echo "List"
-    /usr/bin/sudo -u ubuntu $forever list
-    exit 0
-    ;;
-  *)
-    echo "Usage: /etc/init.d/nodejs-www {start|stop|list}"
-    exit 1
-    ;;
-esac
-
-exit 0
-</code></pre>
-<p>FYI: Many others were able to run forever directly without having "/usr/bin/sudo -u ubuntu" (ubuntu is the user account) or substituting it with "sudo".  For my case on an amazon aws, without it, i ran into permission issues with forever and nodejs directory mapping issues.</p>
-<p>A permission error similar to this:</p>
-<pre><code class='language-javascript'>
-fs.js:0
-(function (exports, require, module, __filename, __dirname) { // Copyright Joy
-^
-Error: EACCES, permission denied '/root/.forever/pids/FepR.pid'
-    at Object.fs.openSync (fs.js:410:18)
-    at Object.fs.writeFileSync (fs.js:956:15)
-    at writePid (/usr/local/lib/node_modules/forever/bin/monitor:13:6)
-    at null.<anonymous> (/usr/local/lib/node_modules/forever/bin/monitor:46:5)
-    at EventEmitter.emit (/usr/local/lib/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/eventemitter2/lib/eventemitter2.js:332:22)
-    at /usr/local/lib/node_modules/forever/node_modules/forever-monitor/lib/forever-monitor/monitor.js:153:10
-</code></pre>
-<p>Now to wrap up the server side</p>
-<pre><code class='language-markup'>
-sudo chmod a+x nodejs-www
-cd /var/log
-sudo touch nodejs-www.log
-sudo chmod 777 nodejs-www.log
-</code></pre>
-<p>Add to rc.local to start upon server start</p>
-<pre><code class='language-markup'>
-sudo vi /etc/rc.local
-</code></pre>
-<pre><code class='language-markup'>
-#!/bin/sh -e
-service nodejs-www start
-exit 0
-</code></pre>
-<p>For some you may need to change the rc.local permission to executable.</p>
-<p>If i didnt miss anything this should it for the server</p>
-<p>Now on client side</p>
-<pre><code class='language-markup'>
-cd path/to/repo
-git remote add deploy [remote server repo url]
-git commit -am 'test deploy'
-git push deploy master
-</code></pre>
-<p>This should be it, and the service should automatically stop and restart itself.  If i missed anything let me know :)</p>
-
-  </div>
-</section>
-
-<section class='post'>
-  <h1><a href="/node-nodejs-stack-setup">nginx / nodejs stack setup</a></h1>
-  <p class="author">
-    <span class="date">2014-02-17 00:00:00 -0500</span>
-  </p>
-  <div class="content">
-    <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
-<p>my nodejs uses forever to run on port 3000.</p>
-<p>here is the nginx config setup</p>
-<pre>
-<code class="language-bash">
-sudo vi /etc/nginx/site-enabled/default
-</code>
-</pre>
-<pre>
-<code class="language-bash">
-#add this line before server { ... }
-[...]
-upstream app_nodejs {
-        server localhost:3000;
-}
-[...]
-
-#now in server {...}, assuming you want to map your url root to point to nodejs
-location / {
-               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-               proxy_set_header Host $http_host;
-               proxy_set_header X-NginX-Proxy true;
-
-               proxy_pass http://app_nodejs;
-               proxy_redirect off;
-           }
-
-</code>
-</pre>
-<p>Cheers</p>
-
-  </div>
-</section>
-
-
-<!-- Pagination links -->
-
-<div class="pagination">
-  
-    <span>&laquo; Prev</span>
-  
-
-  
-    
-      <em>1</em>
-    
-  
-    
-      <a href="/page/2">2</a>
-    
-  
-    
-      <a href="/page/3">3</a>
-    
-  
-    
-      <a href="/page/4">4</a>
-    
-  
-
-  
-    <a href="/page/2">Next &raquo;</a>
-  
-</div>
-
+        </div>
+        <div id="disqus_thread"></div>
+         <script type="text/javascript">
+             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+             var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+             var disqus_url = 'http://alfredkam.com/goodbye-marionette-hello-react';
+             /* * * DON'T EDIT BELOW THIS LINE * * */
+             (function() {
+                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+             })();
+         </script>
+         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
-</body>
+    <!-- AddThis Smart Layers BEGIN -->
+    <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52fe302726d95ddf"></script>
+    <script type="text/javascript">
+      addthis.layers({
+        'theme' : 'transparent',
+        'share' : {
+          'position' : 'left',
+          'numPreferredServices' : 1
+        },  
+        'whatsnext' : {}  
+      });
+    </script>
+    <!-- AddThis Smart Layers END -->
+ </body>
     <footer>
         <div class='container'>
             <div class='row'>
