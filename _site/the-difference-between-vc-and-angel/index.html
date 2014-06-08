@@ -24,22 +24,22 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class='container'>
         <!-- Brand and toggle get grouped for better mobile display -->
-        <ul class="nonMobile nav navbar-nav bold col-sm-4">
+<!--         <ul class="nonMobile nav navbar-nav bold col-sm-4">
             <li><a  href='/'>Home</a></li>
             <li><a  href='/about'>About</a></li>
-        </ul>
-        <div class="navbar-header col-sm-4">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navCollapse">
+        </ul> -->
+        <div class="navbar-header col-sm-12">
+<!--             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navCollapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                  </button>
+                  </button> -->
             <div class='col-sm-12'>
                 <a class="navbar-brand" href="/">AK</a>
             </div>
             <div class='col-sm-12 subtitle'>
-                <span>A Co-Founder of <a href='http://appfuel.me'>Appfuel</a></span>
+                <span>Thoughts of Coding & Entrepreneurship</span>
             </div>
         </div>
 
@@ -93,7 +93,40 @@
  </body>
     <footer>
         <div class='container'>
-            Alfred Kam &#169; 2014
+            <div class='row'>
+              <div class='col-md-4'>
+                <h4>
+                  About
+                </h4>
+                <p>
+                  Hello! I'm an Entrepreneur & Developer with primiary focus in javascript.  I'm also active in the field of computational biology.
+                </p>
+              </div>
+              <div class='col-md-4'>
+                <h4>
+                  Notable Works
+                </h4>
+                <p>
+                  <a href='http://appfuel.me'>Appfuel</a><br>
+                  <a href='http://phylo.cs.mcgill.ca'>PHYLO</a>
+                </p>
+              </div>
+              <div class='col-md-4'>
+                <h4>
+                  Stalking Aids
+                </h4>
+                <p>
+                  GitHub <a href='http://github.com/alfredkam'>@AlfredKam</a><br>
+                  Twitter <a href='https://twitter.com/alfredkam'>@AlfredKam</a><br>
+                  LinkedIn <a href='http://www.linkedin.com/in/kamalfred'>@KamAlfred</a>
+                </p>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-md-12'>
+                Alfred Kam &#169; 2014
+              </div>
+            </div>
         </div>    
     </footer>
     <script>
@@ -106,9 +139,25 @@
       ga('send', 'pageview');
     </script>
     <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
+    <script src='/assets/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
+    <script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>
+    <script type='text/javascript'>
+      $('code').each(function () {
+        var html = _.escape($(this).html());
+        html = html.replace(/&amp;lt;/g,'&lt;');
+        html = html.replace(/&amp;gt;/g,'&gt;');
+        $(this).html(html);
+      });
+
+      $('.date').each(function () {
+        var html = $(this).html();
+        $(this).html(moment(html).format('ll'));
+      });
+    </script>
     <script src='/assets/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>
     <script src='/assets/scripts/base.js' type='text/javascript'></script>
     <script src='/assets/components/prismjs/prism.js' type='text/javascript'/></script>
+    <script src='/assets/components/prismjs/components/prism-markup.min.js' type="text/javascript"></script>
     <script src='/assets/components/prismjs/components/prism-bash.min.js' type='text/javascript'></script>
     <script src='/assets/components/prismjs/components/prism-css.min.js' type='text/javascript'></script>
     <script src='/assets/components/prismjs/components/prism-javascript.min.js' type='text/javascript'></script>
