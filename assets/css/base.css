@@ -126,4 +126,8 @@ body > div.container {
 
 @media (max-width: 992px) {
   .commentCount {
-    display: none; } }
+    display: none; }
+
+  body > .row, body > div > .row {
+    margin-left: 15px;
+    margin-right: 15px; } }
