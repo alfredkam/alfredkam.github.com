@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2014 by original authors @ fontello.com</metadata>
+<defs>
+<font id="message" horiz-adv-x="1000" >
+<font-face font-family="message" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="comment" unicode="&#xe800;" d="m0 413q0 156 147 265t353 109 354-109 146-266-146-265-354-110q-47 0-96 8-29-35-89-78t-122-55l-9 0q-12 0-20 8t-8 20q0 6 2 12 0 1 13 21t18 29 13 30 13 36 4 32l0 2q-102 53-160 134t-59 176z m63 0q0-75 48-143t137-111q33-18 33-57l0-6q0-41-21-92 60 37 95 80 18 24 49 24 4 0 8-2 45-6 88-6 182 0 310 92t127 221-127 220-310 92-310-92-127-220z m93 0q0 89 102 154t242 64q16 0 16-15t-16-16q-125 0-219-57t-93-131q0-15-16-15t-16 15z" horiz-adv-x="1000" />
+<glyph glyph-name="chat" unicode="&#xe801;" d="m85 749l608 0c57 0 83-26 83-85l0-387c0-55-26-82-83-82l-274 0-303-244 63 244-94 0c-57 0-85 27-85 84l0 385c0 59 28 86 85 85z m75-157l0-83 456 0 0 83-456 0z m456-239l0 82-456 0 0-82 456 0z" horiz-adv-x="776" />
+<glyph glyph-name="chat-1" unicode="&#xe802;" d="m0 480q0 107 68 199t186 145 255 53q104 0 198-32t162-84 108-127 41-155q0-64-26-125t-73-110-109-85-140-57-161-20q-103 0-194 30l-116-81q-65-42-91-25t-11 97l23 121q-57 53-88 119t-32 136z m650-468q118 23 215 82t158 145 75 186q89-35 142-102t54-147q0-49-22-96t-62-83l17-86q10-55-8-67t-64 17l-82 57q-63-21-136-21-87 0-163 31t-124 84z" horiz-adv-x="1294.4" />
+</font>
+</defs>
+</svg>

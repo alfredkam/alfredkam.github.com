@@ -14,6 +14,12 @@
         <link rel='stylesheet' href='/assets/css/base.css' />
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
+        <!-- fontello -->
+        <link rel="stylesheet" href="/assets/css/fontello-f0d4ae31/css/message.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f0d4ae31/css/animation.css" />
+        <!--[if IE 7]>
+        <link rel="stylesheet" href="/assets/css/fontello-f0d4ae31/css/message-ie7.css" />
+        <![endif]-->
 
         <!-- open sans font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
@@ -22,41 +28,25 @@
     <header>
     <!-- nav -->
 <nav class="navbar navbar-default" role="navigation">
-    <div class='container'>
-        <!-- Brand and toggle get grouped for better mobile display -->
-<!--         <ul class="nonMobile nav navbar-nav bold col-sm-4">
-            <li><a  href='/'>Home</a></li>
-            <li><a  href='/about'>About</a></li>
-        </ul> -->
-        <div class="navbar-header col-sm-12">
-<!--             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navCollapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button> -->
-            <div class='col-sm-12'>
-                <a class="navbar-brand" href="/">AK</a>
-            </div>
-            <div class='col-sm-12 subtitle'>
-                <span>Thoughts of Coding & Entrepreneurship</span>
+    <div class='row'>
+        <div class='col-sm-1 center'>
+           <a class="navbar-brand" href="/">AK</a>
+        </div>
+        <div class='col-sm-10'>
+            <div class="navbar-header col-sm-12 title">
+                <div class='col-sm-12'>
+                    <span><a href='/'>Thoughts of Coding & Entrepreneurship</a></span>
+                </div>
             </div>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id='navCollapse'>
-            <ul class="nav navbar-nav isMobile">
-                <li><a  href='/'>Home</a></li>
-                <li><a  href='/about'>About</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
     </div>
 </nav>
     </header>
-    <div class='container'>
-        <div>
-            <h1>JailBreaking iOS 6.0 / 6.0.1 for A4 Devices</h1>
-            <p>Note :: Only works for A4 devices eg - iPhone 4<br />
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+            <div>
+                <h1>JailBreaking iOS 6.0 / 6.0.1 for A4 Devices</h1>
+                <p>Note :: Only works for A4 devices eg - iPhone 4<br />
 Note :: This is a tethered jailbreak</p>
 <p>1) Upgrade to iOS 6.0 / 6.0.1<br />
 2) Download the newest redsn0w<br />
@@ -81,21 +71,22 @@ Download: http://apt.saurik.com/debs/com.saurik.substrate.safemode_0.9.3999_ipho
 put it in the AutoInstall folder and reboot using the redsn0w just boot option</p>
 <p>13) open cydia app again, the source should start downloading and substrate safemode should be installed.</p>
 
+            </div>
+            <div id="disqus_thread"></div>
+             <script type="text/javascript">
+                 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                 var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+                 var disqus_url = 'http://alfredkam.com/jailbreaking-ios6-0-ios6-0-1-a4-devices';
+                 /* * * DON'T EDIT BELOW THIS LINE * * */
+                 (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+             </script>
+             <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+             <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
-        <div id="disqus_thread"></div>
-         <script type="text/javascript">
-             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-             var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
-             var disqus_url = 'http://alfredkam.com/jailbreaking-ios6-0-ios6-0-1-a4-devices';
-             /* * * DON'T EDIT BELOW THIS LINE * * */
-             (function() {
-                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-             })();
-         </script>
-         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <!-- AddThis Smart Layers BEGIN -->
     <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
@@ -112,8 +103,8 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
     </script>
     <!-- AddThis Smart Layers END -->
  </body>
-    <footer>
-        <div class='container'>
+    <footer class='row'>
+        <div class='col-md-10 col-md-offset-1'>
             <div class='row'>
               <div class='col-md-4'>
                 <h4>
@@ -155,7 +146,8 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
+      
+      ga('require', 'displayfeatures');
       ga('create', 'UA-25416273-1', 'alfredkam.com');
       ga('send', 'pageview');
     </script>
