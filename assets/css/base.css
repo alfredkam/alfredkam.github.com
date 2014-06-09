@@ -1,4 +1,7 @@
 /* base css */
+.center {
+  text-align: center; }
+
 body, footer {
   font-family: "Open Sans", sans-serif; }
 
@@ -6,12 +9,16 @@ a:hover {
   text-decoration: none; }
 
 /* header */
+.title a {
+  color: #c85e36; }
+
 .navbar {
   /*background-color:#f3f3f3; */
   border: none;
   border-bottom: 1px solid #e5e5e5;
   border-radius: 0;
-  font-size: 20px; }
+  font-size: 20px;
+  padding-bottom: 3px; }
 
 .navbar-right li {
   float: right; }
@@ -86,3 +93,21 @@ body > div.container {
 .post {
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 20px; }
+
+/* comment */
+.commentCount {
+  top: 27px;
+  position: relative;
+  font-size: 20px;
+  display: inline; }
+
+.commentCount span:first-child {
+  color: #333333; }
+
+.commentCount a:last-child {
+  padding: 0 5px;
+  color: #333333; }
+
+@media (max-width: 992px) {
+  .commentCount {
+    display: none; } }
