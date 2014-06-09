@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'message';
-  src: url('../font/message.eot?90071697');
-  src: url('../font/message.eot?90071697#iefix') format('embedded-opentype'),
-       url('../font/message.woff?90071697') format('woff'),
-       url('../font/message.ttf?90071697') format('truetype'),
-       url('../font/message.svg?90071697#message') format('svg');
+  src: url('../font/message.eot?98492904');
+  src: url('../font/message.eot?98492904#iefix') format('embedded-opentype'),
+       url('../font/message.woff?98492904') format('woff'),
+       url('../font/message.ttf?98492904') format('truetype'),
+       url('../font/message.svg?98492904#message') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'message';
-    src: url('../font/message.svg?90071697#message') format('svg');
+    src: url('../font/message.svg?98492904#message') format('svg');
   }
 }
 */
@@ -50,6 +50,7 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-comment:before { content: '\e800'; } /* '' */
-.icon-chat:before { content: '\e801'; } /* '' */
+.icon-twitter-bird:before { content: '\e800'; } /* '' */
+.icon-github:before { content: '\e801'; } /* '' */
 .icon-chat-1:before { content: '\e802'; } /* '' */
+.icon-linkedin:before { content: '\e803'; } /* '' */
