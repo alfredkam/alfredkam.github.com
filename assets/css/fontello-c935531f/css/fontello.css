@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'message';
-  src: url('../font/message.eot?98492904');
-  src: url('../font/message.eot?98492904#iefix') format('embedded-opentype'),
-       url('../font/message.woff?98492904') format('woff'),
-       url('../font/message.ttf?98492904') format('truetype'),
-       url('../font/message.svg?98492904#message') format('svg');
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?21011201');
+  src: url('../font/fontello.eot?21011201#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?21011201') format('woff'),
+       url('../font/fontello.ttf?21011201') format('truetype'),
+       url('../font/fontello.svg?21011201#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -13,14 +13,14 @@
 /*
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
-    font-family: 'message';
-    src: url('../font/message.svg?98492904#message') format('svg');
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?21011201#fontello') format('svg');
   }
 }
 */
  
  [class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "message";
+  font-family: "fontello";
   font-style: normal;
   font-weight: normal;
   speak: none;
@@ -50,7 +50,9 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-twitter-bird:before { content: '\e800'; } /* '' */
+.icon-chat-alt:before { content: '\e800'; } /* '' */
 .icon-github:before { content: '\e801'; } /* '' */
-.icon-chat-1:before { content: '\e802'; } /* '' */
+.icon-twitter:before { content: '\e802'; } /* '' */
 .icon-linkedin:before { content: '\e803'; } /* '' */
+.icon-search:before { content: '\e804'; } /* '' */
+.icon-cancel:before { content: '\e805'; } /* '' */
