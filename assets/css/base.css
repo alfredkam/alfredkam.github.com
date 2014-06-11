@@ -140,6 +140,17 @@ body > div.container {
   border: 1px solid white;
   display: inline; }
 
+.searchBtn:hover {
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #cccccc;
+  -webkit-box-shadow: 0 1px 1px #cccccc;
+  -khtml-box-shadow: 0 1px 1px #cccccc;
+  -o-box-shadow: 0 1px 1px #cccccc;
+  -ms-box-shadow: 0 1px 1px #cccccc;
+  -ms-box-shadow: 0 1px 1px #cccccc;
+  background-color: white;
+  cursor: pointer; }
+
 .searchBtn span {
   position: relative;
   top: -1px;
@@ -156,4 +167,19 @@ body > div.container {
 
 #searchSpace .icon-cancel {
   position: relative;
-  top: 2px; }
+  top: 2px;
+  cursor: pointer; }
+
+#searchSpace .results:hover {
+  background: #f0f0f0; }
+
+#searchSpace .resultWrapper {
+  top: 2px;
+  position: relative; }
+
+#searchComponent {
+  z-index: 99; }
+
+@media (max-width: 734px) {
+  #searchComponent {
+    display: none; } }
