@@ -15,10 +15,10 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
@@ -50,7 +50,11 @@
         <div class='col-md-10 col-md-offset-1'>
             <div>
                 <h1>Goodbye Marionette & Hello React</h1>
-                <p>
+                <p class="author">
+                    <span class="date">28 May 2014</span>
+                </p>
+                <div class="content">
+                  <p>
      I have been developing a lot of large javascript web apps that requires a lot of subview management or componets and decentralize the model dependecies to better suit the component re-usability.  It was not till early this year, I was still designing them with Backbone + Marionette.  Now it's <b>Backbone + React or Angular + React</b>.  For this post let's concentrate in comparing Backbone + Mariontte & Backbone + React.   
 
      As we all know, Backbone 'View' itself is a design flaw.  It had a lot of issues regarding its memory management and sub view management.  Marionette on the other hand, did help solved the sub view management and memory issues by offering a wide range of common designs and design patterns to help build the application.
@@ -257,6 +261,21 @@
 <p>
   The code base is smaller, easier to understand and to control.  Now some may ask about Angular + React comparing with Backbone + React.  For this I'll leave it to next post, but this is now pretty clear Marionette is out of the game.
 </p>
+                </div>
+                <div class='tags'>
+                    <i class='icon-tag'></i>
+                    
+                        &nbsp;<a href='/tag/react'>react</a>,
+                    
+                        &nbsp;<a href='/tag/backbonejs'>backbonejs</a>,
+                    
+                        &nbsp;<a href='/tag/marionettejs'>marionettejs</a>,
+                    
+                        &nbsp;<a href='/tag/angular'>angular</a>,
+                    
+                        &nbsp;<a href='/tag/javascript'>javascript</a>
+                    
+                </div>
             </div>
             <div id="disqus_thread"></div>
              <script type="text/javascript">
@@ -346,18 +365,13 @@
     </script>
     <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     <script src='/assets/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
-    <script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>
+    <!--<script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>-->
     <script type='text/javascript'>
       $('code').each(function () {
         var html = _.escape($(this).html());
         html = html.replace(/&amp;lt;/g,'&lt;');
         html = html.replace(/&amp;gt;/g,'&gt;');
         $(this).html(html);
-      });
-
-      $('.date').each(function () {
-        var html = $(this).html();
-        $(this).html(moment(html).format('ll'));
       });
     </script>
     <script src='/assets/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>

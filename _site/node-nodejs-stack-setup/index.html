@@ -15,10 +15,10 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
@@ -50,7 +50,11 @@
         <div class='col-md-10 col-md-offset-1'>
             <div>
                 <h1>nginx / nodejs stack setup</h1>
-                <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
+                <p class="author">
+                    <span class="date">17 Feb 2014</span>
+                </p>
+                <div class="content">
+                  <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
 <p>my nodejs uses forever to run on port 3000.</p>
 <p>here is the nginx config setup</p>
 <pre>
@@ -81,6 +85,19 @@ location / {
 </pre>
 <p>Cheers</p>
 
+                </div>
+                <div class='tags'>
+                    <i class='icon-tag'></i>
+                    
+                        &nbsp;<a href='/tag/nginx'>nginx</a>,
+                    
+                        &nbsp;<a href='/tag/node'>node</a>,
+                    
+                        &nbsp;<a href='/tag/nodejs'>nodejs</a>,
+                    
+                        &nbsp;<a href='/tag/portforward'>portforward</a>
+                    
+                </div>
             </div>
             <div id="disqus_thread"></div>
              <script type="text/javascript">
@@ -170,18 +187,13 @@ location / {
     </script>
     <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     <script src='/assets/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
-    <script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>
+    <!--<script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>-->
     <script type='text/javascript'>
       $('code').each(function () {
         var html = _.escape($(this).html());
         html = html.replace(/&amp;lt;/g,'&lt;');
         html = html.replace(/&amp;gt;/g,'&gt;');
         $(this).html(html);
-      });
-
-      $('.date').each(function () {
-        var html = $(this).html();
-        $(this).html(moment(html).format('ll'));
       });
     </script>
     <script src='/assets/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>
