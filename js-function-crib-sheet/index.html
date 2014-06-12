@@ -15,10 +15,10 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
@@ -50,7 +50,11 @@
         <div class='col-md-10 col-md-offset-1'>
             <div>
                 <h1>JavaScript Function Crib Sheet</h1>
-                <p>Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.</p>
+                <p class="author">
+                    <span class="date">08 May 2013</span>
+                </p>
+                <div class="content">
+                  <p>Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.</p>
 <p>The cryptsheet includes these functions and can be found here : <a href='https://github.com/alfredkam/jsFunctions'>https://github.com/alfredkam/jsFunctions</a></p>
 <p>General Laziness::<br />
 - jquery toggle string<br />
@@ -62,6 +66,35 @@
 - Summation</p>
 <p>If the function your missing is not listed, comment below and i may be able to write one.</p>
 
+                </div>
+                <div class='tags'>
+                    <i class='icon-tag'></i>
+                    
+                        &nbsp;<a href='/tag/Bell Curve'>Bell Curve</a>,
+                    
+                        &nbsp;<a href='/tag/Binomial Distribution'>Binomial Distribution</a>,
+                    
+                        &nbsp;<a href='/tag/Cheat Sheet'>Cheat Sheet</a>,
+                    
+                        &nbsp;<a href='/tag/Dev Notes'>Dev Notes</a>,
+                    
+                        &nbsp;<a href='/tag/javascript'>javascript</a>,
+                    
+                        &nbsp;<a href='/tag/JS'>JS</a>,
+                    
+                        &nbsp;<a href='/tag/Lazy'>Lazy</a>,
+                    
+                        &nbsp;<a href='/tag/Math Functions'>Math Functions</a>,
+                    
+                        &nbsp;<a href='/tag/PMF'>PMF</a>,
+                    
+                        &nbsp;<a href='/tag/Probability Mass Function'>Probability Mass Function</a>,
+                    
+                        &nbsp;<a href='/tag/toggle'>toggle</a>,
+                    
+                        &nbsp;<a href='/tag/toggle string'>toggle string</a>
+                    
+                </div>
             </div>
             <div id="disqus_thread"></div>
              <script type="text/javascript">
@@ -151,18 +184,13 @@
     </script>
     <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     <script src='/assets/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
-    <script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>
+    <!--<script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>-->
     <script type='text/javascript'>
       $('code').each(function () {
         var html = _.escape($(this).html());
         html = html.replace(/&amp;lt;/g,'&lt;');
         html = html.replace(/&amp;gt;/g,'&gt;');
         $(this).html(html);
-      });
-
-      $('.date').each(function () {
-        var html = $(this).html();
-        $(this).html(moment(html).format('ll'));
       });
     </script>
     <script src='/assets/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>
