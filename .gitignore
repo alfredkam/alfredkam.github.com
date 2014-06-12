@@ -1,0 +1,13 @@
+.DS_Store
+.idea/
+.build/
+.config/
+.tmp/
+.sass-cache/
+.build_jsx/
+dist/
+uploads/*
+node_modules/
+*.iml
+config/app.json
+*.sublime-*
