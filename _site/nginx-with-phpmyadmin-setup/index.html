@@ -15,10 +15,10 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
@@ -50,7 +50,11 @@
         <div class='col-md-10 col-md-offset-1'>
             <div>
                 <h1>nginx with changed phpmyadmin directory setup</h1>
-                <p>Recently decided to setup a nginx / python / mysql lightweight backend to interact with a nodejs services.   So decided to change phpmyadmin directory as well - i did run into 502 / 403 nginx errors, hope this post will help anyone who had the same issues too.</p>
+                <p class="author">
+                    <span class="date">17 Feb 2014</span>
+                </p>
+                <div class="content">
+                  <p>Recently decided to setup a nginx / python / mysql lightweight backend to interact with a nodejs services.   So decided to change phpmyadmin directory as well - i did run into 502 / 403 nginx errors, hope this post will help anyone who had the same issues too.</p>
 <p>Setup process - assuming you are using ubuntu 12.04LTS</p>
 <pre>
 <code class="language-markup">
@@ -139,6 +143,21 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 <a href="http://www.howtoforge.com/installing-nginx-with-php5-and-php-fpm-and-mysql-support-lemp-on-ubuntu-12.04-lts">howtoforge</a></p>
 
 
+                </div>
+                <div class='tags'>
+                    <i class='icon-tag'></i>
+                    
+                        &nbsp;<a href='/tag/403'>403</a>,
+                    
+                        &nbsp;<a href='/tag/502'>502</a>,
+                    
+                        &nbsp;<a href='/tag/changed phpmyadmin directory'>changed phpmyadmin directory</a>,
+                    
+                        &nbsp;<a href='/tag/nginx'>nginx</a>,
+                    
+                        &nbsp;<a href='/tag/phpmyadmin'>phpmyadmin</a>
+                    
+                </div>
             </div>
             <div id="disqus_thread"></div>
              <script type="text/javascript">
@@ -235,11 +254,6 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
         html = html.replace(/&amp;lt;/g,'&lt;');
         html = html.replace(/&amp;gt;/g,'&gt;');
         $(this).html(html);
-      });
-
-      $('.date').each(function () {
-        var html = $(this).html();
-        $(this).html(moment(html).format('ll'));
       });
     </script>
     <script src='/assets/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>

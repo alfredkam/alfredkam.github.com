@@ -15,10 +15,10 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
@@ -50,7 +50,11 @@
         <div class='col-md-10 col-md-offset-1'>
             <div>
                 <h1>JailBreaking iOS 6.0 / 6.0.1 for A4 Devices</h1>
-                <p>Note :: Only works for A4 devices eg - iPhone 4<br />
+                <p class="author">
+                    <span class="date">15 Dec 2012</span>
+                </p>
+                <div class="content">
+                  <p>Note :: Only works for A4 devices eg - iPhone 4<br />
 Note :: This is a tethered jailbreak</p>
 <p>1) Upgrade to iOS 6.0 / 6.0.1<br />
 2) Download the newest redsn0w<br />
@@ -75,6 +79,13 @@ Download: http://apt.saurik.com/debs/com.saurik.substrate.safemode_0.9.3999_ipho
 put it in the AutoInstall folder and reboot using the redsn0w just boot option</p>
 <p>13) open cydia app again, the source should start downloading and substrate safemode should be installed.</p>
 
+                </div>
+                <div class='tags'>
+                    <i class='icon-tag'></i>
+                    
+                        &nbsp;<a href='/tag/JailBreak'>JailBreak</a>
+                    
+                </div>
             </div>
             <div id="disqus_thread"></div>
              <script type="text/javascript">
@@ -171,11 +182,6 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
         html = html.replace(/&amp;lt;/g,'&lt;');
         html = html.replace(/&amp;gt;/g,'&gt;');
         $(this).html(html);
-      });
-
-      $('.date').each(function () {
-        var html = $(this).html();
-        $(this).html(moment(html).format('ll'));
       });
     </script>
     <script src='/assets/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>

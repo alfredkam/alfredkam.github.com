@@ -142,12 +142,12 @@ body > div.container {
 
 .searchBtn:hover {
   border-radius: 3px;
-  box-shadow: 0 1px 1px #cccccc;
-  -webkit-box-shadow: 0 1px 1px #cccccc;
-  -khtml-box-shadow: 0 1px 1px #cccccc;
-  -o-box-shadow: 0 1px 1px #cccccc;
-  -ms-box-shadow: 0 1px 1px #cccccc;
-  -ms-box-shadow: 0 1px 1px #cccccc;
+  box-shadow: 0 0 0 5px #cccccc;
+  -webkit-box-shadow: 0 0 5px #cccccc;
+  -khtml-box-shadow: 0 0 5px #cccccc;
+  -o-box-shadow: 0 0 5px #cccccc;
+  -ms-box-shadow: 0 0 5px #cccccc;
+  -ms-box-shadow: 0 0 5px #cccccc;
   background-color: white;
   cursor: pointer; }
 
@@ -168,7 +168,15 @@ body > div.container {
 #searchSpace .icon-cancel {
   position: relative;
   top: 2px;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 2px;
+  border: 1px solid;
+  border-radius: 50px;
+  margin-left: 16px;
+  color: #a5b2b9; }
+
+#searchSpace .icon-cancel:hover {
+  color: #333333; }
 
 #searchSpace .results:hover {
   background: #f0f0f0; }

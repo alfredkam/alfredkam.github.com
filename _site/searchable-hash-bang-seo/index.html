@@ -15,10 +15,10 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-c935531f/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
@@ -50,7 +50,11 @@
         <div class='col-md-10 col-md-offset-1'>
             <div>
                 <h1>Searchable Hash Bang (SEO)</h1>
-                <p>Having a dynamic website, AJAX is often used and rely on hash bang to act as a http GET to let the site be interactive.  Inorder to have your application searchable / crawable, there are couple of rules to follow as suggested by <a href='https://developers.google.com/webmasters/ajax-crawling/docs/specification'>the google specs</a>.</p>
+                <p class="author">
+                    <span class="date">01 Feb 2013</span>
+                </p>
+                <div class="content">
+                  <p>Having a dynamic website, AJAX is often used and rely on hash bang to act as a http GET to let the site be interactive.  Inorder to have your application searchable / crawable, there are couple of rules to follow as suggested by <a href='https://developers.google.com/webmasters/ajax-crawling/docs/specification'>the google specs</a>.</p>
 <p>Assuming your too lazy to checkout the specs. In summary the hash bang should be setup this way:</p>
 <p>In a typical site, you will notice the url with http GET are written in this format<br />
 <code><br />
@@ -65,6 +69,23 @@ into beautiful url<br />
 http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
 </code></p>
 
+                </div>
+                <div class='tags'>
+                    <i class='icon-tag'></i>
+                    
+                        &nbsp;<a href='/tag/AJAX'>AJAX</a>,
+                    
+                        &nbsp;<a href='/tag/Dev Notes'>Dev Notes</a>,
+                    
+                        &nbsp;<a href='/tag/front-end'>front-end</a>,
+                    
+                        &nbsp;<a href='/tag/hash bang'>hash bang</a>,
+                    
+                        &nbsp;<a href='/tag/javascript'>javascript</a>,
+                    
+                        &nbsp;<a href='/tag/SEO'>SEO</a>
+                    
+                </div>
             </div>
             <div id="disqus_thread"></div>
              <script type="text/javascript">
@@ -161,11 +182,6 @@ http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
         html = html.replace(/&amp;lt;/g,'&lt;');
         html = html.replace(/&amp;gt;/g,'&gt;');
         $(this).html(html);
-      });
-
-      $('.date').each(function () {
-        var html = $(this).html();
-        $(this).html(moment(html).format('ll'));
       });
     </script>
     <script src='/assets/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>
