@@ -1,26 +1,5 @@
 [
 
-    {   "title" : "Draft",
-        "href" : "/draft",
-        "tags" : [
-        
-            "react",
-        
-            "backbone",
-        
-            "angular",
-        
-            "javascript",
-        
-            "fast rendering",
-        
-            "initial loading",
-        
-            "optimization"
-        
-        ]
-    },
-
     {   "title" : "The recent MVC landscape with Angular+React and Backbone+React",
         "href" : "/The-recent-mvc-landscape-with-Angular-React-and-Backbone-React",
         "tags" : [
