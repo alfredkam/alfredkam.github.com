@@ -277,7 +277,7 @@ http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
       $('.views').each(function () {
         var self = this;
         $.getJSON( 
-            'http://localhost:8000/blog/alfredkam.com'+$(self).data('url')+'/count?include=false&jsoncallback=?',
+            'http://safe-peak-4571.herokuapp.com/blog/alfredkam.com'+$(self).data('url')+'/count?include=false&jsoncallback=?',
             {
                 format : 'json',
             }
