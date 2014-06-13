@@ -8,6 +8,9 @@ body, footer {
 a:hover {
   text-decoration: none; }
 
+.padding-right {
+  padding-right: 15px; }
+
 /* header */
 .title a {
   color: #c85e36; }
@@ -117,7 +120,8 @@ body > div.container {
   top: 27px;
   position: relative;
   font-size: 20px;
-  display: inline; }
+  display: inline;
+  left: 30%; }
 
 .commentCount span:first-child {
   color: #333333; }

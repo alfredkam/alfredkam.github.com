@@ -15,14 +15,16 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
+
+        <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     </head>
     <body>
     <header>
@@ -51,7 +53,7 @@
 
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/best-way-to-develop-a-dynamic-website'>
           <span>
@@ -63,6 +65,9 @@
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/best-way-to-develop-a-dynamic-website'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -109,7 +114,7 @@ Backbone Router<br />
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/phonegap-apps-load-external-url'>
           <span>
@@ -121,6 +126,9 @@ Backbone Router<br />
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/phonegap-apps-load-external-url'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -176,7 +184,7 @@ in iOS</strong></p>
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/git-cheat-sheet'>
           <span>
@@ -188,6 +196,9 @@ in iOS</strong></p>
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/git-cheat-sheet'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -272,7 +283,7 @@ git filter-branch --prune-empty --subdirectory-filter lib master
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/jailbreaking-ios6-0-ios6-0-1-a4-devices'>
           <span>
@@ -284,6 +295,9 @@ git filter-branch --prune-empty --subdirectory-filter lib master
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/jailbreaking-ios6-0-ios6-0-1-a4-devices'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -322,7 +336,7 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/site-clean-up-done'>
           <span>
@@ -334,6 +348,9 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/site-clean-up-done'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -385,17 +402,34 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
   
   </div>
 </div>
+<script type='text/javascript'>
+    (function () {
+      $('.views').each(function () {
+        var self = this;
+        $.getJSON( 
+            'http://localhost:8000/blog/alfredkam.com'+$(self).data('url')+'/count?include=false&jsoncallback=?',
+            {
+                format : 'json',
+            }
+        ).done(function (data) {
+            $(self).html("<i class='icon-eye'></i>"+data.views);
+        }).fail (function (hx, text, err) {
+            console.log(err, text);
+        });
+      });
+    })();
+</script>
 <script type="text/javascript">
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
 
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function () {
-var s = document.createElement('script'); s.async = true;
-s.type = 'text/javascript';
-s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
 </script>
     </div>
 </body>
@@ -454,7 +488,6 @@ s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
       ga('create', 'UA-25416273-1', 'alfredkam.com');
       ga('send', 'pageview');
     </script>
-    <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     <script src='/assets/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
     <!--<script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>-->
     <script type='text/javascript'>
