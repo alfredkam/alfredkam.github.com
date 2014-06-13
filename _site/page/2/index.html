@@ -15,14 +15,16 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
+
+        <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     </head>
     <body>
     <header>
@@ -51,7 +53,7 @@
 
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/node-nodejs-stack-setup'>
           <span>
@@ -63,6 +65,9 @@
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/node-nodejs-stack-setup'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -107,7 +112,7 @@ location / {
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/nginx-with-phpmyadmin-setup'>
           <span>
@@ -119,6 +124,9 @@ location / {
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/nginx-with-phpmyadmin-setup'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -221,7 +229,7 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/typical-way-of-starting-a-startup'>
           <span>
@@ -233,6 +241,9 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/typical-way-of-starting-a-startup'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -249,7 +260,7 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/online-presence'>
           <span>
@@ -261,6 +272,9 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/online-presence'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -293,7 +307,7 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/js-function-crib-sheet'>
           <span>
@@ -305,6 +319,9 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/js-function-crib-sheet'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -366,17 +383,34 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
   
   </div>
 </div>
+<script type='text/javascript'>
+    (function () {
+      $('.views').each(function () {
+        var self = this;
+        $.getJSON( 
+            'http://localhost:8000/blog/alfredkam.com'+$(self).data('url')+'/count?include=false&jsoncallback=?',
+            {
+                format : 'json',
+            }
+        ).done(function (data) {
+            $(self).html("<i class='icon-eye'></i>"+data.views);
+        }).fail (function (hx, text, err) {
+            console.log(err, text);
+        });
+      });
+    })();
+</script>
 <script type="text/javascript">
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
 
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function () {
-var s = document.createElement('script'); s.async = true;
-s.type = 'text/javascript';
-s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
 </script>
     </div>
 </body>
@@ -435,7 +469,6 @@ s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
       ga('create', 'UA-25416273-1', 'alfredkam.com');
       ga('send', 'pageview');
     </script>
-    <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     <script src='/assets/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
     <!--<script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>-->
     <script type='text/javascript'>

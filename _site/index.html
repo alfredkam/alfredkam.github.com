@@ -15,14 +15,16 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
+
+        <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     </head>
     <body>
     <header>
@@ -51,7 +53,7 @@
 
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/The-recent-mvc-landscape-with-Angular-React-and-Backbone-React'>
           <span>
@@ -63,6 +65,9 @@
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/The-recent-mvc-landscape-with-Angular-React-and-Backbone-React'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -161,7 +166,7 @@
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/goodbye-marionette-hello-react'>
           <span>
@@ -173,6 +178,9 @@
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/goodbye-marionette-hello-react'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -393,7 +401,7 @@
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/Moving-to-Jekyll'>
           <span>
@@ -405,6 +413,9 @@
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/Moving-to-Jekyll'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -423,7 +434,7 @@
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/installing-mysql-python-on-mac'>
           <span>
@@ -435,6 +446,9 @@
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/installing-mysql-python-on-mac'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -482,7 +496,7 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
 </div>
 
 <div class='row'>
-  <div class='col-md-1 center'>
+  <div class='col-md-1'>
       <div class='commentCount'>
         <a href='/using-git-hooks-to-deploy-server-with-forever'>
           <span>
@@ -494,6 +508,9 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
             </a>
           </span>
         </a>
+        <div>
+          <span class='views' data-url='/using-git-hooks-to-deploy-server-with-forever'><i class='icon-eye'></i>0</span>
+        </div>
       </div>
   </div>
   <section class='post col-md-10'>
@@ -678,17 +695,34 @@ git push deploy master
   
   </div>
 </div>
+<script type='text/javascript'>
+    (function () {
+      $('.views').each(function () {
+        var self = this;
+        $.getJSON( 
+            'http://localhost:8000/blog/alfredkam.com'+$(self).data('url')+'/count?include=false&jsoncallback=?',
+            {
+                format : 'json',
+            }
+        ).done(function (data) {
+            $(self).html("<i class='icon-eye'></i>"+data.views);
+        }).fail (function (hx, text, err) {
+            console.log(err, text);
+        });
+      });
+    })();
+</script>
 <script type="text/javascript">
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
 
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function () {
-var s = document.createElement('script'); s.async = true;
-s.type = 'text/javascript';
-s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
 </script>
     </div>
 </body>
@@ -747,7 +781,6 @@ s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
       ga('create', 'UA-25416273-1', 'alfredkam.com');
       ga('send', 'pageview');
     </script>
-    <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     <script src='/assets/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
     <!--<script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>-->
     <script type='text/javascript'>

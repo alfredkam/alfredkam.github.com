@@ -15,14 +15,16 @@
         <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
 
         <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/animation.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/animation.css" />
         <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-38bdfbb3/css/fontello-ie7.css" />
+        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello-ie7.css" />
         <![endif]-->
 
         <!-- open sans font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
+
+        <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     </head>
     <body>
     <header>
@@ -51,7 +53,10 @@
             <div>
                 <h1>installing mysql-python on mac</h1>
                 <p class="author">
-                    <span class="date">18 Feb 2014</span>
+                    <span class="date padding-right">18 Feb 2014</span>
+                    <span class='padding-right'><i class='icon-chat-alt'></i>&nbsp;&nbsp;<a href="#disqus_thread">0</a><span>
+                    <span class='views'><i class='icon-eye'></i>0</span>
+            </a>
                 </p>
                 <div class="content">
                   <p>Awesome next challenge - running a flask server to connect to a MAMP [2.1.3] sql server on a mac (mavericks).  Flask is a light weight python server and uses flask-sqlalchemy to connect.  Installing mysql-python seems to be a challenge.</p>
@@ -107,6 +112,34 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
                 </div>
             </div>
             <div id="disqus_thread"></div>
+            <script type='text/javascript'>
+                (function () {
+                    $.getJSON( 
+                        'http://localhost:8000/blog/alfredkam.com/installing-mysql-python-on-mac/count?jsoncallback=?',
+                        {
+                            format : 'json',
+                        }
+                    ).done(function (data) {
+                        $('.views').each(function () {
+                            $(this).html("<i class='icon-eye'></i>"+data.views);
+                        });
+                    }).fail (function (hx, text, err) {
+                        console.log(err, text);
+                    });
+                })();
+            </script>
+            <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function () {
+              var s = document.createElement('script'); s.async = true;
+              s.type = 'text/javascript';
+              s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+              (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+              }());
+            </script>
              <script type="text/javascript">
                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
                  var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
@@ -192,7 +225,6 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
       ga('create', 'UA-25416273-1', 'alfredkam.com');
       ga('send', 'pageview');
     </script>
-    <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
     <script src='/assets/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
     <!--<script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>-->
     <script type='text/javascript'>
