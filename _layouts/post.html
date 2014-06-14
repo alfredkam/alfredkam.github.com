@@ -25,11 +25,8 @@
             <div id="disqus_thread"></div>
             <script type='text/javascript'>
                 (function () {
-                    $.getJSON( 
-                        'http://nerd.alfredkam.com/blog/alfredkam.com{{page.url}}/count?api_key=276fmAeE7ZqRl&jsoncallback=?',
-                        {
-                            format : 'json',
-                        }
+                    $.ajax( 
+                        url :'http://nerd.alfredkam.com/blog/alfredkam.com{{page.url}}/count?api_key=276fmAeE7ZqRl'
                     ).done(function (data) {
                         $('.views').each(function () {
                             $(this).html("<i class='icon-eye'></i>"+data.views);
