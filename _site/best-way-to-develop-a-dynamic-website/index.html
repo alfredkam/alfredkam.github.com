@@ -72,15 +72,17 @@ The web frameworks that we will use are<br />
 - <a href='http://jquery.com'>jquery</a>        , dom manipulations</p>
 <p>as font icons we can get them for free at <a href="http://fontello.com">fontello</a>, their package includes font-awesome</p>
 <p><strong>Folder Structure</strong><br />
-<code><br />
-        index.html<br />
-        css/<br />
-        templates/      <=== contains the html templates<br />
-	js/views/	<=== responsible for inital html materials and listenes to model changes / actions / events<br />
-	js/models/ 	<=== responsible for data models<br />
-	js/controller/ 	<=== defines the site routes<br />
-        blueprints/     <=== contains all the 3rd party library<br />
-</code></p>
+<pre class='language-markup'>
+  <code>
+        index.html
+        css/
+        templates/      <=== contains the html templates
+        js/views/	<=== responsible for inital html materials and listenes to model changes / actions / events
+        js/models/ 	<=== responsible for data models
+        js/controller/ 	<=== defines the site routes
+        blueprints/     <=== contains all the 3rd party library
+</code>
+</pre>
 <p>To setup hashbang (similar to gmail) for page manipulations, there is a backbone module - backbone router.  Using backbone router we can set up page to change dynamically depending on the hashbang setup. To let your hash bang searchable / crawable, checkout this <a href='http://www.alfredkam.com/searchable-hash-bang-seo'>post</a>.</p>
 <p>You can checkout the <a href='https://github.com/alfredkam/boilerplates'>Boiler Plate</a> i've setup using this structure for off the shelve deployment.</p>
 <p><strong>Further Readings</strong><br />
