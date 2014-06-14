@@ -388,11 +388,9 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
     (function () {
       $('.views').each(function () {
         var self = this;
-        $.ajax({
-            url : 'http://nerd.alfredkam.com/blog/alfredkam.com'+$(self).data('url')+'/count?api_key=276fmAeE7ZqRl&include=false'
-        }
+        $.ajax( 
+            'http://nerd.alfredkam.com/blog/alfredkam.com'+$(self).data('url')+'/count?api_key=276fmAeE7ZqRl&include=false'
         ).done(function (data) {
-          console.log(data);
             $(self).html("<i class='icon-eye'></i>"+data.views);
         }).fail (function (hx, text, err) {
             console.log(err, text);
