@@ -423,8 +423,9 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
     (function () {
       $('.views').each(function () {
         var self = this;
-        $.ajax( 
+        $.ajax({
             url : 'http://nerd.alfredkam.com/blog/alfredkam.com'+$(self).data('url')+'/count?api_key=276fmAeE7ZqRl&include=false'
+        }
         ).done(function (data) {
           console.log(data);
             $(self).html("<i class='icon-eye'></i>"+data.views);
