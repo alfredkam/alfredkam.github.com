@@ -3,6 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -388,7 +389,7 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
       $('.views').each(function () {
         var self = this;
         $.getJSON( 
-            'http://safe-peak-4571.herokuapp.com/blog/alfredkam.com'+$(self).data('url')+'/count?include=false&jsoncallback=?',
+            'http://nerd.alfredkam.com/blog/alfredkam.com'+$(self).data('url')+'/count?api_key=276fmAeE7ZqRl&include=false&jsoncallback=?',
             {
                 format : 'json',
             }
