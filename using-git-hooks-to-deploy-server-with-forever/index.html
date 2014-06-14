@@ -228,11 +228,8 @@ git push deploy master
             <div id="disqus_thread"></div>
             <script type='text/javascript'>
                 (function () {
-                    $.getJSON( 
-                        'http://nerd.alfredkam.com/blog/alfredkam.com/using-git-hooks-to-deploy-server-with-forever/count?api_key=276fmAeE7ZqRl&jsoncallback=?',
-                        {
-                            format : 'json',
-                        }
+                    $.ajax( 
+                        url :'http://nerd.alfredkam.com/blog/alfredkam.com/using-git-hooks-to-deploy-server-with-forever/count?api_key=276fmAeE7ZqRl'
                     ).done(function (data) {
                         $('.views').each(function () {
                             $(this).html("<i class='icon-eye'></i>"+data.views);
@@ -329,13 +326,6 @@ git push deploy master
             </div>
         </div>    
     </footer>
-    <script>
-      $.ajax({
-        url : 'http://nerd.alfredkam.com/blog/alfredkam.com/test/count?include=false&api_key=276fmAeE7ZqRl',
-      }).done(function (data) {
-        console.log(data);
-      });
-    </script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
