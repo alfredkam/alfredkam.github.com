@@ -168,9 +168,9 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
             <div id="disqus_thread"></div>
             <script type='text/javascript'>
                 (function () {
-                    $.ajax( 
+                    $.ajax({ 
                         url :'http://nerd.alfredkam.com/blog/alfredkam.com/nginx-with-phpmyadmin-setup/count?api_key=276fmAeE7ZqRl'
-                    ).done(function (data) {
+                    }).done(function (data) {
                         $('.views').each(function () {
                             $(this).html("<i class='icon-eye'></i>"+data.views);
                         });
