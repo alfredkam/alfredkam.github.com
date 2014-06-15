@@ -2,15 +2,48 @@
     <header>
     {% include nav.html %}
     </header>
-    <div class='row'>
+        <style>
+          .headerImg {
+            background: url(/{{'test'| randomImage }}) center;
+            height: 273px;
+            width: 100%;
+            position: relative;
+          }
+          .headerImg-title {
+            position: absolute;
+            top: 85px;
+            text-align: center;
+            color: #ee7063;
+            width:100%;
+          }
+          .headerImg-black {
+            background:#000;
+            height: 273px;
+            width: 100%;
+            position: absolute;
+            opacity: 0.5;
+            top:0;
+          }
+          .header-wrapper {
+            margin-bottom: 10px;
+          }
+        </style>
+        <div class='col-sm-12'>
+        <div class='row header-wrapper'>
+          <div class='headerImg'>
+          </div>
+          <div class='headerImg-black'></div>
+          <h1 class='headerImg-title'>{{ page.title }}</h1>
+        </div>
+        </div>
+        <div class='container'>
         <div class='col-md-10 col-md-offset-1'>
             <div>
-                <h1>{{ page.title }}</h1>
                 <p class="author">
                     <span class="date padding-right">{{ page.date | date_to_string }}</span>
                     <span class='padding-right'><i class='icon-chat-alt'></i>&nbsp;&nbsp;<a href="{{ post.url }}#disqus_thread">0</a><span>
                     <span class='views'><i class='icon-eye'></i>0</span>
-            </a>
+                  </a>
                 </p>
                 <div class="content">
                   {{ content }}
