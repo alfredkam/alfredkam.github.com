@@ -278,7 +278,7 @@ http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
       $('.views').each(function () {
         var self = this;
         $.ajax( 
-            'http://nerd.alfredkam.com/blog/alfredkam.com'+$(self).data('url')+'/count?api_key=276fmAeE7ZqRl&include=false'
+            'http://nerd.alfredkam.com/blog'+$(self).data('url')+'/count?api_key=276fmAeE7ZqRl&include=false'
         ).done(function (data) {
             $(self).html("<i class='icon-eye'></i>"+data.views);
         }).fail (function (hx, text, err) {
