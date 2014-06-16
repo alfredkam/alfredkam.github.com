@@ -10,3 +10,6 @@ url: http://www.alfredkam.com
 sass:
     sass_dir: assets/css
     style: :compressed
+sitemap:
+    exclude:
+        -  '/search.json'
