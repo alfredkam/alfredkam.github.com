@@ -1,4 +1,10 @@
 /* base css */
+a {
+  -moz-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear; }
+
 .center {
   text-align: center; }
 
@@ -158,7 +164,11 @@ body > div.container {
   font-size: 15px;
   padding: 2px 4px;
   border: 1px solid white;
-  display: inline; }
+  display: inline;
+  -moz-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear; }
 
 .searchBtn:hover {
   border-radius: 3px;
@@ -193,10 +203,15 @@ body > div.container {
   border: 1px solid #eeeeee;
   margin-left: 10px;
   border-radius: 50px;
-  color: #a5b2b9; }
+  color: #a5b2b9;
+  -moz-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear; }
 
 #searchSpace .icon-cancel:hover {
-  color: #333333; }
+  color: #333333;
+  border-color: #333333; }
 
 #searchSpace .results:hover {
   background: #f0f0f0; }
