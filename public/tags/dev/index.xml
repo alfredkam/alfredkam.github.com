@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Dev on Alfred kam </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/tags/dev/index.xml</link>
+    <language>en-us</language>
+    
+    
+    <updated>Mon, 17 Feb 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>nginx with changed phpmyadmin directory setup</title>
+      <link>http://localhost:1313/post/2014-02-17-nginx-with-phpmyadmin-setup</link>
+      <pubDate>Mon, 17 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/post/2014-02-17-nginx-with-phpmyadmin-setup</guid>
+      <description>&lt;p&gt;Recently decided to setup a nginx / python / mysql lightweight backend to interact with a nodejs services.   So decided to change phpmyadmin directory as well - i did run into 502 / 403 nginx errors, hope this post will help anyone who had the same issues too.&lt;/p&gt;
+&lt;p&gt;Setup process - assuming you are using ubuntu 12.04LTS&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+#install mysql &amp; nginx
+sudo apt-get install mysql-server mysql-client
+sudo apt-get install nginx
+
+#start nginx
+sudo service nginx start
+
+#install php5 &amp; phpmyadmin
+sudo apt-get install php5-fpm php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-xcache phpmyadmin
+
+#reload php5
+sudo service php5-fpm reload
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+#modify php5-fpm
+sudo vi /etc/php5/fpm/pool.d/www.conf
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+#look for listen and modify as follow
+[...]
+;listen = 127.0.0.1:9000
+listen = /tmp/php5-fpm.sock
+[...]
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+#setup nginx config
+sudo vi /etc/nginx/site-enabled/default
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+#add this after location /
+[...]
+location /pma {
+    alias /usr/share/phpmyadmin/;
+}
+
+location ~ ^/pma/(.*\.(js|css|gif|jpg|png))$ {
+    alias /usr/share/phpmyadmin/$1;
+}
+
+location ~ ^/pma(.+\.php)$ {
+    alias /usr/share/phpmyadmin$1;
+    fastcgi_pass unix:/tpm/php5-fpm.sock;
+    fastcgi_index index.php;
+
+    charset utf8;
+
+    include fastcgi_params;
+    fastcgi_param DOCUMENT_ROOT /usr/share/phpmyadmin;
+}
+
+#if you want to enable php site wide
+location ~ \.php$ {
+                try_files $uri =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/tmp/php5-fpm.sock;
+                fastcgi_index index.php;
+                include fastcgi_params;
+}
+[...]
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+sudo service nginx reload
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;FYI: The most common 502 / 403 errors are due to this line in the nginx config file. &lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock; 
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Hopefully this post will help some travellers here.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Source&lt;/b&gt;&lt;br&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/17359413/nginx-change-phpmyadmin-directory&#34;&gt;stackoverflow&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://www.howtoforge.com/installing-nginx-with-php5-and-php-fpm-and-mysql-support-lemp-on-ubuntu-12.04-lts&#34;&gt;howtoforge&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>nginx / nodejs stack setup</title>
+      <link>http://localhost:1313/post/2014-02-17-node-nodejs-stack-setup</link>
+      <pubDate>Mon, 17 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/post/2014-02-17-node-nodejs-stack-setup</guid>
+      <description>&lt;p&gt;So when you have an nginx + nodejs combo, you want to use &lt;i&gt;nginx to port foward to nodejs&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;my nodejs uses forever to run on port 3000.&lt;/p&gt;
+&lt;p&gt;here is the nginx config setup&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+sudo vi /etc/nginx/site-enabled/default
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+#add this line before server { ... }
+[...]
+upstream app_nodejs {
+        server localhost:3000;
+}
+[...]
+
+#now in server {...}, assuming you want to map your url root to point to nodejs
+location / {
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_set_header X-NginX-Proxy true;
+
+               proxy_pass http://app_nodejs;
+               proxy_redirect off;
+           }
+
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Cheers&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Function Crib Sheet</title>
+      <link>http://localhost:1313/post/2013-05-08-js-function-crib-sheet</link>
+      <pubDate>Wed, 08 May 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/post/2013-05-08-js-function-crib-sheet</guid>
+      <description>&lt;p&gt;Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.&lt;/p&gt;
+&lt;p&gt;The cryptsheet includes these functions and can be found here : &lt;a href=&#39;https://github.com/alfredkam/jsFunctions&#39;&gt;https://github.com/alfredkam/jsFunctions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;General Laziness::&lt;br /&gt;
+- jquery toggle string&lt;br /&gt;
+- jquery enter keyup event&lt;/p&gt;
+&lt;p&gt;Mathematical Functions::&lt;br /&gt;
+- n choose r&lt;br /&gt;
+- Binomial Distribution&lt;br /&gt;
+- Probability Mass Function  (Useful when wanted to create a bell curve)&lt;br /&gt;
+- Summation&lt;/p&gt;
+&lt;p&gt;If the function your missing is not listed, comment below and i may be able to write one.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CSS Cheat Sheet</title>
+      <link>http://localhost:1313/post/2013-03-06-css-cheat-sheet</link>
+      <pubDate>Wed, 06 Mar 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/post/2013-03-06-css-cheat-sheet</guid>
+      <description>&lt;p&gt;css wildcards&lt;/p&gt;
+&lt;p&gt;css goodies from the net&lt;br&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/css-checkbox-styles&#39;&gt;CheckBox&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/dusty-particle-sphere&#39;&gt;Dust Particles&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/loadingku&#39;&gt;Loading Effect&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/pure-css3-dial-clock&#39;&gt;Pure css3 dial clock&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Allow password authentications on Amazon ec2 instance</title>
+      <link>http://localhost:1313/post/2013-02-09-allow-passowrd-login-on-ec2</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/post/2013-02-09-allow-passowrd-login-on-ec2</guid>
+      <description>&lt;p&gt;Step 1 - ssh into server&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&lt;br /&gt;
+ssh -i ssh_key.pem my_amazon_ec2_instance.url&lt;br /&gt;
+&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Searchable Hash Bang (SEO)</title>
+      <link>http://localhost:1313/post/2013-02-01-searchable-hash-bang-seo</link>
+      <pubDate>Fri, 01 Feb 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/post/2013-02-01-searchable-hash-bang-seo</guid>
+      <description>&lt;p&gt;Having a dynamic website, AJAX is often used and rely on hash bang to act as a http GET to let the site be interactive.  Inorder to have your application searchable / crawable, there are couple of rules to follow as suggested by &lt;a href=&#39;https://developers.google.com/webmasters/ajax-crawling/docs/specification&#39;&gt;the google specs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Assuming your too lazy to checkout the specs. In summary the hash bang should be setup this way:&lt;/p&gt;
+&lt;p&gt;In a typical site, you will notice the url with http GET are written in this format&lt;br /&gt;
+&lt;code&gt;&lt;br /&gt;
+http://yoursite.com?key1=value1&amp;key2=value2&lt;br /&gt;
+&lt;/code&gt;&lt;br /&gt;
+Now in your hashbang, your will want to transform&lt;br /&gt;
+&lt;code&gt;&lt;br /&gt;
+http://yoursite.com#value1&amp;value2&lt;br /&gt;
+&lt;/code&gt;&lt;br /&gt;
+into beautiful url&lt;br /&gt;
+&lt;code&gt;&lt;br /&gt;
+http://yoursite.com&lt;strong&gt;#!key1=value1&amp;key2=value2&lt;/strong&gt;&lt;br /&gt;
+&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Git Cheat Sheet</title>
+      <link>http://localhost:1313/post/2012-12-17-git-cheat-sheet</link>
+      <pubDate>Mon, 17 Dec 2012 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/post/2012-12-17-git-cheat-sheet</guid>
+      <description>&lt;p&gt;&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+#Setting up git from scratch
+git init                                             #initialize git
+git remote add &amp;lt; remote_label &amp;gt; &amp;lt; destination &amp;gt;      #adds a new remote destination with a label
+git fetch &amp;lt; remote_label &amp;gt;                           #fetches the head of the repo
+git checkout master                                  #checkouts the master branch&lt;/p&gt;
+
+&lt;p&gt;#Setting up git from another repo
+git clone &amp;lt; remote_label &amp;gt;  &amp;lt; optional_dir_location &amp;gt;  #clone a repo with git config ready&lt;/p&gt;
+
+&lt;p&gt;#Branching
+git branch                                     #list all branches
+git branch &amp;lt; branch_label &amp;gt;                    #creates a new local branch with name &amp;lt; branch_label &amp;gt;
+git branch -d &amp;lt; branch_label &amp;gt;                 #deletes the local branch with name &amp;lt; branch_label &amp;gt;
+git push &amp;lt; remote_label&amp;gt; :&amp;lt; branch_label &amp;gt;     #deletes remote branch&lt;/p&gt;
+
+&lt;p&gt;#Merging
+git checkout &amp;lt; branch to be merge &amp;gt;&lt;br /&gt;
+git merge &amp;lt; branch_name &amp;gt;                      #merge recursively and auto commit&lt;/p&gt;
+
+&lt;p&gt;additional info - &lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/git-merge.html&#34; title=&#34;git merge&#34;&gt;git merge man page&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;#fetch &amp;amp; pulling
+git pull &amp;lt; remote_label &amp;gt; &amp;lt; branch_label&amp;gt;      #it will recursively merge with your repo
+git fetch &amp;lt; remote_label &amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#Commit
+git commit -a -m &amp;lt; message &amp;gt;                   #local commit
+git commit -amend -m &amp;lt; message &amp;gt;               #edit last commit message
+git push &amp;lt; remote_label &amp;gt; &amp;lt; branch_label &amp;gt;     #commits to remote branch&lt;/p&gt;
+
+&lt;p&gt;#Tagging
+git tag -a &amp;lt; comment &amp;gt;                         #to remember a specific point
+git push &amp;ndash;tag                                 #pushes tag&lt;/p&gt;
+
+&lt;p&gt;#To delete a tag
+git tag -d &amp;lt; tag_name &amp;gt;
+git push origin :&amp;lt; tag_name &amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#if tag name is same as one of your branch name
+git tag -d &amp;lt; tag_name &amp;gt;
+git push origin :refs/tag/&amp;lt; tag_name &amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#Logging
+git log                                        #shows the commit log&lt;/p&gt;
+
+&lt;p&gt;#Untrack a file
+git rm &amp;ndash;cache &amp;lt; file_name &amp;gt;                   #untracks a file, thus not included in repo&lt;/p&gt;
+
+&lt;p&gt;#Stashing
+git stash&lt;/p&gt;
+
+&lt;p&gt;#cloning a bare repo for deployment purpose
+git clone &amp;ndash;bare
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;additional info &lt;a href=&#39;http://www.kernel.org/pub/software/scm/git/docs/git-stash.html&#39; title=&#39;git stash man page&#39;&gt;git stash man page&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+#reverting to previous commits  [Advance]
+git checkout &amp;lt; commit_hash &amp;gt;                     #checkout the indicated commit hash
+git checkout -b &amp;lt; branch_label &amp;gt; &amp;lt; commit_hash&amp;gt;  #branches with &amp;lt; branch_label &amp;gt; and checkout to the commit hash
+git reset &amp;ndash;hard &amp;lt; commit_hash &amp;gt;                 #destroys the local modification, you will loose the uncommit work
+git revert &amp;lt; commit_hash &amp;gt;                       #reverts to the previous commit&lt;/p&gt;
+
+&lt;p&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;additional info - &lt;a href=&#34;http://schacon.github.com/git/git-revert.html&#34; title=&#34;git revert man page&#34;&gt;git revert man page&lt;/a&gt; &amp;amp; &lt;a href=&#34;http://stackoverflow.com/questions/4114095/git-revert-to-previous-commit-how&#34; title=&#34;stack over flow git revert qa&#34;&gt;stack over flow git revert qa&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+#splitting a subpath out into a new repo
+git filter-branch &amp;ndash;prune-empty &amp;ndash;subdirectory-filter lib master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;additional info - &lt;a href=&#34;https://help.github.com/articles/splitting-a-subpath-out-into-a-new-repo&#34;&gt;github:help&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Best way to develop a dynamic website</title>
+      <link>http://localhost:1313/post/2012-12-20-best-way-to-develop-a-dynamic-website</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/post/2012-12-20-best-way-to-develop-a-dynamic-website</guid>
+      <description>&lt;p&gt;The develop a dynamic website, with all those smooth page transitions similar to gmail.  As per design we will use &lt;a href=&#34;http://twitter.github.com/bootstrap/&#34;&gt;Bootstrap&lt;/a&gt;, Bootstrap provides all the css tools you need to setup a quick website.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Frontend skills you will need&lt;/strong&gt;&lt;br /&gt;
+- javascript&lt;br /&gt;
+- html&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Frameworks&lt;/strong&gt;&lt;br /&gt;
+First of all we will start of with a model view controller + observer design patterns to achieve a maintainable site.&lt;br /&gt;
+The web frameworks that we will use are&lt;br /&gt;
+- &lt;a href=&#39;http://backbonejs.org&#39;&gt;backbone js&lt;/a&gt;   , giving a &#34;structure&#34; to the code&lt;br /&gt;
+- &lt;a href=&#39;http://requirejs.org&#39;&gt;require js&lt;/a&gt;    , setting up javascript dependencies, works like php include&lt;br /&gt;
+- &lt;a href=&#39;http://mustache.github.com&#39;&gt;mustache&lt;/a&gt;      , page templates&lt;br /&gt;
+- &lt;a href=&#39;http://jquery.com&#39;&gt;jquery&lt;/a&gt;        , dom manipulations&lt;/p&gt;
+&lt;p&gt;as font icons we can get them for free at &lt;a href=&#34;http://fontello.com&#34;&gt;fontello&lt;/a&gt;, their package includes font-awesome&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Folder Structure&lt;/strong&gt;&lt;br /&gt;
+&lt;pre class=&#39;language-markup&#39;&gt;
+  &lt;code&gt;
+        index.html
+        css/
+        templates/      &lt;=== contains the html templates
+        js/views/   &lt;=== responsible for inital html materials and listenes to model changes / actions / events
+        js/models/  &lt;=== responsible for data models
+        js/controller/  &lt;=== defines the site routes
+        blueprints/     &lt;=== contains all the 3rd party library
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;To setup hashbang (similar to gmail) for page manipulations, there is a backbone module - backbone router.  Using backbone router we can set up page to change dynamically depending on the hashbang setup. To let your hash bang searchable / crawable, checkout this &lt;a href=&#39;http://www.alfredkam.com/searchable-hash-bang-seo&#39;&gt;post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can checkout the &lt;a href=&#39;https://github.com/alfredkam/boilerplates&#39;&gt;Boiler Plate&lt;/a&gt; i&#39;ve setup using this structure for off the shelve deployment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Further Readings&lt;/strong&gt;&lt;br /&gt;
+Backbone Router&lt;br /&gt;
+- http://backbonetutorials.com/what-is-a-router/&lt;/p&gt;
+&lt;p&gt;Backbone + MVC&lt;br /&gt;
+- http://backbonetutorials.com/organizing-backbone-using-modules/&lt;br /&gt;
+- http://coenraets.org/blog/2011/12/backbone-js-wine-cellar-tutorial-part-1-getting-started/&lt;br /&gt;
+- http://blog.andyet.com/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/&lt;br /&gt;
+- http://backbonetutorials.com/what-is-a-model/&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
