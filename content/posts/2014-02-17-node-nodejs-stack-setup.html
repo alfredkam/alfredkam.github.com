@@ -1,0 +1,58 @@
++++
+layout: post
+title: nginx / nodejs stack setup
+categories:
+- Dev
+tags:
+- nginx
+- node
+- nodejs
+- portforward
+status: publish
+type: post
+published: true
+meta:
+  wpgplus_publish: 'yes'
+  wpgplus_message: ''
+  _edit_last: '1'
+  Hide SexyBookmarks: '0'
+  Hide OgTags: '0'
+  _wpas_done_all: '1'
+  _wp_old_slug: nodenodejsstacksetup
+author:
+  login: akam
+  email: kam.alfred@gmail.com
+  display_name: Alfred
+  first_name: ''
+  last_name: ''
++++
+<p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
+<p>my nodejs uses forever to run on port 3000.</p>
+<p>here is the nginx config setup</p>
+<pre>
+<code class="language-bash">
+sudo vi /etc/nginx/site-enabled/default
+</code>
+</pre>
+<pre>
+<code class="language-bash">
+#add this line before server { ... }
+[...]
+upstream app_nodejs {
+        server localhost:3000;
+}
+[...]
+
+#now in server {...}, assuming you want to map your url root to point to nodejs
+location / {
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_set_header X-NginX-Proxy true;
+
+               proxy_pass http://app_nodejs;
+               proxy_redirect off;
+           }
+
+</code>
+</pre>
+<p>Cheers</p>
