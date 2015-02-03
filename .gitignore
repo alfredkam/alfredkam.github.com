@@ -10,3 +10,4 @@ node_modules/
 *.iml
 config/app.json
 *.sublime-*
+public
