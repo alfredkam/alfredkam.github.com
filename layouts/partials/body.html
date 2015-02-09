@@ -1,0 +1,107 @@
+        <style>
+          .headerImg {
+            background: url(/* image */) center;
+            height: 273px;
+            width: 100%;
+            position: relative;
+          }
+          .headerImg-title {
+            position: absolute;
+            top: 85px;
+            text-align: center;
+            color: #ee7063;
+            width:100%;
+          }
+          .headerImg-black {
+            background:#000;
+            height: 273px;
+            width: 100%;
+            position: absolute;
+            opacity: 0.5;
+            top:0;
+          }
+          .header-wrapper {
+            margin-bottom: 10px;
+          }
+        </style>
+        <div class='row header-wrapper'>
+        <div class='col-sm-12'>
+          <div class='headerImg'>
+          </div>
+          <div class='headerImg-black'></div>
+          <h1 class='headerImg-title'>{{ .Title }}</h1>
+        </div>
+        </div>
+        <div class='container'>
+        <div class='col-md-10 col-md-offset-1'>
+            <div>
+                <p class="author">
+                    <span class="date padding-right">{{ .Date.Format "Mon Jan 2, 2006" }}</span>
+                    <span class='padding-right'><i class='icon-chat-alt'></i>&nbsp;&nbsp;<a href="{{ .Site.BaseUrl }}#disqus_thread">0</a><span>
+                    <span class='views'><i class='icon-eye'></i>0</span>
+                  </a>
+                </p>
+                <div class="content">
+                  {{ .Content }}
+                </div>
+                <div class='tags'>
+                    <i class='icon-tag'></i>
+                    {{ range .Params.tags }}
+                      &nbsp;<a href='/tags/{{ . | urlize }}'>{{ . }}</a>
+                    {{ end }}
+                </div>
+            </div>
+            <div id="disqus_thread"></div>
+            <script type='text/javascript'>
+                (function () {
+                    $.ajax({ 
+                        url :'http://nerd.alfredkam.com/blog/{{ .RelPermalink }}/count?api_key=276fmAeE7ZqRl'
+                    }).done(function (data) {
+                        $('.views').each(function () {
+                            $(this).html("<i class='icon-eye'></i>"+data.views);
+                        });
+                    }).fail (function (hx, text, err) {
+                        console.log(err, text);
+                    });
+                })();
+            </script>
+            <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function () {
+              var s = document.createElement('script'); s.async = true;
+              s.type = 'text/javascript';
+              s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+              (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+              }());
+            </script>
+             <script type="text/javascript">
+                 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                 var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+                 var disqus_url = 'http://alfredkam.com/{{ .Url }}';
+                 /* * * DON'T EDIT BELOW THIS LINE * * */
+                 (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+             </script>
+             <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+             <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+    <!-- AddThis Smart Layers BEGIN -->
+    <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52fe302726d95ddf"></script>
+    <script type="text/javascript">
+      addthis.layers({
+        'theme' : 'transparent',
+        'share' : {
+          'position' : 'left',
+          'numPreferredServices' : 1
+        },  
+        'whatsnext' : {}  
+      });
+    </script>

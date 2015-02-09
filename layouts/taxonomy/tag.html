@@ -1,0 +1,14 @@
+{{ partial "header.html" .}}
+    <body>
+        {{ partial "nav.html" . }}
+        <div class='container'>
+
+            <h1 id="title">{{ .Title }}</h1>
+
+            {{ range .Data.Pages }}
+                  {{ partial "summary.html" . }}
+            {{ end }}
+            
+        </div>
+    </body>
+{{ partial "footer.html" . }}

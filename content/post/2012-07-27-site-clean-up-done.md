@@ -2,6 +2,7 @@
 template = "post"
 title = "site clean up done!"
 url = "site clean up done"
+img = "/img/"
 type = "post"
 date = "2012-07-27" 
 +++

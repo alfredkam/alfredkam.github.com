@@ -91,4 +91,93 @@ type = "post"
 </p>
 <p>
     I believe this pretty much dictates which combination is the go to framework for heavy web apps.  Every second counts to keep your user on your site!
+</p>ntender in the market called Facebook React, I'll just call it React for short.  React is a 'View' Framework.  So in terms of a MVC, its the 'V' Component.  Suprisingly React further simplified the entire landscape of 'View' framework.  It only expose the real nodes that you have
+</p>
+<p>
+  Lets see how this will look like in React, ive also included the propeller <a href='https://github.com/usepropeller/react.backbone'>react.backbone</a>.  It allows us to feed in backbone models into react and databind with mixin.
+</p>
+
+<pre>
+  <code class='language-markup'>
+      <!-- html structure -->
+      &#60;html&#62;
+        &#60;body&#62;
+        &#60;/body&#62;
+      &#60;/html&#62;
+  </code>
+  <code class='language-javascript'>
+    //javascript code
+    /** @jsx React.DOM **/
+    'use strict';
+
+    define ([
+      'jquery', backbone', 'react', 'react.backbone'
+    ], function (
+      $, Backbone, React,
+    ) {
+
+      var CommentComponent = React.createBackboneClass({
+        var comments = this.props.collection.map(function(item) {
+          return (
+            {item.get('comment')}
+          )
+        });
+        return (
+          <div>
+            {comments}
+          </div>
+        );
+      });
+
+      var StatsComponent = React.createBackboneClass({
+        render : function () {
+          return (
+            <div> 
+              {/* html template */}
+            </div>
+          );
+        }
+      });
+
+      var MenuComponent = React.createBackboneClass({
+        render : function () {
+          return (
+            <div> 
+              {/* html template */}
+            </div>
+          );
+        }
+      });
+
+      var WidgetLayout = React.createBackboneClass({
+        componentWillMount : function () {
+          this.collection = Backbone.Collection();
+        },
+        render : function () {
+          return (
+            <StatsComponent />
+            <CommentsComponent collection={this.collection}/>
+          )
+        };
+      });
+
+      var AppLayout = React.createBackboneClass({
+        render : function () {
+          return (
+            <div>
+                <MenuComponent />
+                <WidgetLayout />
+            </div>
+          );
+        };
+      });
+      React.renderComponent({
+        <AppLayout />,
+        $('body')[0]
+      });
+    });
+  </code>
+</pre>
+<p>
+  The code base is smaller, easier to understand and to control.  Now some may ask about Angular + React comparing with Backbone + React.  For this I'll leave it to next post, but this is now pretty clear Marionette is out of the game.
 </p>

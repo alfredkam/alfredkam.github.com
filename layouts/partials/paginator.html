@@ -1,33 +1,6 @@
 {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
 {{ range $paginator.Pages }}
-<div class='row'>
-  <div class='col-md-1'>
-      <div class='commentCount'>
-        <a href='{{ .Site.BaseUrl }}'>
-          <span>
-            <l class='icon-chat-alt'></l>
-          </span>
-          <span>
-            <a href="{{ .Site.BaseUrl }}#disqus_thread">
-                0
-            </a>
-          </span>
-        </a>
-        <div>
-          <span class='views' data-url='{{ .Site.BaseUrl }}'><i class='icon-eye'></i>0</span>
-        </div>
-      </div>
-  </div>
-  <section class='post col-md-10'>
-    <h1><a href="{{ .Permalink}} ">{{ .Title }}</a></h1>
-    <p class="author">
-      <span class="date">{{ .Date }}</span>
-    </p>
-    <div class="content">
-      {{ .Content }}
-    </div>
-  </section>
-</div>
+  {{ partial "summary.html" . }}
 {{ end }}
 <div class='row'>
   {{ template "_internal/pagination.html" . }}
@@ -36,8 +9,11 @@
     (function () {
       $('.views').each(function () {
         var self = this;
+        var url = $(self).data('url').replace(/.*(\/[0-9\-a-zA-Z]+$)/,function (match, p1) {
+          return p1 || 0;
+        });
         $.ajax( 
-            'http://nerd.alfredkam.com/blog'+$(self).data('url')+'/count?api_key=276fmAeE7ZqRl&include=false'
+            'http://nerd.alfredkam.com/blog'+ url +'/count?api_key=276fmAeE7ZqRl&include=false'
         ).done(function (data) {
             $(self).html("<i class='icon-eye'></i>"+data.views);
         }).fail (function (hx, text, err) {

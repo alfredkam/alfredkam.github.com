@@ -80,6 +80,13 @@ a.navbar-brand span {
 .subtitle {
   font-size: 10px; }
 
+section h1 a, .commentCount a{
+  color: #212121;
+}
+section h1 a:hover, .commentCount a:hover {
+  color: #428bca;
+}
+
 /* header mobile */
 .navbar-header button {
   z-index: 99; }
@@ -114,7 +121,9 @@ footer {
 
 .copyright-info {
   padding-top: 30px;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  color: #E0E0E0;
+}
 
 /* body */
 body > div.container {
