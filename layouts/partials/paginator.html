@@ -1,0 +1,60 @@
+{{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+{{ range $paginator.Pages }}
+<div class='row'>
+  <div class='col-md-1'>
+      <div class='commentCount'>
+        <a href='{{ .Site.BaseUrl }}'>
+          <span>
+            <l class='icon-chat-alt'></l>
+          </span>
+          <span>
+            <a href="{{ .Site.BaseUrl }}#disqus_thread">
+                0
+            </a>
+          </span>
+        </a>
+        <div>
+          <span class='views' data-url='{{ .Site.BaseUrl }}'><i class='icon-eye'></i>0</span>
+        </div>
+      </div>
+  </div>
+  <section class='post col-md-10'>
+    <h1><a href="{{ .Permalink}} ">{{ .Title }}</a></h1>
+    <p class="author">
+      <span class="date">{{ .Date }}</span>
+    </p>
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </section>
+</div>
+{{ end }}
+<div class='row'>
+  {{ template "_internal/pagination.html" . }}
+</div>
+<script type='text/javascript'>
+    (function () {
+      $('.views').each(function () {
+        var self = this;
+        $.ajax( 
+            'http://nerd.alfredkam.com/blog'+$(self).data('url')+'/count?api_key=276fmAeE7ZqRl&include=false'
+        ).done(function (data) {
+            $(self).html("<i class='icon-eye'></i>"+data.views);
+        }).fail (function (hx, text, err) {
+            console.log(err, text);
+        });
+      });
+    })();
+</script>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>

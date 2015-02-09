@@ -3,6 +3,8 @@ template = "post"
 title = "Git Cheat Sheet"
 tags = ["Dev", "Cheat Sheet", "Dev Notes", "git"]
 date = "2012-12-17"
+url = "git cheat sheet"
+type = "post"
 +++
 <pre><code class='language-markup'>
 #Setting up git from scratch

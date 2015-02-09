@@ -1,6 +1,8 @@
 +++
 template = "post"
 title = "using git hooks to deploy server with forever"
+url = "using git hooks to deploy server with forever"
+type = "post"
 tags = ["automatic deploy","dev-guide","eacces issue","flask","forever","git","git hooks","hooks","init.d service","nodejs","npm","python"]
 date = "2014-02-17"
 +++

@@ -3,6 +3,8 @@ template = "post"
 title = "PhoneGap Apps + Load External Url"
 tags = ["Android", "iOS","phonegap"]
 date = "2012-12-17"
+url = "phonegap apps load external url"
+type = "post"
 +++
 <p><strong>To enable access to whitelist domain</strong><br />
 http://docs.phonegap.com/en/1.9.0/guide_whitelist_index.md.html</p>

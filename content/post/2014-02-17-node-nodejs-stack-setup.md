@@ -3,6 +3,8 @@ template = "post"
 title = "nginx / nodejs stack setup"
 tags = ["Dev", "nginx", "node", "nodejs", "portforward"]
 date = "2014-02-17"
+type = "post"
+url = "nginx nodejs stack setup"
 +++
 <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
 <p>my nodejs uses forever to run on port 3000.</p>

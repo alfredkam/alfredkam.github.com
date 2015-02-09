@@ -3,6 +3,8 @@ template = "post"
 title = "Goodbye Marionette & Hello React"
 tags = ["react","backbonejs","marionettejs","angular","javascript"]
 date = "2014-05-28"
+type = "post"
+url = "Goodbye Marionette Hello React"
 +++
 
 <p>
@@ -19,7 +21,7 @@ date = "2014-05-28"
 </p>
 <div class='row'>
   <div class='col-md-12'>
-    <img style='width:100%' src='/assets/img/layout-example-marionette+react.svg'></img>
+    <img style='width:100%' src='/img/layout-example-marionette+react.svg'></img>
   </div>
 </div>
 <pre class='language-javascript'>

@@ -3,6 +3,8 @@ template = "post"
 title = "Searchable Hash Bang (SEO)"
 tags = ["Dev", "ajax", "Dev Notes", "Front-End", "Hash Bang", "JavaScript", "SEO"]
 date = "2013-02-01"
+type = "post"
+url = "searchable hash bang seo"
 +++
 <p>Having a dynamic website, AJAX is often used and rely on hash bang to act as a http GET to let the site be interactive.  Inorder to have your application searchable / crawable, there are couple of rules to follow as suggested by <a href='https://developers.google.com/webmasters/ajax-crawling/docs/specification'>the google specs</a>.</p>
 <p>Assuming your too lazy to checkout the specs. In summary the hash bang should be setup this way:</p>

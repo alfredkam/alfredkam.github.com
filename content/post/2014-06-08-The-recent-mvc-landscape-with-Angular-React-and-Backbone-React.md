@@ -3,6 +3,8 @@ template = "post"
 title = "The recent MVC landscape with Angular+React and Backbone+React"
 tags = ["react","backbone","angular","javascript","fast rendering", "inital loading","optimization"]
 date = "2014-06-08"
+url = "The recent MVC landscape with Angular React and Backbone React"
+type = "post"
 +++
 <p>
     This post might bring in some arguments for both parties that favour one of the framework then the other, but this will be a worth while comparision to take a look at the recent MVC landscape.  Just to clarify - I'm still relatively new to Angular.

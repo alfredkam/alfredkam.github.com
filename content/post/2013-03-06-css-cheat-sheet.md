@@ -3,6 +3,8 @@ template = "post"
 title = "CSS Cheat Sheet"
 tags = ["Dev", "Cheat sheet", "css", "Dev Notes"]
 date = "2013-03-06"
+type = "post"
+url = "cs cheat sheet"
 +++
 <p>css wildcards</p>
 <p>css goodies from the net<br><br />

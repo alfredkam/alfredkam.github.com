@@ -1,6 +1,8 @@
 +++
 template = "post"
 title = "installing mysql-python on mac"
+url = "installing mysql-python on mac"
+type = "post"
 tags = ["documentation", "flask","mac","mysql-python","sqlalchemy"]
 date = "2014-02-18"
 +++

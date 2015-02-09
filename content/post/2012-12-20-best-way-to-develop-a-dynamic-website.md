@@ -2,7 +2,9 @@
 template = "post"
 title = "Best way to develop a dynamic website"
 tags = ["Dev", "JavaScript"]
-date = "2012-20-20"
+date = "2012-12-20"
+url = "best way to develop a dynamic website"
+type = "post"
 +++
 <p>The develop a dynamic website, with all those smooth page transitions similar to gmail.  As per design we will use <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, Bootstrap provides all the css tools you need to setup a quick website.</p>
 <p><strong>Frontend skills you will need</strong><br />

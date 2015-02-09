@@ -3,6 +3,8 @@ template = "post"
 title = "nginx with changed phpmyadmin directory setup"
 tags = ["403", "502", "changed phpmyadmin directory", "phpmyadmin", "nginx", "Dev"]
 date = "2014-02-17"
+url = "nginx with phpmyadmin setup"
+type = "post"
 +++
 <p>Recently decided to setup a nginx / python / mysql lightweight backend to interact with a nodejs services.   So decided to change phpmyadmin directory as well - i did run into 502 / 403 nginx errors, hope this post will help anyone who had the same issues too.</p>
 <p>Setup process - assuming you are using ubuntu 12.04LTS</p>

@@ -3,6 +3,8 @@ template = "post"
 title = "JavaScript Function Crib Sheet"
 tags = ["Dev", "Bell Curve", "Binomial Distribution", "Cheat Sheet", "Dev Notes", "Javascript", "js", "Lazy", "Math Functions", "PMF", "Probability Mass Function", "toggle", "toggle string"]
 date = "2013-05-08"
+url = "js function crib sheet"
+type = "post"
 +++
 <p>Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.</p>
 <p>The cryptsheet includes these functions and can be found here : <a href='https://github.com/alfredkam/jsFunctions'>https://github.com/alfredkam/jsFunctions</a></p>
