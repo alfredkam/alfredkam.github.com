@@ -212,6 +212,36 @@ http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
           </span>
         </a>
         <div>
+          <span class='views' data-url='http://alfredkam.com/importance-of-early-adopters'><i class='icon-eye'></i>0</span>
+        </div>
+      </div>
+  </div>
+  <section class='post col-md-10'>
+    <h1><a href="http://alfredkam.com/importance-of-early-adopters">Importance of Early Adopters</a></h1>
+    <p class="author">
+      <span class="date">Fri Jan 25, 2013</span>
+    </p>
+    <div class="content">
+      <p>When your startup is in the early stage, early adopters are your up most important customers.  Let them use if for free of charge because they will become your key opinion leaders, they will be the ones who will help you break, change and polish your product.  Remember to always respect them, understand why they like or dont like about it and have a fast iteration release to show dedication to serve them well.</p>
+
+    </div>
+  </section>
+</div>
+
+  <div class='row'>
+  <div class='col-md-1'>
+      <div class='commentCount'>
+        <a href='http://alfredkam.com'>
+          <span>
+            <l class='icon-chat-alt'></l>
+          </span>
+          <span>
+            <a href="http://alfredkam.com#disqus_thread">
+                0
+            </a>
+          </span>
+        </a>
+        <div>
           <span class='views' data-url='http://alfredkam.com/why-and-how-to-tell-a-cool-story'><i class='icon-eye'></i>0</span>
         </div>
       </div>
@@ -241,36 +271,6 @@ http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
              </li>
 <p><br></p>
 <p>a good pitch example will be the one from Beerlab.  <a href='http://www.youtube.com/watch?v=cC5zCJbSx0o'>Here is a link to the pitch video</a></p>
-
-    </div>
-  </section>
-</div>
-
-  <div class='row'>
-  <div class='col-md-1'>
-      <div class='commentCount'>
-        <a href='http://alfredkam.com'>
-          <span>
-            <l class='icon-chat-alt'></l>
-          </span>
-          <span>
-            <a href="http://alfredkam.com#disqus_thread">
-                0
-            </a>
-          </span>
-        </a>
-        <div>
-          <span class='views' data-url='http://alfredkam.com/importance-of-early-adopters'><i class='icon-eye'></i>0</span>
-        </div>
-      </div>
-  </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://alfredkam.com/importance-of-early-adopters">Importance of Early Adopters</a></h1>
-    <p class="author">
-      <span class="date">Fri Jan 25, 2013</span>
-    </p>
-    <div class="content">
-      <p>When your startup is in the early stage, early adopters are your up most important customers.  Let them use if for free of charge because they will become your key opinion leaders, they will be the ones who will help you break, change and polish your product.  Remember to always respect them, understand why they like or dont like about it and have a fast iteration release to show dedication to serve them well.</p>
 
     </div>
   </section>
@@ -334,6 +334,90 @@ Backbone Router<br />
 - http://coenraets.org/blog/2011/12/backbone-js-wine-cellar-tutorial-part-1-getting-started/<br />
 - http://blog.andyet.com/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/<br />
 - http://backbonetutorials.com/what-is-a-model/</p>
+
+    </div>
+  </section>
+</div>
+
+  <div class='row'>
+  <div class='col-md-1'>
+      <div class='commentCount'>
+        <a href='http://alfredkam.com'>
+          <span>
+            <l class='icon-chat-alt'></l>
+          </span>
+          <span>
+            <a href="http://alfredkam.com#disqus_thread">
+                0
+            </a>
+          </span>
+        </a>
+        <div>
+          <span class='views' data-url='http://alfredkam.com/phonegap-apps-load-external-url'><i class='icon-eye'></i>0</span>
+        </div>
+      </div>
+  </div>
+  <section class='post col-md-10'>
+    <h1><a href="http://alfredkam.com/phonegap-apps-load-external-url">PhoneGap Apps &#43; Load External Url</a></h1>
+    <p class="author">
+      <span class="date">Mon Dec 17, 2012</span>
+    </p>
+    <div class="content">
+      <p><strong>To enable access to whitelist domain</strong><br />
+http://docs.phonegap.com/en/1.9.0/guide_whitelist_index.md.html</p>
+<p><strong>To open site in app itself<br />
+for Android</strong></p>
+<p>ref: <a href="http://stackoverflow.com/questions/8596772/how-can-i-load-a-webpage-inside-the-phonegap-webview" title="Stackoverflow">Stack Over Flow</a></p>
+<p><strong>for iOS</strong><br />
+in AppDelegate.m<br />
+Change</p>
+<p>
+<pre class='language-javascript'>
+<code>
+  - (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType 
+  {
+    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
+  }
+</code>
+</pre>
+<p>with </p>
+<pre class='language-javascript'>
+  <code>
+      - (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+      {
+        NSURL *url = [request URL];
+        if ([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) {
+          return YES;
+        }
+        else {
+          return [ super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType ];
+        }
+      }
+</code>
+</pre>
+<p>
+  ref: <a href="http://stackoverflow.com/questions/5911255/phonegap-for-iphone-problem-loading-external-url" title="stack over flow">stack over flow</a>
+</p>
+<p>
+  <strong>if to open site in app and open in browser<br />
+in iOS</strong></p>
+<pre class='language-javascript'>
+  <code>
+    - (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(    UIWebViewNavigationType)navigationType
+    {
+      NSURL *url = [request URL];
+      if ( ([url fragment] != NULL) && ([[url fragment] rangeOfString:@"phonegap=external"].location != NSNotFound))
+      {
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            [[UIApplication sharedApplication] openURL:url];
+            return NO;
+        }
+    }
+    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
+}</code>
+</pre>
+<p>and in the html href include hash <strong>#phonegap=external</strong></p>
+<p>ref: <a href="http://www.rigelgroupllc.com/blog/2012/05/22/opening-links-in-phonegap-apps-in-mobile-safari/">reference</a></p>
 
     </div>
   </section>
@@ -433,90 +517,6 @@ git revert &lt; commit_hash &gt;                       #reverts to the previous 
 git filter-branch &ndash;prune-empty &ndash;subdirectory-filter lib master
 </code></pre>
 <p>additional info - <a href="https://help.github.com/articles/splitting-a-subpath-out-into-a-new-repo">github:help</a></p></p>
-
-    </div>
-  </section>
-</div>
-
-  <div class='row'>
-  <div class='col-md-1'>
-      <div class='commentCount'>
-        <a href='http://alfredkam.com'>
-          <span>
-            <l class='icon-chat-alt'></l>
-          </span>
-          <span>
-            <a href="http://alfredkam.com#disqus_thread">
-                0
-            </a>
-          </span>
-        </a>
-        <div>
-          <span class='views' data-url='http://alfredkam.com/phonegap-apps-load-external-url'><i class='icon-eye'></i>0</span>
-        </div>
-      </div>
-  </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://alfredkam.com/phonegap-apps-load-external-url">PhoneGap Apps &#43; Load External Url</a></h1>
-    <p class="author">
-      <span class="date">Mon Dec 17, 2012</span>
-    </p>
-    <div class="content">
-      <p><strong>To enable access to whitelist domain</strong><br />
-http://docs.phonegap.com/en/1.9.0/guide_whitelist_index.md.html</p>
-<p><strong>To open site in app itself<br />
-for Android</strong></p>
-<p>ref: <a href="http://stackoverflow.com/questions/8596772/how-can-i-load-a-webpage-inside-the-phonegap-webview" title="Stackoverflow">Stack Over Flow</a></p>
-<p><strong>for iOS</strong><br />
-in AppDelegate.m<br />
-Change</p>
-<p>
-<pre class='language-javascript'>
-<code>
-  - (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType 
-  {
-    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
-  }
-</code>
-</pre>
-<p>with </p>
-<pre class='language-javascript'>
-  <code>
-      - (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-      {
-        NSURL *url = [request URL];
-        if ([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) {
-          return YES;
-        }
-        else {
-          return [ super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType ];
-        }
-      }
-</code>
-</pre>
-<p>
-  ref: <a href="http://stackoverflow.com/questions/5911255/phonegap-for-iphone-problem-loading-external-url" title="stack over flow">stack over flow</a>
-</p>
-<p>
-  <strong>if to open site in app and open in browser<br />
-in iOS</strong></p>
-<pre class='language-javascript'>
-  <code>
-    - (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(    UIWebViewNavigationType)navigationType
-    {
-      NSURL *url = [request URL];
-      if ( ([url fragment] != NULL) && ([[url fragment] rangeOfString:@"phonegap=external"].location != NSNotFound))
-      {
-        if ([[UIApplication sharedApplication] canOpenURL:url]) {
-            [[UIApplication sharedApplication] openURL:url];
-            return NO;
-        }
-    }
-    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
-}</code>
-</pre>
-<p>and in the html href include hash <strong>#phonegap=external</strong></p>
-<p>ref: <a href="http://www.rigelgroupllc.com/blog/2012/05/22/opening-links-in-phonegap-apps-in-mobile-safari/">reference</a></p>
 
     </div>
   </section>
