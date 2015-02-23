@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Cheat-Sheet on Alfred kam </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://alfredkam.com/tags/cheat-sheet/index.xml/</link>
+    <title>Cheat Sheet on Alfred kam</title>
+    <link>http://localhost:1313/tags/cheat-sheet/</link>
+    <description>Recent content in Cheat Sheet on Alfred kam</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Wed, 08 May 2013 00:00:00 UTC</updated>
+    <lastBuildDate>Wed, 08 May 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cheat-sheet/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>JavaScript Function Crib Sheet</title>
-      <link>http://alfredkam.com/js-function-crib-sheet</link>
-      <pubDate>Wed, 08 May 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/js-function-crib-sheet</link>
+      <pubDate>Wed, 08 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/js-function-crib-sheet</guid>
+      <guid>http://localhost:1313/js-function-crib-sheet</guid>
       <description>&lt;p&gt;Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.&lt;/p&gt;
 &lt;p&gt;The cryptsheet includes these functions and can be found here : &lt;a href=&#39;https://github.com/alfredkam/jsFunctions&#39;&gt;https://github.com/alfredkam/jsFunctions&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;General Laziness::&lt;br /&gt;
@@ -31,10 +31,10 @@
     
     <item>
       <title>CSS Cheat Sheet</title>
-      <link>http://alfredkam.com/cs-cheat-sheet</link>
-      <pubDate>Wed, 06 Mar 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/cs-cheat-sheet</link>
+      <pubDate>Wed, 06 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/cs-cheat-sheet</guid>
+      <guid>http://localhost:1313/cs-cheat-sheet</guid>
       <description>&lt;p&gt;css wildcards&lt;/p&gt;
 &lt;p&gt;css goodies from the net&lt;br&gt;&lt;br /&gt;
 &lt;a href=&#39;http://cssdeck.com/labs/css-checkbox-styles&#39;&gt;CheckBox&lt;/a&gt;&lt;br /&gt;
@@ -46,10 +46,10 @@
     
     <item>
       <title>Git Cheat Sheet</title>
-      <link>http://alfredkam.com/git-cheat-sheet</link>
-      <pubDate>Mon, 17 Dec 2012 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/git-cheat-sheet</link>
+      <pubDate>Mon, 17 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/git-cheat-sheet</guid>
+      <guid>http://localhost:1313/git-cheat-sheet</guid>
       <description>&lt;p&gt;&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
 #Setting up git from scratch
 git init                                             #initialize git

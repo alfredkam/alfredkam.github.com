@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Story on Alfred kam </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://alfredkam.com/tags/story/index.xml/</link>
+    <title>Story on Alfred kam</title>
+    <link>http://localhost:1313/tags/story/</link>
+    <description>Recent content in Story on Alfred kam</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Fri, 25 Jan 2013 00:00:00 UTC</updated>
+    <lastBuildDate>Fri, 25 Jan 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/story/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Why &amp; how to tell a cool story</title>
-      <link>http://alfredkam.com/why-and-how-to-tell-a-cool-story</link>
-      <pubDate>Fri, 25 Jan 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/why-and-how-to-tell-a-cool-story</link>
+      <pubDate>Fri, 25 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/why-and-how-to-tell-a-cool-story</guid>
+      <guid>http://localhost:1313/why-and-how-to-tell-a-cool-story</guid>
       <description>&lt;p&gt;When pitching to an investor, you will always want your investor to come out to say &#34;cool&#34; after listening to the pitch.  &#34;Cool&#34; is the validation for your idea or product, but you will want to hear that from an investor who is an expert in your field.  They are the one who will be your potential to meet for follow up presentations / demos, and may become your future advisor or investor.&lt;/p&gt;
 &lt;p&gt;Here is a checklist of what your pitch needs:&lt;/p&gt;
 &lt;p&gt;- your pitch is elevator pitch ready (short and delivers the message within 60 seconds; ie the speed till they say cool)&lt;br /&gt;

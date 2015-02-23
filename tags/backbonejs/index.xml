@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Backbonejs on Alfred kam </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://alfredkam.com/tags/backbonejs/index.xml/</link>
+    <title>Backbonejs on Alfred kam</title>
+    <link>http://localhost:1313/tags/backbonejs/</link>
+    <description>Recent content in Backbonejs on Alfred kam</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Wed, 28 May 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Wed, 28 May 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/backbonejs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Goodbye Marionette &amp; Hello React</title>
-      <link>http://alfredkam.com/Goodbye-Marionette-Hello-React</link>
-      <pubDate>Wed, 28 May 2014 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/goodbye-marionette-hello-react</link>
+      <pubDate>Wed, 28 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/Goodbye-Marionette-Hello-React</guid>
+      <guid>http://localhost:1313/goodbye-marionette-hello-react</guid>
       <description>&lt;p&gt;
      I have been developing a lot of large javascript web apps that requires a lot of subview management or componets and decentralize the model dependecies to better suit the component re-usability.  It was not till early this year, I was still designing them with Backbone + Marionette.  Now it&#39;s &lt;b&gt;Backbone + React or Angular + React&lt;/b&gt;.  For this post let&#39;s concentrate in comparing Backbone + Mariontte &amp; Backbone + React.   
 
@@ -29,7 +29,7 @@
 &lt;/p&gt;
 &lt;div class=&#39;row&#39;&gt;
   &lt;div class=&#39;col-md-12&#39;&gt;
-    &lt;img style=&#39;width:100%&#39; src=&#39;/img/layout-example-marionette+react.svg&#39;&gt;&lt;/img&gt;
+    &lt;img style=&#39;width:100%&#39; src=&#39;http://localhost:1313/img/layout-example-marionette+react.svg&#39;&gt;&lt;/img&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;pre class=&#39;language-javascript&#39;&gt;

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Dev-Notes on Alfred kam </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://alfredkam.com/tags/dev-notes/index.xml/</link>
+    <title>Dev Notes on Alfred kam</title>
+    <link>http://localhost:1313/tags/dev-notes/</link>
+    <description>Recent content in Dev Notes on Alfred kam</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Wed, 08 May 2013 00:00:00 UTC</updated>
+    <lastBuildDate>Wed, 08 May 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/dev-notes/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>JavaScript Function Crib Sheet</title>
-      <link>http://alfredkam.com/js-function-crib-sheet</link>
-      <pubDate>Wed, 08 May 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/js-function-crib-sheet</link>
+      <pubDate>Wed, 08 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/js-function-crib-sheet</guid>
+      <guid>http://localhost:1313/js-function-crib-sheet</guid>
       <description>&lt;p&gt;Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.&lt;/p&gt;
 &lt;p&gt;The cryptsheet includes these functions and can be found here : &lt;a href=&#39;https://github.com/alfredkam/jsFunctions&#39;&gt;https://github.com/alfredkam/jsFunctions&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;General Laziness::&lt;br /&gt;
@@ -31,10 +31,10 @@
     
     <item>
       <title>CSS Cheat Sheet</title>
-      <link>http://alfredkam.com/cs-cheat-sheet</link>
-      <pubDate>Wed, 06 Mar 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/cs-cheat-sheet</link>
+      <pubDate>Wed, 06 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/cs-cheat-sheet</guid>
+      <guid>http://localhost:1313/cs-cheat-sheet</guid>
       <description>&lt;p&gt;css wildcards&lt;/p&gt;
 &lt;p&gt;css goodies from the net&lt;br&gt;&lt;br /&gt;
 &lt;a href=&#39;http://cssdeck.com/labs/css-checkbox-styles&#39;&gt;CheckBox&lt;/a&gt;&lt;br /&gt;
@@ -46,10 +46,10 @@
     
     <item>
       <title>Allow password authentications on Amazon ec2 instance</title>
-      <link>http://alfredkam.com/allow-password-login-on-ec2</link>
-      <pubDate>Sat, 09 Feb 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/allow-password-login-on-ec2</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/allow-password-login-on-ec2</guid>
+      <guid>http://localhost:1313/allow-password-login-on-ec2</guid>
       <description>&lt;p&gt;Step 1 - ssh into server&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;&lt;br /&gt;
 ssh -i ssh_key.pem my_amazon_ec2_instance.url&lt;br /&gt;
@@ -62,10 +62,10 @@ ssh -i ssh_key.pem my_amazon_ec2_instance.url&lt;br /&gt;
     
     <item>
       <title>Searchable Hash Bang (SEO)</title>
-      <link>http://alfredkam.com/searchable-hash-bang-seo</link>
-      <pubDate>Fri, 01 Feb 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/searchable-hash-bang-seo</link>
+      <pubDate>Fri, 01 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/searchable-hash-bang-seo</guid>
+      <guid>http://localhost:1313/searchable-hash-bang-seo</guid>
       <description>&lt;p&gt;Having a dynamic website, AJAX is often used and rely on hash bang to act as a http GET to let the site be interactive.  Inorder to have your application searchable / crawable, there are couple of rules to follow as suggested by &lt;a href=&#39;https://developers.google.com/webmasters/ajax-crawling/docs/specification&#39;&gt;the google specs&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Assuming your too lazy to checkout the specs. In summary the hash bang should be setup this way:&lt;/p&gt;
 &lt;p&gt;In a typical site, you will notice the url with http GET are written in this format&lt;br /&gt;
@@ -85,10 +85,10 @@ http://yoursite.com&lt;strong&gt;#!key1=value1&amp;key2=value2&lt;/strong&gt;&lt
     
     <item>
       <title>Git Cheat Sheet</title>
-      <link>http://alfredkam.com/git-cheat-sheet</link>
-      <pubDate>Mon, 17 Dec 2012 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/git-cheat-sheet</link>
+      <pubDate>Mon, 17 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/git-cheat-sheet</guid>
+      <guid>http://localhost:1313/git-cheat-sheet</guid>
       <description>&lt;p&gt;&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
 #Setting up git from scratch
 git init                                             #initialize git

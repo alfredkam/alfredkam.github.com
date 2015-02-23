@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Css on Alfred kam </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://alfredkam.com/tags/css/index.xml/</link>
+    <title>Css on Alfred kam</title>
+    <link>http://localhost:1313/tags/css/</link>
+    <description>Recent content in Css on Alfred kam</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Wed, 06 Mar 2013 00:00:00 UTC</updated>
+    <lastBuildDate>Wed, 06 Mar 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>CSS Cheat Sheet</title>
-      <link>http://alfredkam.com/cs-cheat-sheet</link>
-      <pubDate>Wed, 06 Mar 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/cs-cheat-sheet</link>
+      <pubDate>Wed, 06 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/cs-cheat-sheet</guid>
+      <guid>http://localhost:1313/cs-cheat-sheet</guid>
       <description>&lt;p&gt;css wildcards&lt;/p&gt;
 &lt;p&gt;css goodies from the net&lt;br&gt;&lt;br /&gt;
 &lt;a href=&#39;http://cssdeck.com/labs/css-checkbox-styles&#39;&gt;CheckBox&lt;/a&gt;&lt;br /&gt;

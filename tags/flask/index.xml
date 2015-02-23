@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Flask on Alfred kam </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://alfredkam.com/tags/flask/index.xml/</link>
+    <title>Flask on Alfred kam</title>
+    <link>http://localhost:1313/tags/flask/</link>
+    <description>Recent content in Flask on Alfred kam</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Tue, 18 Feb 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Tue, 18 Feb 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/flask/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>installing mysql-python on mac</title>
-      <link>http://alfredkam.com/installing-mysql-python-on-mac</link>
-      <pubDate>Tue, 18 Feb 2014 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/installing-mysql-python-on-mac</link>
+      <pubDate>Tue, 18 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/installing-mysql-python-on-mac</guid>
+      <guid>http://localhost:1313/installing-mysql-python-on-mac</guid>
       <description>&lt;p&gt;Awesome next challenge - running a flask server to connect to a MAMP [2.1.3] sql server on a mac (mavericks).  Flask is a light weight python server and uses flask-sqlalchemy to connect.  Installing mysql-python seems to be a challenge.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
 #assuming you&#39;ve already installed xcode &amp; homebrew
@@ -53,10 +53,10 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
     
     <item>
       <title>using git hooks to deploy server with forever</title>
-      <link>http://alfredkam.com/using-git-hooks-to-deploy-server-with-forever</link>
-      <pubDate>Mon, 17 Feb 2014 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/using-git-hooks-to-deploy-server-with-forever</link>
+      <pubDate>Mon, 17 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/using-git-hooks-to-deploy-server-with-forever</guid>
+      <guid>http://localhost:1313/using-git-hooks-to-deploy-server-with-forever</guid>
       <description>&lt;p&gt;If you love deploying with automation and you love the fact you dont need to touch your server (which you should!).  I&#39;ve setup this up on an ec2 ubuntu 12.04 LTS, shouldnt differ too much with other ubuntu versions.  At this time of writing i&#39;m setting up a nodejs / flask server&lt;/p&gt;
 &lt;p&gt;On your remote server&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
