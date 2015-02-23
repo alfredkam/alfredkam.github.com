@@ -468,45 +468,6 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
     </item>
     
     <item>
-      <title>nginx / nodejs stack setup</title>
-      <link>http://alfredkam.com/nginx-nodejs-stack-setup</link>
-      <pubDate>Mon, 17 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://alfredkam.com/nginx-nodejs-stack-setup</guid>
-      <description>&lt;p&gt;So when you have an nginx + nodejs combo, you want to use &lt;i&gt;nginx to port foward to nodejs&lt;/i&gt;&lt;/p&gt;
-&lt;p&gt;my nodejs uses forever to run on port 3000.&lt;/p&gt;
-&lt;p&gt;here is the nginx config setup&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
-sudo vi /etc/nginx/site-enabled/default
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
-#add this line before server { ... }
-[...]
-upstream app_nodejs {
-        server localhost:3000;
-}
-[...]
-
-#now in server {...}, assuming you want to map your url root to point to nodejs
-location / {
-               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-               proxy_set_header Host $http_host;
-               proxy_set_header X-NginX-Proxy true;
-
-               proxy_pass http://app_nodejs;
-               proxy_redirect off;
-           }
-
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;Cheers&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>nginx with changed phpmyadmin directory setup</title>
       <link>http://alfredkam.com/nginx-with-phpmyadmin-setup</link>
       <pubDate>Mon, 17 Feb 2014 00:00:00 +0000</pubDate>
@@ -599,6 +560,45 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 &lt;p&gt;&lt;b&gt;Source&lt;/b&gt;&lt;br&gt;
 &lt;a href=&#34;http://stackoverflow.com/questions/17359413/nginx-change-phpmyadmin-directory&#34;&gt;stackoverflow&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://www.howtoforge.com/installing-nginx-with-php5-and-php-fpm-and-mysql-support-lemp-on-ubuntu-12.04-lts&#34;&gt;howtoforge&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>nginx / nodejs stack setup</title>
+      <link>http://alfredkam.com/nginx-nodejs-stack-setup</link>
+      <pubDate>Mon, 17 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://alfredkam.com/nginx-nodejs-stack-setup</guid>
+      <description>&lt;p&gt;So when you have an nginx + nodejs combo, you want to use &lt;i&gt;nginx to port foward to nodejs&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;my nodejs uses forever to run on port 3000.&lt;/p&gt;
+&lt;p&gt;here is the nginx config setup&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+sudo vi /etc/nginx/site-enabled/default
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+#add this line before server { ... }
+[...]
+upstream app_nodejs {
+        server localhost:3000;
+}
+[...]
+
+#now in server {...}, assuming you want to map your url root to point to nodejs
+location / {
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_set_header X-NginX-Proxy true;
+
+               proxy_pass http://app_nodejs;
+               proxy_redirect off;
+           }
+
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Cheers&lt;/p&gt;
 </description>
     </item>
     
@@ -870,12 +870,30 @@ http://yoursite.com&lt;strong&gt;#!key1=value1&amp;key2=value2&lt;/strong&gt;&lt
     </item>
     
     <item>
-      <title>Importance of Early Adopters</title>
-      <link>http://alfredkam.com/importance-of-early-adopters</link>
+      <title>Why &amp; how to tell a cool story</title>
+      <link>http://alfredkam.com/why-and-how-to-tell-a-cool-story</link>
       <pubDate>Fri, 25 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/importance-of-early-adopters</guid>
-      <description>&lt;p&gt;When your startup is in the early stage, early adopters are your up most important customers.  Let them use if for free of charge because they will become your key opinion leaders, they will be the ones who will help you break, change and polish your product.  Remember to always respect them, understand why they like or dont like about it and have a fast iteration release to show dedication to serve them well.&lt;/p&gt;
+      <guid>http://alfredkam.com/why-and-how-to-tell-a-cool-story</guid>
+      <description>&lt;p&gt;When pitching to an investor, you will always want your investor to come out to say &#34;cool&#34; after listening to the pitch.  &#34;Cool&#34; is the validation for your idea or product, but you will want to hear that from an investor who is an expert in your field.  They are the one who will be your potential to meet for follow up presentations / demos, and may become your future advisor or investor.&lt;/p&gt;
+&lt;p&gt;Here is a checklist of what your pitch needs:&lt;/p&gt;
+&lt;p&gt;- your pitch is elevator pitch ready (short and delivers the message within 60 seconds; ie the speed till they say cool)&lt;br /&gt;
+- in your pitch dont include how it works&lt;br /&gt;
+- your pitch should include 4 key points    &lt;/p&gt;
+&lt;li&gt;
+             incident / problem (include numbers &amp; stats to back it up)
+             &lt;/li&gt;
+&lt;li&gt;
+              how your service / product solves it  ( also identify if your solution is scalable &amp; there is nitch and not a want)
+             &lt;/li&gt;
+&lt;li&gt;
+             your target audience
+             &lt;/li&gt;
+&lt;li&gt;
+             clarity and be emotional in how you solve it.
+             &lt;/li&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;a good pitch example will be the one from Beerlab.  &lt;a href=&#39;http://www.youtube.com/watch?v=cC5zCJbSx0o&#39;&gt;Here is a link to the pitch video&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
