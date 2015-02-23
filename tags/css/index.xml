@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Css on Alfred kam </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://alfredkam.com/tags/css/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Wed, 06 Mar 2013 00:00:00 UTC</updated>
+    
+    <item>
+      <title>CSS Cheat Sheet</title>
+      <link>http://alfredkam.com/cs-cheat-sheet</link>
+      <pubDate>Wed, 06 Mar 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/cs-cheat-sheet</guid>
+      <description>&lt;p&gt;css wildcards&lt;/p&gt;
+&lt;p&gt;css goodies from the net&lt;br&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/css-checkbox-styles&#39;&gt;CheckBox&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/dusty-particle-sphere&#39;&gt;Dust Particles&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/loadingku&#39;&gt;Loading Effect&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/pure-css3-dial-clock&#39;&gt;Pure css3 dial clock&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

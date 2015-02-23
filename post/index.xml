@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Posts on Alfred kam </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://alfredkam.com/post/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sun, 08 Jun 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>The recent MVC landscape with Angular&#43;React and Backbone&#43;React</title>
+      <link>http://alfredkam.com/The-recent-MVC-landscape-with-Angular-React-and-Backbone-React</link>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/The-recent-MVC-landscape-with-Angular-React-and-Backbone-React</guid>
+      <description>&lt;p&gt;
+    This post might bring in some arguments for both parties that favour one of the framework then the other, but this will be a worth while comparision to take a look at the recent MVC landscape.  Just to clarify - I&#39;m still relatively new to Angular.
+&lt;/p&gt;
+&lt;p&gt;
+    Lets be clear - React is a component that is designed and focused to replace the &#39;V&#39; component under a MVC framework.  The most recognise MVC frameworks are Backbone &amp; Angular, and it&#39;s starting to increasingly standout that React is able to replace the &#39;V&#39; component due to its virtual dom design, minimal exposure of real dom elements and data-binding handling.  It is also &lt;a href=&#39;http://williambrownstreet.net/blog/2014/04/faster-angularjs-rendering-angularjs-and-reactjs/&#39;&gt;proven from this post&lt;/a&gt; that Angular + React provides the fastest rendering.
+&lt;/p&gt;
+&lt;p&gt;
+    To achieve fast render and low inital load speed, the design of the component hierarchy structure is relatively important.  In Angular, React needs to be initiated at the controller. For Backbone, on the other hand needs to be initiated at the router.
+&lt;/p&gt;
+&lt;p&gt;
+    Link to &lt;a href=&#39;http://plnkr.co/edit/7DKHQ6tR7TCKkR5bFURu?p=preview&#39;&gt;Angular+React Demo&lt;/a&gt;&lt;br&gt;
+    Link to &lt;a href=&#39;http://plnkr.co/edit/1mwjMNh0RQP8PVrinOmD?p=preview&#39;&gt;Backbone+React Demo&lt;/a&gt;&lt;br&gt;
+&lt;/p&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-12&#39;&gt;
+        &lt;pre class=&#39;col-md-6&#39;&gt;
+            &lt;code class=&#39;language-javascript&#39;&gt;
+                //Angular Example
+                angular.module(&#39;fasterAngular&#39;, []).
+                controller(&#39;mycontroller&#39;, [&#39;$scope&#39;, function($scope){
+                   $scope.framework = &#39;ReactJs&#39;;
+                   $scope.data = [];
+                   // Fill the data map with random data
+                   $scope.refresh = function(){
+                       for(var i = 0; i &lt; 1500; ++i) {
+                           $scope.data[i] = {};
+                           for(var j = 0; j &lt; 5; ++j) {
+                               $scope.data[i][j] = Math.random();
+                           }
+                       }
+                   }
+                   
+                   $scope.refresh();
+                   
+                   $scope.$watchCollection(&#39;data&#39;, function(newValue, oldValue){
+                       React.renderComponent(
+                           MYLIST({data:newValue}),
+                           document.getElementById(&#34;fastRepeatArea&#34;)
+                       );
+                   })
+                }])
+            &lt;/code&gt;
+        &lt;/pre&gt;
+
+        &lt;pre class=&#39;col-md-6&#39;&gt;
+            &lt;code class=&#39;language-javascript&#39;&gt;
+                //Backbone example
+                $(document).ready(function () {
+                  new (Backbone.Router.extend({
+                    initialize : function () {
+                        var data = [];
+                        var refresh = function () {
+                          for(var i = 0; i &lt; 1500; ++i) {
+                                  data[i] = {};
+                                  for(var j = 0; j &lt; 5; ++j) {
+                                      data[i][j] = Math.random();
+                                  }
+                              }
+                          React.renderComponent(
+                            MYLIST({data:data}),
+                            document.getElementById(&#34;fastRepeatArea&#34;)
+                          );
+                        };
+                        refresh();
+                        $(&#39;button#refreshBtn&#39;).click(function () {
+                          refresh();
+                        });
+                    },
+                  }))();
+                });
+            &lt;/code&gt;
+        &lt;/pre&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+     React is initiated under the same flow and it would achieve the same render speed.  This example can be further improved by delegating the data change event and click event to React or using mixins to listen to partial changes. Instead of having it through the Angular controller or Backbone router.
+&lt;/p&gt;
+&lt;p&gt;
+    At this point, Angular+React and Backbone+React would be equivalent. Now lets take a look at the required components and initial loading speed.
+&lt;/p&gt;
+&lt;p&gt;
+    According to &lt;a href=&#39;http://lhorie.github.io/mithril/&#39;&gt;Mithril&lt;/a&gt;, Angular takes 7.49ms to load and Backbone takes 18.54ms to load.  Another important to note is Backbone is light weight but it still depends upon underscore &amp; jquery.  Those add up during initial script request!
+&lt;/p&gt;
+&lt;p&gt;
+    I believe this pretty much dictates which combination is the go to framework for heavy web apps.  Every second counts to keep your user on your site!
+&lt;/p&gt;ntender in the market called Facebook React, I&#39;ll just call it React for short.  React is a &#39;View&#39; Framework.  So in terms of a MVC, its the &#39;V&#39; Component.  Suprisingly React further simplified the entire landscape of &#39;View&#39; framework.  It only expose the real nodes that you have
+&lt;/p&gt;
+&lt;p&gt;
+  Lets see how this will look like in React, ive also included the propeller &lt;a href=&#39;https://github.com/usepropeller/react.backbone&#39;&gt;react.backbone&lt;/a&gt;.  It allows us to feed in backbone models into react and databind with mixin.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;pre&gt;
+  &lt;code class=&#39;language-markup&#39;&gt;
+      &amp;lt;!&amp;ndash; html structure &amp;ndash;&amp;gt;
+      &amp;#60;html&amp;#62;
+        &amp;#60;body&amp;#62;
+        &amp;#60;/body&amp;#62;
+      &amp;#60;/html&amp;#62;
+  &lt;/code&gt;
+  &lt;code class=&#39;language-javascript&#39;&gt;
+    //javascript code
+    /** @jsx React.DOM **/
+    &amp;lsquo;use strict&amp;rsquo;;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;define ([
+  &#39;jquery&#39;, backbone&#39;, &#39;react&#39;, &#39;react.backbone&#39;
+], function (
+  $, Backbone, React,
+) {
+
+  var CommentComponent = React.createBackboneClass({
+    var comments = this.props.collection.map(function(item) {
+      return (
+        {item.get(&#39;comment&#39;)}
+      )
+    });
+    return (
+      &amp;lt;div&amp;gt;
+        {comments}
+      &amp;lt;/div&amp;gt;
+    );
+  });
+
+  var StatsComponent = React.createBackboneClass({
+    render : function () {
+      return (
+        &amp;lt;div&amp;gt; 
+          {/* html template */}
+        &amp;lt;/div&amp;gt;
+      );
+    }
+  });
+
+  var MenuComponent = React.createBackboneClass({
+    render : function () {
+      return (
+        &amp;lt;div&amp;gt; 
+          {/* html template */}
+        &amp;lt;/div&amp;gt;
+      );
+    }
+  });
+
+  var WidgetLayout = React.createBackboneClass({
+    componentWillMount : function () {
+      this.collection = Backbone.Collection();
+    },
+    render : function () {
+      return (
+        &amp;lt;StatsComponent /&amp;gt;
+        &amp;lt;CommentsComponent collection={this.collection}/&amp;gt;
+      )
+    };
+  });
+
+  var AppLayout = React.createBackboneClass({
+    render : function () {
+      return (
+        &amp;lt;div&amp;gt;
+            &amp;lt;MenuComponent /&amp;gt;
+            &amp;lt;WidgetLayout /&amp;gt;
+        &amp;lt;/div&amp;gt;
+      );
+    };
+  });
+  React.renderComponent({
+    &amp;lt;AppLayout /&amp;gt;,
+    $(&#39;body&#39;)[0]
+  });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;
+  The code base is smaller, easier to understand and to control.  Now some may ask about Angular + React comparing with Backbone + React.  For this I&amp;rsquo;ll leave it to next post, but this is now pretty clear Marionette is out of the game.
+&lt;/p&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Goodbye Marionette &amp; Hello React</title>
+      <link>http://alfredkam.com/Goodbye-Marionette-Hello-React</link>
+      <pubDate>Wed, 28 May 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/Goodbye-Marionette-Hello-React</guid>
+      <description>&lt;p&gt;
+     I have been developing a lot of large javascript web apps that requires a lot of subview management or componets and decentralize the model dependecies to better suit the component re-usability.  It was not till early this year, I was still designing them with Backbone + Marionette.  Now it&#39;s &lt;b&gt;Backbone + React or Angular + React&lt;/b&gt;.  For this post let&#39;s concentrate in comparing Backbone + Mariontte &amp; Backbone + React.   
+
+     As we all know, Backbone &#39;View&#39; itself is a design flaw.  It had a lot of issues regarding its memory management and sub view management.  Marionette on the other hand, did help solved the sub view management and memory issues by offering a wide range of common designs and design patterns to help build the application.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Although Marionette provided a decent way to handle layout, subviews and code management, it is still too dependent on Backbone and gets more complex upon further sub view nesting. In Marionette the view is represented as a tree, the subviews is also part of the tree, thus if to render the middle layer must destruct and a rebuilt must occur. As well as rendering multiple Marionette Layers and Regions, although these Marionette functionalites are really awesome which helped took out the pain in backbone. While nesting those components doesnt play nicely with each other and hard to decouple, causing the sub layouts and sub regions to have an event show fire before its parent fires the show event.
+&lt;/p&gt;
+&lt;p&gt;
+    Consider in Marionette, you used a layout to display a widget on a page.  Within the widget there is also a layout before it calls the itemview.  In other words nested layout then itemview.
+&lt;/p&gt;
+&lt;div class=&#39;row&#39;&gt;
+  &lt;div class=&#39;col-md-12&#39;&gt;
+    &lt;img style=&#39;width:100%&#39; src=&#39;/img/layout-example-marionette+react.svg&#39;&gt;&lt;/img&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;pre class=&#39;language-javascript&#39;&gt;
+    &lt;code class=&#39;language-markup&#39;&gt;
+      &lt;!-- html structure --&gt;
+      &amp;#60;html&amp;#62;
+        &amp;#60;body&amp;#62;
+          &lt;div id=&#39;menu&#39;&gt;
+          &lt;/div&gt;
+          &lt;div id=&#39;widget&#39;&gt;
+          &lt;/div&gt;
+          &lt;script id=&#34;some-template&#34; type=&#34;text/html&#34;&gt;
+            &lt;ul&gt;
+              &lt;% _.each(items, function(item){ %&gt;
+              &lt;li&gt; &lt;%= item.someAttribute %&gt; &lt;/li&gt;
+              &lt;% }); %&gt;
+            &lt;/ul&gt;
+          &lt;/script&gt;
+
+          &lt;script id=&#34;some-comment-template&#34; type=&#34;text/html&#34;&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;%= item.someAttribute %&gt; &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/script&gt;
+
+          &lt;script id=&#34;widget-layout-template&#34; type=&#34;text/html&#34;&gt;
+            &lt;div id=&#39;stats-region&#39;&gt;
+            &lt;/div&gt;
+            &lt;div id=&#39;comment-region&#39;&gt;
+            &lt;/div&gt;
+          &lt;/script&gt;
+        &amp;#60;/body&amp;#62;
+      &amp;#60;/html&amp;#62;
+    &lt;/code&gt;
+    &lt;code class=&#39;language-javascript&#39;&gt;
+      //javascript code
+      &#39;use strict&#39;;
+
+      define([
+        &#39;backbone&#39;, &#39;marionette&#39;
+      ], function(
+        Backbone, Marionette
+      ) {
+        var AppLayout = Backbone.Marionette.Layout.extend({
+          template : &#39;#some-layout-template&#39;
+          regions : {
+            widget : &#39;#widget&#39;,
+            menu : &#39;#menu&#39;  
+          }
+        });
+
+        var MenuItem = Backbone.Marionette.IteView.extend({
+          template : &#39;#some-template&#39;
+        });
+
+        var CommentItem = Backbone.Marionette.ItemView.extend({
+          template : &#39;#some-comment-template&#39;
+        });
+
+        var StatsItem = Backbone.Marionette.ItemView.extend({
+          template : &#39;#some-template&#39;
+        });
+
+        var CommentsCompositeView = Backbone.CompositeView.extend({
+          template : &#39;#some-comment-template&#39;,
+          itemView : CommentItem
+        });
+
+        var WidgetLayout = Backbone.Marionette.Layout.extend({
+          initialize : function () {
+            this.collection = new Backbone.Collection();
+          },
+          template : &#39;#widget-layout-template&#39;,
+          regions : {
+            stats : new Marionette.Region({
+              el : &#34;#stats-region&#34;
+            })
+            comments : new Marionette.Region({
+              el : &#39;#comment-region&#39;
+            })
+          },
+          onShow : function () {
+            this.regions.stats.show(new StatsItem(
+              model : someModel
+            ));
+            this.regions.comments.show(new CommentsCompositeView({
+              collection : this.collection
+            }));
+          }
+        });
+
+        var layout = new AppLayout();
+        layout.render();
+        layout.widget.show(new WidgetLayout());
+        layout.menu.show(new MenuItem());
+      });
+    &lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;
+  In this example we will run into a render issue with the sub region fire before the parent does.
+&lt;/p&gt;
+&lt;p&gt;
+  Now came 2014 and there is a new contender in the market called Facebook React, I&#39;ll just call it React for short.  React is a &#39;View&#39; Framework.  So in terms of a MVC, its the &#39;V&#39; Component.  Suprisingly React further simplified the entire landscape of &#39;View&#39; framework.  It only expose the real nodes that you have
+&lt;/p&gt;
+&lt;p&gt;
+  Lets see how this will look like in React, ive also included the propeller &lt;a href=&#39;https://github.com/usepropeller/react.backbone&#39;&gt;react.backbone&lt;/a&gt;.  It allows us to feed in backbone models into react and databind with mixin.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;pre&gt;
+  &lt;code class=&#39;language-markup&#39;&gt;
+      &amp;lt;!&amp;ndash; html structure &amp;ndash;&amp;gt;
+      &amp;#60;html&amp;#62;
+        &amp;#60;body&amp;#62;
+        &amp;#60;/body&amp;#62;
+      &amp;#60;/html&amp;#62;
+  &lt;/code&gt;
+  &lt;code class=&#39;language-javascript&#39;&gt;
+    //javascript code
+    /** @jsx React.DOM **/
+    &amp;lsquo;use strict&amp;rsquo;;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;define ([
+  &#39;jquery&#39;, backbone&#39;, &#39;react&#39;, &#39;react.backbone&#39;
+], function (
+  $, Backbone, React,
+) {
+
+  var CommentComponent = React.createBackboneClass({
+    var comments = this.props.collection.map(function(item) {
+      return (
+        {item.get(&#39;comment&#39;)}
+      )
+    });
+    return (
+      &amp;lt;div&amp;gt;
+        {comments}
+      &amp;lt;/div&amp;gt;
+    );
+  });
+
+  var StatsComponent = React.createBackboneClass({
+    render : function () {
+      return (
+        &amp;lt;div&amp;gt; 
+          {/* html template */}
+        &amp;lt;/div&amp;gt;
+      );
+    }
+  });
+
+  var MenuComponent = React.createBackboneClass({
+    render : function () {
+      return (
+        &amp;lt;div&amp;gt; 
+          {/* html template */}
+        &amp;lt;/div&amp;gt;
+      );
+    }
+  });
+
+  var WidgetLayout = React.createBackboneClass({
+    componentWillMount : function () {
+      this.collection = Backbone.Collection();
+    },
+    render : function () {
+      return (
+        &amp;lt;StatsComponent /&amp;gt;
+        &amp;lt;CommentsComponent collection={this.collection}/&amp;gt;
+      )
+    };
+  });
+
+  var AppLayout = React.createBackboneClass({
+    render : function () {
+      return (
+        &amp;lt;div&amp;gt;
+            &amp;lt;MenuComponent /&amp;gt;
+            &amp;lt;WidgetLayout /&amp;gt;
+        &amp;lt;/div&amp;gt;
+      );
+    };
+  });
+  React.renderComponent({
+    &amp;lt;AppLayout /&amp;gt;,
+    $(&#39;body&#39;)[0]
+  });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;
+  The code base is smaller, easier to understand and to control.  Now some may ask about Angular + React comparing with Backbone + React.  For this I&amp;rsquo;ll leave it to next post, but this is now pretty clear Marionette is out of the game.
+&lt;/p&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>moving to jekyll</title>
+      <link>http://alfredkam.com/moving-to-jekyll</link>
+      <pubDate>Sun, 25 May 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/moving-to-jekyll</guid>
+      <description>&lt;p&gt;Alright I&#39;m a hacker and lazy to work myself around Wordpress - which is in php &amp; dynamic content.  Now recently migrated into Jekyll and use github to serve my pages - free CDN and fast static content! Woohoo&lt;/p&gt;
+
+&lt;p&gt;I will be re-building the site from scratch, so beware for the next couple of weeks&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>installing mysql-python on mac</title>
+      <link>http://alfredkam.com/installing-mysql-python-on-mac</link>
+      <pubDate>Tue, 18 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/installing-mysql-python-on-mac</guid>
+      <description>&lt;p&gt;Awesome next challenge - running a flask server to connect to a MAMP [2.1.3] sql server on a mac (mavericks).  Flask is a light weight python server and uses flask-sqlalchemy to connect.  Installing mysql-python seems to be a challenge.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+#assuming you&#39;ve already installed xcode &amp; homebrew
+brew install mysql   #use brew install mysql --universal if your not using 64bit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Go to &lt;a href=&#34;http://dev.mysql.com/downloads/mysql/&#34;&gt;dev mysql&lt;/a&gt;&lt;br /&gt;
+download the latest release and decompress the file.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+cd /path/to/download/
+tar -xvf mysql-*.tar.gz
+cd /path/to/extract/
+mkdir /Applications/MAMP/Library/include
+cp -r include/* /Applications/MAMP/Library/include
+cp -r lib/* /Applications/MAMP/Library/lib
+
+export ARCHFLAGS=&#34;-arch $(uname -m)&#34;
+export PATH=$PATH:/Applications/MAMP/Library/bin
+export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
+
+sudo easy_install mysql-python
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;FYI: this line will cause trouble with git&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Rebooting your computer will clear it.&lt;/p&gt;
+&lt;p&gt;On a side note, when your connecting to the MAMP sql, python may complain mysql.sock is missing.  It is located under&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+/Applications/MAMP/tmp/mysql/mysql.sock
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Additional Source&lt;/strong&gt;&lt;br /&gt;
+&lt;a href=&#34;http://racingtadpole.com/blog/mamp-python-and-mysqldb/&#34;&gt;mamp-python-mysql&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/17920115/python-mysqldb-again-symbol-not-found-mysql-affected-rows&#34;&gt;stackoverflow&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>using git hooks to deploy server with forever</title>
+      <link>http://alfredkam.com/using-git-hooks-to-deploy-server-with-forever</link>
+      <pubDate>Mon, 17 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/using-git-hooks-to-deploy-server-with-forever</guid>
+      <description>&lt;p&gt;If you love deploying with automation and you love the fact you dont need to touch your server (which you should!).  I&#39;ve setup this up on an ec2 ubuntu 12.04 LTS, shouldnt differ too much with other ubuntu versions.  At this time of writing i&#39;m setting up a nodejs / flask server&lt;/p&gt;
+&lt;p&gt;On your remote server&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+#install forever and give it global access
+sudo npm install -g forever
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+#setup git bare at your deployment server
+git clone --bare [repo url]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+#add the hooks
+#navigate into your git folder
+cd path/to/repo/hooks
+vi pre-receive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+#!/bin/sh
+echo &#34;stopping server service&#34;
+service nodejs-www stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+vi post-receive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+#!/bin/sh
+echo &#34;checkout the files&#34;
+
+branch=$(git branch | grep &#34;*&#34; | sed &#34;s/* //&#34;)
+
+if [ &#34;$branch&#34; = &#34;master&#34; ]
+then
+        echo &#34;Master branch&#34;
+        git --work-tree=/home/ubuntu/app/www checkout -f
+        echo &#34;Successfully checked out master branch&#34;
+else
+        echo &#34;Not master branch&#34;
+fi
+
+echo &#34;start service&#34;
+service nodejs-www start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+sudo chmod +x pre-receive;
+sudo chmod +x post-receive;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;FYI: Just make sure the folders are created for the &#34;git --work-tree&#34;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+#navigate into init.d to create a service
+cd /etc/init.d
+sudo vi nodejs-www
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+#! /bin/sh
+# /etc/init.d/nodejs-www
+#
+
+NAME=nodejs-www
+APP=index.js
+APP_DIR=/home/ubuntu/app/www
+forever=/usr/local/bin/forever
+export PATH=$PATH:/usr/local/bin/
+LOG=/var/log/nodejs-www.log
+
+case &#34;$1&#34; in
+  start)
+    cd $APP_DIR
+    echo &#34;Starting $NAME&#34;
+    #I detached the message to &#39;screen&#39;, it is not a requirement
+    screen -d -m /usr/bin/sudo -u ubuntu $forever --minUptime 5000 --spinSleepTime 2000 -a -l $LOG start $APP
+    #if to run a python server use
+    #screen -d -m /usr/bin/sudo -u ubuntu $forever --minUptime 5000 --spinSleepTime 2000 -a -l $LOG start -c python $APP
+    echo &#34;Started $Name&#34;
+    exit 0
+    ;;
+  stop)
+    echo &#34;Stopping script $NAME&#34;
+    cd $APP_DIR
+    /usr/bin/sudo -u ubuntu $forever stop $APP
+    exit 0
+    ;;
+  list)
+    echo &#34;List&#34;
+    /usr/bin/sudo -u ubuntu $forever list
+    exit 0
+    ;;
+  *)
+    echo &#34;Usage: /etc/init.d/nodejs-www {start|stop|list}&#34;
+    exit 1
+    ;;
+esac
+
+exit 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;FYI: Many others were able to run forever directly without having &#34;/usr/bin/sudo -u ubuntu&#34; (ubuntu is the user account) or substituting it with &#34;sudo&#34;.  For my case on an amazon aws, without it, i ran into permission issues with forever and nodejs directory mapping issues.&lt;/p&gt;
+&lt;p&gt;A permission error similar to this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-javascript&#39;&gt;
+fs.js:0
+(function (exports, require, module, __filename, __dirname) { // Copyright Joy
+^
+Error: EACCES, permission denied &#39;/root/.forever/pids/FepR.pid&#39;
+    at Object.fs.openSync (fs.js:410:18)
+    at Object.fs.writeFileSync (fs.js:956:15)
+    at writePid (/usr/local/lib/node_modules/forever/bin/monitor:13:6)
+    at null.&lt;anonymous&gt; (/usr/local/lib/node_modules/forever/bin/monitor:46:5)
+    at EventEmitter.emit (/usr/local/lib/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/eventemitter2/lib/eventemitter2.js:332:22)
+    at /usr/local/lib/node_modules/forever/node_modules/forever-monitor/lib/forever-monitor/monitor.js:153:10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now to wrap up the server side&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+sudo chmod a+x nodejs-www
+cd /var/log
+sudo touch nodejs-www.log
+sudo chmod 777 nodejs-www.log
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add to rc.local to start upon server start&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+sudo vi /etc/rc.local
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+#!/bin/sh -e
+service nodejs-www start
+exit 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For some you may need to change the rc.local permission to executable.&lt;/p&gt;
+&lt;p&gt;If i didnt miss anything this should it for the server&lt;/p&gt;
+&lt;p&gt;Now on client side&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+cd path/to/repo
+git remote add deploy [remote server repo url]
+git commit -am &#39;test deploy&#39;
+git push deploy master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This should be it, and the service should automatically stop and restart itself.  If i missed anything let me know :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>nginx with changed phpmyadmin directory setup</title>
+      <link>http://alfredkam.com/nginx-with-phpmyadmin-setup</link>
+      <pubDate>Mon, 17 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/nginx-with-phpmyadmin-setup</guid>
+      <description>&lt;p&gt;Recently decided to setup a nginx / python / mysql lightweight backend to interact with a nodejs services.   So decided to change phpmyadmin directory as well - i did run into 502 / 403 nginx errors, hope this post will help anyone who had the same issues too.&lt;/p&gt;
+&lt;p&gt;Setup process - assuming you are using ubuntu 12.04LTS&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+#install mysql &amp; nginx
+sudo apt-get install mysql-server mysql-client
+sudo apt-get install nginx
+
+#start nginx
+sudo service nginx start
+
+#install php5 &amp; phpmyadmin
+sudo apt-get install php5-fpm php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-xcache phpmyadmin
+
+#reload php5
+sudo service php5-fpm reload
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+#modify php5-fpm
+sudo vi /etc/php5/fpm/pool.d/www.conf
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+#look for listen and modify as follow
+[...]
+;listen = 127.0.0.1:9000
+listen = /tmp/php5-fpm.sock
+[...]
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+#setup nginx config
+sudo vi /etc/nginx/site-enabled/default
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+#add this after location /
+[...]
+location /pma {
+    alias /usr/share/phpmyadmin/;
+}
+
+location ~ ^/pma/(.*\.(js|css|gif|jpg|png))$ {
+    alias /usr/share/phpmyadmin/$1;
+}
+
+location ~ ^/pma(.+\.php)$ {
+    alias /usr/share/phpmyadmin$1;
+    fastcgi_pass unix:/tpm/php5-fpm.sock;
+    fastcgi_index index.php;
+
+    charset utf8;
+
+    include fastcgi_params;
+    fastcgi_param DOCUMENT_ROOT /usr/share/phpmyadmin;
+}
+
+#if you want to enable php site wide
+location ~ \.php$ {
+                try_files $uri =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/tmp/php5-fpm.sock;
+                fastcgi_index index.php;
+                include fastcgi_params;
+}
+[...]
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+sudo service nginx reload
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;FYI: The most common 502 / 403 errors are due to this line in the nginx config file. &lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock; 
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Hopefully this post will help some travellers here.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Source&lt;/b&gt;&lt;br&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/17359413/nginx-change-phpmyadmin-directory&#34;&gt;stackoverflow&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://www.howtoforge.com/installing-nginx-with-php5-and-php-fpm-and-mysql-support-lemp-on-ubuntu-12.04-lts&#34;&gt;howtoforge&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>nginx / nodejs stack setup</title>
+      <link>http://alfredkam.com/nginx-nodejs-stack-setup</link>
+      <pubDate>Mon, 17 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/nginx-nodejs-stack-setup</guid>
+      <description>&lt;p&gt;So when you have an nginx + nodejs combo, you want to use &lt;i&gt;nginx to port foward to nodejs&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;my nodejs uses forever to run on port 3000.&lt;/p&gt;
+&lt;p&gt;here is the nginx config setup&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+sudo vi /etc/nginx/site-enabled/default
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+#add this line before server { ... }
+[...]
+upstream app_nodejs {
+        server localhost:3000;
+}
+[...]
+
+#now in server {...}, assuming you want to map your url root to point to nodejs
+location / {
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_set_header X-NginX-Proxy true;
+
+               proxy_pass http://app_nodejs;
+               proxy_redirect off;
+           }
+
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Cheers&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Typical way of starting a startup</title>
+      <link>http://alfredkam.com/typical-way-of-starting-a-startup</link>
+      <pubDate>Fri, 24 May 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/typical-way-of-starting-a-startup</guid>
+      <description>&lt;p&gt;Found this gold on the net.  Felt should keep a record here :)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/img/2013/05/startup-cycle.png&#34;&gt;&lt;img src=&#34;/img/2013/05/startup-cycle.png&#34; alt=&#34;startup-cycle&#34; width=&#34;600&#34; height=&#34;482&#34; class=&#34;alignnone size-medium wp-image-251&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Online Presence</title>
+      <link>http://alfredkam.com/online-presence</link>
+      <pubDate>Thu, 16 May 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/online-presence</guid>
+      <description>&lt;p&gt;Previously my co-founder &lt;a href=&#34;http://twitter.com/andrewcboos&#34;&gt;Andrew Boos&lt;/a&gt; followed up on the topic of &lt;a href=&#39;http://andrewboos.com/the-difference-between-vcs-and-angels-reboot/&#39;&gt;difference of VCs and Angels&lt;/a&gt;. Continuo on the topic of start ups, this time lets cover online presence.&lt;/p&gt;
+&lt;p&gt;Your startup&#39;s online presence is relatively important to represent who you are, your cool product and how your customers can benefit from using it. In our startup &lt;a href=&#34;http://appfuel.me&#34;&gt;Appfuel&lt;/a&gt;, it took us a good 2 months to get it straight. Resulting an increase of web traffic.&lt;/p&gt;
+&lt;p&gt;Spilling the beans:&lt;br /&gt;
+1. Active social presence in&lt;br /&gt;
+- Facebook page&lt;br /&gt;
+- Twitter Profile&lt;br /&gt;
+- AngelList&lt;/p&gt;
+&lt;p&gt;Your social presence represents what your startup is made out off. Using these social platforms to pump out messages, cool stories and keep you consumer of interest up to date.&lt;/p&gt;
+&lt;p&gt;There are great tools such as &lt;a href=&#34;http://bufferapp.com&#34;&gt;Buffer&lt;/a&gt;, &lt;a href=&#34;http://ifttt.com&#34;&gt;if this then that&lt;/a&gt; to help you manage.&lt;/p&gt;
+&lt;p&gt;2. Landing Page&lt;br /&gt;
+When someone first enters into your site, with average browser size of 1280px  * 720px on desktops and 320px *  480px on mobile. That is some relatively small space, but hey! That will determine if the user will continue reading on. You should spice up the landing page&#39;s image, and it will determine if the reader will continue reading on.&lt;/p&gt;
+&lt;p&gt;3. SEO ( Search Engine Optimization)&lt;br /&gt;
+Another method to deliver organic traffic to your site are through searches. Make sure you have included meta tags of &#34;description&#34; and &#34;keywords&#34;; A short info in how you can help them; Submit your sitemap into the search engines.&lt;/p&gt;
+&lt;p&gt;4. Blog&lt;br /&gt;
+Posting relavent information, tips, stories for the consumer drives relavent traffic and ultimately landing in as your customer.&lt;/p&gt;
+&lt;p&gt;There are tools such as &lt;a href=&#34;http://hittail.com&#34;&gt;hittail&lt;/a&gt; and google analytics to help you drill down to specific keywords that are driving traffic to your site.&lt;/p&gt;
+&lt;p&gt;As for ours we spiced up our blog a little bit just so the travellers can read the relavent posts, picture below.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-233&#34; alt=&#34;IAMA - mortal - dev - show all&#34; src=&#34;/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png&#34; width=&#34;600&#34; height=&#34;114&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Function Crib Sheet</title>
+      <link>http://alfredkam.com/js-function-crib-sheet</link>
+      <pubDate>Wed, 08 May 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/js-function-crib-sheet</guid>
+      <description>&lt;p&gt;Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.&lt;/p&gt;
+&lt;p&gt;The cryptsheet includes these functions and can be found here : &lt;a href=&#39;https://github.com/alfredkam/jsFunctions&#39;&gt;https://github.com/alfredkam/jsFunctions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;General Laziness::&lt;br /&gt;
+- jquery toggle string&lt;br /&gt;
+- jquery enter keyup event&lt;/p&gt;
+&lt;p&gt;Mathematical Functions::&lt;br /&gt;
+- n choose r&lt;br /&gt;
+- Binomial Distribution&lt;br /&gt;
+- Probability Mass Function  (Useful when wanted to create a bell curve)&lt;br /&gt;
+- Summation&lt;/p&gt;
+&lt;p&gt;If the function your missing is not listed, comment below and i may be able to write one.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CSS Cheat Sheet</title>
+      <link>http://alfredkam.com/cs-cheat-sheet</link>
+      <pubDate>Wed, 06 Mar 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/cs-cheat-sheet</guid>
+      <description>&lt;p&gt;css wildcards&lt;/p&gt;
+&lt;p&gt;css goodies from the net&lt;br&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/css-checkbox-styles&#39;&gt;CheckBox&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/dusty-particle-sphere&#39;&gt;Dust Particles&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/loadingku&#39;&gt;Loading Effect&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#39;http://cssdeck.com/labs/pure-css3-dial-clock&#39;&gt;Pure css3 dial clock&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Allow password authentications on Amazon ec2 instance</title>
+      <link>http://alfredkam.com/allow-password-login-on-ec2</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/allow-password-login-on-ec2</guid>
+      <description>&lt;p&gt;Step 1 - ssh into server&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&lt;br /&gt;
+ssh -i ssh_key.pem my_amazon_ec2_instance.url&lt;br /&gt;
+&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
+*This is really not a recommended way to login
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Searchable Hash Bang (SEO)</title>
+      <link>http://alfredkam.com/searchable-hash-bang-seo</link>
+      <pubDate>Fri, 01 Feb 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/searchable-hash-bang-seo</guid>
+      <description>&lt;p&gt;Having a dynamic website, AJAX is often used and rely on hash bang to act as a http GET to let the site be interactive.  Inorder to have your application searchable / crawable, there are couple of rules to follow as suggested by &lt;a href=&#39;https://developers.google.com/webmasters/ajax-crawling/docs/specification&#39;&gt;the google specs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Assuming your too lazy to checkout the specs. In summary the hash bang should be setup this way:&lt;/p&gt;
+&lt;p&gt;In a typical site, you will notice the url with http GET are written in this format&lt;br /&gt;
+&lt;code&gt;&lt;br /&gt;
+http://yoursite.com?key1=value1&amp;key2=value2&lt;br /&gt;
+&lt;/code&gt;&lt;br /&gt;
+Now in your hashbang, your will want to transform&lt;br /&gt;
+&lt;code&gt;&lt;br /&gt;
+http://yoursite.com#value1&amp;value2&lt;br /&gt;
+&lt;/code&gt;&lt;br /&gt;
+into beautiful url&lt;br /&gt;
+&lt;code&gt;&lt;br /&gt;
+http://yoursite.com&lt;strong&gt;#!key1=value1&amp;key2=value2&lt;/strong&gt;&lt;br /&gt;
+&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The difference between VCs and Angels</title>
+      <link>http://alfredkam.com/the-difference-between-vc-and-angel</link>
+      <pubDate>Sun, 27 Jan 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/the-difference-between-vc-and-angel</guid>
+      <description>&lt;p&gt;Many people I&#39;ve spoken with were confused in the difference between VC &amp; Angel on who they should seek for investment. Lets take this post to clear up the difference.&lt;/p&gt;
+&lt;p&gt;Angels are the ones who normally invest a small chunk, roughly 25k USD per angel for 4% of the startup during its idea / early stage.  The Angels are the &#34;validation stamp&#34; for your idea in conjunction to play the role of advising, and bring your startup to seed ready.  It is also important to note that startups should find Angels who are experts in your startup&#39;s area, due to their values and networks are capable to help you penetrate your initial market entry.  At this stage, the value of an Angel are more important then the money they put in. Another note Angels normally look for a 10x return.&lt;/p&gt;
+&lt;p&gt;VCs normally enter when your startup is revenue generating or seed ready, and they will be the one to help your startup to grow up into an adult in a short period of time.  When a VC invests, startups will have a new boss, as if they were married to them.  VC will always try to run your startup like a business so there are pros and cons with them joining in.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why &amp; how to tell a cool story</title>
+      <link>http://alfredkam.com/why-and-how-to-tell-a-cool-story</link>
+      <pubDate>Fri, 25 Jan 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/why-and-how-to-tell-a-cool-story</guid>
+      <description>&lt;p&gt;When pitching to an investor, you will always want your investor to come out to say &#34;cool&#34; after listening to the pitch.  &#34;Cool&#34; is the validation for your idea or product, but you will want to hear that from an investor who is an expert in your field.  They are the one who will be your potential to meet for follow up presentations / demos, and may become your future advisor or investor.&lt;/p&gt;
+&lt;p&gt;Here is a checklist of what your pitch needs:&lt;/p&gt;
+&lt;p&gt;- your pitch is elevator pitch ready (short and delivers the message within 60 seconds; ie the speed till they say cool)&lt;br /&gt;
+- in your pitch dont include how it works&lt;br /&gt;
+- your pitch should include 4 key points    &lt;/p&gt;
+&lt;li&gt;
+             incident / problem (include numbers &amp; stats to back it up)
+             &lt;/li&gt;
+&lt;li&gt;
+              how your service / product solves it  ( also identify if your solution is scalable &amp; there is nitch and not a want)
+             &lt;/li&gt;
+&lt;li&gt;
+             your target audience
+             &lt;/li&gt;
+&lt;li&gt;
+             clarity and be emotional in how you solve it.
+             &lt;/li&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;a good pitch example will be the one from Beerlab.  &lt;a href=&#39;http://www.youtube.com/watch?v=cC5zCJbSx0o&#39;&gt;Here is a link to the pitch video&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
