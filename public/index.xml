@@ -468,6 +468,45 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
     </item>
     
     <item>
+      <title>nginx / nodejs stack setup</title>
+      <link>http://alfredkam.com/nginx-nodejs-stack-setup</link>
+      <pubDate>Mon, 17 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://alfredkam.com/nginx-nodejs-stack-setup</guid>
+      <description>&lt;p&gt;So when you have an nginx + nodejs combo, you want to use &lt;i&gt;nginx to port foward to nodejs&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;my nodejs uses forever to run on port 3000.&lt;/p&gt;
+&lt;p&gt;here is the nginx config setup&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+sudo vi /etc/nginx/site-enabled/default
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+#add this line before server { ... }
+[...]
+upstream app_nodejs {
+        server localhost:3000;
+}
+[...]
+
+#now in server {...}, assuming you want to map your url root to point to nodejs
+location / {
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_set_header X-NginX-Proxy true;
+
+               proxy_pass http://app_nodejs;
+               proxy_redirect off;
+           }
+
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Cheers&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>nginx with changed phpmyadmin directory setup</title>
       <link>http://alfredkam.com/nginx-with-phpmyadmin-setup</link>
       <pubDate>Mon, 17 Feb 2014 00:00:00 +0000</pubDate>
@@ -560,45 +599,6 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 &lt;p&gt;&lt;b&gt;Source&lt;/b&gt;&lt;br&gt;
 &lt;a href=&#34;http://stackoverflow.com/questions/17359413/nginx-change-phpmyadmin-directory&#34;&gt;stackoverflow&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://www.howtoforge.com/installing-nginx-with-php5-and-php-fpm-and-mysql-support-lemp-on-ubuntu-12.04-lts&#34;&gt;howtoforge&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>nginx / nodejs stack setup</title>
-      <link>http://alfredkam.com/nginx-nodejs-stack-setup</link>
-      <pubDate>Mon, 17 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://alfredkam.com/nginx-nodejs-stack-setup</guid>
-      <description>&lt;p&gt;So when you have an nginx + nodejs combo, you want to use &lt;i&gt;nginx to port foward to nodejs&lt;/i&gt;&lt;/p&gt;
-&lt;p&gt;my nodejs uses forever to run on port 3000.&lt;/p&gt;
-&lt;p&gt;here is the nginx config setup&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
-sudo vi /etc/nginx/site-enabled/default
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
-#add this line before server { ... }
-[...]
-upstream app_nodejs {
-        server localhost:3000;
-}
-[...]
-
-#now in server {...}, assuming you want to map your url root to point to nodejs
-location / {
-               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-               proxy_set_header Host $http_host;
-               proxy_set_header X-NginX-Proxy true;
-
-               proxy_pass http://app_nodejs;
-               proxy_redirect off;
-           }
-
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;Cheers&lt;/p&gt;
 </description>
     </item>
     

@@ -29,6 +29,7 @@ header {
   border: none;
   border-bottom: 1px solid #e5e5e5;
   border-radius: 0;
+  left: 15px;
   font-size: 20px;
   padding-bottom: 3px; }
 
@@ -171,9 +172,10 @@ body > div.container {
     margin-right: 15px; } }
 /* search */
 .searchBtn {
+  top: 1px;
+  position: relative;
   font-size: 15px;
   padding: 2px 4px;
-  border: 1px solid white;
   display: inline;
   -moz-transition: all 0.1s linear;
   -webkit-transition: all 0.1s linear;
@@ -188,7 +190,7 @@ body > div.container {
   -o-box-shadow: 0 0px 5px #cccccc;
   -ms-box-shadow: 0 0px 5px #cccccc;
   -ms-box-shadow: 0 0px 5px #cccccc;
-  background-color: white;
+  background-color: #DBD16F;
   cursor: pointer; }
 
 .searchBtn span {

@@ -3,7 +3,7 @@ template = "post"
 title = "The recent MVC landscape with Angular+React and Backbone+React"
 tags = ["react","backbone","angular","javascript","fast rendering", "inital loading","optimization"]
 date = "2014-06-08"
-url = "The recent MVC landscape with Angular React and Backbone React"
+url = "The recent mvc landscape with Angular React and Backbone React"
 type = "post"
 img = "/img/unsplash/tumblr_n6essmaWs11st5lhmo1_1280.jpg"
 +++
