@@ -25,7 +25,7 @@ fs.readdir(root, function (err, files) {
     for (var i in files) {
         buildJson(files[i], function () {
             counter++;
-            if (counter == files.length - 1) {
+            if (counter == files.length) {
                 fs.writeFile('./static/search.json', JSON.stringify(json), function (err) {
                     if (err) throw err;
                 });
