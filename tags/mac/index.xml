@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on Alfred kam</title>
+    <link>http://localhost:1313/tags/mac/</link>
+    <description>Recent content in Mac on Alfred kam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Feb 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>installing mysql-python on mac</title>
+      <link>http://localhost:1313/installing-mysql-python-on-mac</link>
+      <pubDate>Tue, 18 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/installing-mysql-python-on-mac</guid>
+      <description>&lt;p&gt;Awesome next challenge - running a flask server to connect to a MAMP [2.1.3] sql server on a mac (mavericks).  Flask is a light weight python server and uses flask-sqlalchemy to connect.  Installing mysql-python seems to be a challenge.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+#assuming you&#39;ve already installed xcode &amp; homebrew
+brew install mysql   #use brew install mysql --universal if your not using 64bit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Go to &lt;a href=&#34;http://dev.mysql.com/downloads/mysql/&#34;&gt;dev mysql&lt;/a&gt;&lt;br /&gt;
+download the latest release and decompress the file.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+cd /path/to/download/
+tar -xvf mysql-*.tar.gz
+cd /path/to/extract/
+mkdir /Applications/MAMP/Library/include
+cp -r include/* /Applications/MAMP/Library/include
+cp -r lib/* /Applications/MAMP/Library/lib
+
+export ARCHFLAGS=&#34;-arch $(uname -m)&#34;
+export PATH=$PATH:/Applications/MAMP/Library/bin
+export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
+
+sudo easy_install mysql-python
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;FYI: this line will cause trouble with git&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Rebooting your computer will clear it.&lt;/p&gt;
+&lt;p&gt;On a side note, when your connecting to the MAMP sql, python may complain mysql.sock is missing.  It is located under&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+/Applications/MAMP/tmp/mysql/mysql.sock
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Additional Source&lt;/strong&gt;&lt;br /&gt;
+&lt;a href=&#34;http://racingtadpole.com/blog/mamp-python-and-mysqldb/&#34;&gt;mamp-python-mysql&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/17920115/python-mysqldb-again-symbol-not-found-mysql-affected-rows&#34;&gt;stackoverflow&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

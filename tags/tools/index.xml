@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Alfred kam</title>
+    <link>http://localhost:1313/tags/tools/</link>
+    <description>Recent content in Tools on Alfred kam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 May 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Online Presence</title>
+      <link>http://localhost:1313/online-presence</link>
+      <pubDate>Thu, 16 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/online-presence</guid>
+      <description>&lt;p&gt;Previously my co-founder &lt;a href=&#34;http://twitter.com/andrewcboos&#34;&gt;Andrew Boos&lt;/a&gt; followed up on the topic of &lt;a href=&#39;http://andrewboos.com/the-difference-between-vcs-and-angels-reboot/&#39;&gt;difference of VCs and Angels&lt;/a&gt;. Continuo on the topic of start ups, this time lets cover online presence.&lt;/p&gt;
+&lt;p&gt;Your startup&#39;s online presence is relatively important to represent who you are, your cool product and how your customers can benefit from using it. In our startup &lt;a href=&#34;http://appfuel.me&#34;&gt;Appfuel&lt;/a&gt;, it took us a good 2 months to get it straight. Resulting an increase of web traffic.&lt;/p&gt;
+&lt;p&gt;Spilling the beans:&lt;br /&gt;
+1. Active social presence in&lt;br /&gt;
+- Facebook page&lt;br /&gt;
+- Twitter Profile&lt;br /&gt;
+- AngelList&lt;/p&gt;
+&lt;p&gt;Your social presence represents what your startup is made out off. Using these social platforms to pump out messages, cool stories and keep you consumer of interest up to date.&lt;/p&gt;
+&lt;p&gt;There are great tools such as &lt;a href=&#34;http://bufferapp.com&#34;&gt;Buffer&lt;/a&gt;, &lt;a href=&#34;http://ifttt.com&#34;&gt;if this then that&lt;/a&gt; to help you manage.&lt;/p&gt;
+&lt;p&gt;2. Landing Page&lt;br /&gt;
+When someone first enters into your site, with average browser size of 1280px  * 720px on desktops and 320px *  480px on mobile. That is some relatively small space, but hey! That will determine if the user will continue reading on. You should spice up the landing page&#39;s image, and it will determine if the reader will continue reading on.&lt;/p&gt;
+&lt;p&gt;3. SEO ( Search Engine Optimization)&lt;br /&gt;
+Another method to deliver organic traffic to your site are through searches. Make sure you have included meta tags of &#34;description&#34; and &#34;keywords&#34;; A short info in how you can help them; Submit your sitemap into the search engines.&lt;/p&gt;
+&lt;p&gt;4. Blog&lt;br /&gt;
+Posting relavent information, tips, stories for the consumer drives relavent traffic and ultimately landing in as your customer.&lt;/p&gt;
+&lt;p&gt;There are tools such as &lt;a href=&#34;http://hittail.com&#34;&gt;hittail&lt;/a&gt; and google analytics to help you drill down to specific keywords that are driving traffic to your site.&lt;/p&gt;
+&lt;p&gt;As for ours we spiced up our blog a little bit just so the travellers can read the relavent posts, picture below.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-233&#34; alt=&#34;IAMA - mortal - dev - show all&#34; src=&#34;http://localhost:1313/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png&#34; width=&#34;600&#34; height=&#34;114&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
