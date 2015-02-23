@@ -5,6 +5,10 @@
 .tmp/
 .sass-cache/
 .build_jsx/
+<<<<<<< HEAD
+=======
+/dist/
+>>>>>>> origin/gh-pages
 uploads/*
 node_modules/
 *.iml

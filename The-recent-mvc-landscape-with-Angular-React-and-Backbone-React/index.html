@@ -1,57 +1,52 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+
+
+ <html class="no-js"> 
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="description" content="Ups and Downs of Entrepreneurship">
+        <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>The recent MVC landscape with Angular+React and Backbone+React</title>
+        <title>The recent MVC landscape with Angular&#43;React and Backbone&#43;React</title>
 
-        <link rel='stylesheet' href='/assets/components/bootstrap/dist/css/bootstrap.min.css' />
-        <link rel='stylesheet' href='/assets/css/base.css' />
-        <link rel='stylesheet' href='/assets/components/prismjs/prism-okaidia.css' />
+        <link rel='stylesheet' href='/components/bootstrap/dist/css/bootstrap.min.css' />
+        <link rel='stylesheet' href='/css/base.css' />
+        <link rel='stylesheet' href='/components/prismjs/prism-okaidia.css' />
 
-        <!-- fontello -->
-        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello.css" />
-        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/animation.css" />
-        <!--[if IE 7]>
-        <link rel="stylesheet" href="/assets/css/fontello-f19985b1/css/fontello-ie7.css" />
-        <![endif]-->
+        
+        <link rel="stylesheet" href="/css/fontello-f19985b1/css/fontello.css" />
+        <link rel="stylesheet" href="/css/fontello-f19985b1/css/animation.css" />
+        
 
-        <!-- open sans font -->
+        
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
-
-        <script src='/assets/components/jquery/jquery.min.js' type='text/javascript'></script>
+        <script src='/components/jquery/jquery.min.js' type='text/javascript'></script>
     </head>
     <body>
-    <header>
-    <!-- nav -->
+        <header>
+    
     <nav class="navbar navbar-default" role="navigation">
         <div class='container'>
-            <div class='col-xs-1 center'>
+            <div class='col-xs-2 center'>
                <a class="navbar-brand" href="/">AK</a>
             </div>
-            <div class='col-xs-10'>
-                <div id='searchComponent' class='col-xs-2'>
-                </div>
-                <div class="navbar-header col-sm-10 title">
-                    <div class='col-sm-9'>
-                        <span><a href='/'>Thoughts of Coding & Entrepreneurship</a></span>
-                    </div>
+            <div class='col-xs-8'>
+                <div class="navbar-header col-sm-12 title">
+                        <span><a href='/'>Geeking out</a></span>
                 </div>
             </div>
+           <div id='searchComponent' class='col-xs-2'>
+           </div> 
         </div>
         <div id='searchSpace'>
         </div>
     </nav>
 </header>
-        <style>
+                <style>
           .headerImg {
-            background: url(/assets/img/unsplash/tumblr_n6essmaWs11st5lhmo1_1280.jpg) center;
+            background: url(/img/unsplash/tumblr_n6essmaWs11st5lhmo1_1280.jpg) center;
             height: 273px;
             width: 100%;
             position: relative;
@@ -80,15 +75,15 @@
           <div class='headerImg'>
           </div>
           <div class='headerImg-black'></div>
-          <h1 class='headerImg-title'>The recent MVC landscape with Angular+React and Backbone+React</h1>
+          <h1 class='headerImg-title'>The recent MVC landscape with Angular&#43;React and Backbone&#43;React</h1>
         </div>
         </div>
         <div class='container'>
         <div class='col-md-10 col-md-offset-1'>
             <div>
                 <p class="author">
-                    <span class="date padding-right">08 Jun 2014</span>
-                    <span class='padding-right'><i class='icon-chat-alt'></i>&nbsp;&nbsp;<a href="#disqus_thread">0</a><span>
+                    <span class="date padding-right">Sun Jun 8, 2014</span>
+                    <span class='padding-right'><i class='icon-chat-alt'></i>&nbsp;&nbsp;<a href="http://alfredkam.com#disqus_thread">0</a><span>
                     <span class='views'><i class='icon-eye'></i>0</span>
                   </a>
                 </p>
@@ -178,24 +173,116 @@
 </p>
 <p>
     I believe this pretty much dictates which combination is the go to framework for heavy web apps.  Every second counts to keep your user on your site!
+</p>ntender in the market called Facebook React, I'll just call it React for short.  React is a 'View' Framework.  So in terms of a MVC, its the 'V' Component.  Suprisingly React further simplified the entire landscape of 'View' framework.  It only expose the real nodes that you have
 </p>
+<p>
+  Lets see how this will look like in React, ive also included the propeller <a href='https://github.com/usepropeller/react.backbone'>react.backbone</a>.  It allows us to feed in backbone models into react and databind with mixin.
+</p>
+
+<p><pre>
+  <code class='language-markup'>
+      &lt;!&ndash; html structure &ndash;&gt;
+      &#60;html&#62;
+        &#60;body&#62;
+        &#60;/body&#62;
+      &#60;/html&#62;
+  </code>
+  <code class='language-javascript'>
+    //javascript code
+    /** @jsx React.DOM **/
+    &lsquo;use strict&rsquo;;</p>
+
+<pre><code>define ([
+  'jquery', backbone', 'react', 'react.backbone'
+], function (
+  $, Backbone, React,
+) {
+
+  var CommentComponent = React.createBackboneClass({
+    var comments = this.props.collection.map(function(item) {
+      return (
+        {item.get('comment')}
+      )
+    });
+    return (
+      &lt;div&gt;
+        {comments}
+      &lt;/div&gt;
+    );
+  });
+
+  var StatsComponent = React.createBackboneClass({
+    render : function () {
+      return (
+        &lt;div&gt; 
+          {/* html template */}
+        &lt;/div&gt;
+      );
+    }
+  });
+
+  var MenuComponent = React.createBackboneClass({
+    render : function () {
+      return (
+        &lt;div&gt; 
+          {/* html template */}
+        &lt;/div&gt;
+      );
+    }
+  });
+
+  var WidgetLayout = React.createBackboneClass({
+    componentWillMount : function () {
+      this.collection = Backbone.Collection();
+    },
+    render : function () {
+      return (
+        &lt;StatsComponent /&gt;
+        &lt;CommentsComponent collection={this.collection}/&gt;
+      )
+    };
+  });
+
+  var AppLayout = React.createBackboneClass({
+    render : function () {
+      return (
+        &lt;div&gt;
+            &lt;MenuComponent /&gt;
+            &lt;WidgetLayout /&gt;
+        &lt;/div&gt;
+      );
+    };
+  });
+  React.renderComponent({
+    &lt;AppLayout /&gt;,
+    $('body')[0]
+  });
+});
+</code></pre>
+
+<p></code>
+</pre>
+<p>
+  The code base is smaller, easier to understand and to control.  Now some may ask about Angular + React comparing with Backbone + React.  For this I&rsquo;ll leave it to next post, but this is now pretty clear Marionette is out of the game.
+</p></p>
+
                 </div>
                 <div class='tags'>
                     <i class='icon-tag'></i>
                     
-                        &nbsp;<a href='/tag/react'>react</a>,
+                      &nbsp;<a href='/tags/react'>react</a>
                     
-                        &nbsp;<a href='/tag/backbone'>backbone</a>,
+                      &nbsp;<a href='/tags/backbone'>backbone</a>
                     
-                        &nbsp;<a href='/tag/angular'>angular</a>,
+                      &nbsp;<a href='/tags/angular'>angular</a>
                     
-                        &nbsp;<a href='/tag/javascript'>javascript</a>,
+                      &nbsp;<a href='/tags/javascript'>javascript</a>
                     
-                        &nbsp;<a href='/tag/fast rendering'>fast rendering</a>,
+                      &nbsp;<a href='/tags/fast-rendering'>fast rendering</a>
                     
-                        &nbsp;<a href='/tag/initial loading'>initial loading</a>,
+                      &nbsp;<a href='/tags/inital-loading'>inital loading</a>
                     
-                        &nbsp;<a href='/tag/optimization'>optimization</a>
+                      &nbsp;<a href='/tags/optimization'>optimization</a>
                     
                 </div>
             </div>
@@ -203,7 +290,7 @@
             <script type='text/javascript'>
                 (function () {
                     $.ajax({ 
-                        url :'http://nerd.alfredkam.com/blog/The-recent-mvc-landscape-with-Angular-React-and-Backbone-React/count?api_key=276fmAeE7ZqRl'
+                        url :'http://nerd.alfredkam.com/blog/The-recent-MVC-landscape-with-Angular-React-and-Backbone-React/count?api_key=276fmAeE7ZqRl'
                     }).done(function (data) {
                         $('.views').each(function () {
                             $(this).html("<i class='icon-eye'></i>"+data.views);
@@ -214,10 +301,10 @@
                 })();
             </script>
             <script type="text/javascript">
-              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-              var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
+               
+              var disqus_shortname = 'alfredkam'; 
 
-              /* * * DON'T EDIT BELOW THIS LINE * * */
+               
               (function () {
               var s = document.createElement('script'); s.async = true;
               s.type = 'text/javascript';
@@ -226,10 +313,10 @@
               }());
             </script>
              <script type="text/javascript">
-                 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                 var disqus_shortname = 'alfredkam'; // required: replace example with your forum shortname
-                 var disqus_url = 'http://alfredkam.com/The-recent-mvc-landscape-with-Angular-React-and-Backbone-React';
-                 /* * * DON'T EDIT BELOW THIS LINE * * */
+                  
+                 var disqus_shortname = 'alfredkam'; 
+                 var disqus_url = 'http://alfredkam.com/The-recent-MVC-landscape-with-Angular-React-and-Backbone-React';
+                  
                  (function() {
                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
@@ -240,8 +327,8 @@
              <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
     </div>
-    <!-- AddThis Smart Layers BEGIN -->
-    <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+    
+    
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52fe302726d95ddf"></script>
     <script type="text/javascript">
       addthis.layers({
@@ -252,83 +339,82 @@
         },  
         'whatsnext' : {}  
       });
-    </script>
-    <!-- AddThis Smart Layers END -->
- </body>
-    <footer>
-        <div class='col-md-10 col-md-offset-1'>
-            <div class='row'>
-              <div class='col-md-4'>
-                <h4>
-                  About
-                </h4>
-                <div class='row'>
-                  <div class='col-xs-4'>
-                    <img src='http://www.gravatar.com/avatar/d9b3f7a32a3bf559aad23694c73eb8cc.png' style='width:100%'></img>
-                  </div>
-                  <p class='col-xs-8'>
-                    Hello! I'm an Entrepreneur & Developer with primiary focus in javascript.  I'm also active in the field of computational biology.
-                  </p>
-                </div>
-              </div>
-              <div class='col-xs-4'>
-                <h4>
-                  Notable Works
-                </h4>
-                <p>
-                  <a href='http://appfuel.me'>Appfuel</a><br>
-                  <a href='http://phylo.cs.mcgill.ca'>PHYLO</a><br>
-                  <a href='http://yako.io'>Yako</a><br>
-                  <a href='/portfolio'>> More</a>
-                </p>
-              </div>
-              <div class='col-sm-4'>
-                <h4>
-                  Stalking Aids
-                </h4>
-                <p class='socialBtns'>
-                  <a href='http://github.com/alfredkam'><i class='icon-github'></i></a>
-                  <a href='https://twitter.com/alfredkam'><i class='icon-twitter'></i></a>
-                  <a href='http://www.linkedin.com/in/kamalfred'><i class='icon-linkedin'></i></a>
-                </p>
-              </div>
+    </script> 
+    </body>
+<footer>
+  <div class='col-md-10 col-md-offset-1'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <h4>
+            About
+          </h4>
+          <div class='row'>
+            <div class='col-xs-4'>
+              <img src='http://www.gravatar.com/avatar/d9b3f7a32a3bf559aad23694c73eb8cc.png' style='width:100%'></img>
             </div>
-            <div class='row'>
-              <div class='col-md-12 copyright-info'>
-                Alfred Kam &#169; 2014
-              </div>
-            </div>
-        </div>    
-    </footer>
+            <p class='col-xs-8'>
+              Hello! I'm an Entrepreneur & Developer with primiary focus in javascript.  I'm also active in the field of computational biology.
+            </p>
+          </div>
+        </div>
+        <div class='col-xs-4'>
+          <h4>
+            Notable Works
+          </h4>
+          <p>
+            <a href='http://appfuel.me'>Appfuel</a><br>
+            <a href='http://phylo.cs.mcgill.ca'>PHYLO</a><br>
+            <a href='http://yako.io'>Yako</a><br>
+            <a href='/portfolio'>> More</a>
+          </p>
+        </div>
+        <div class='col-sm-4'>
+          <h4>
+            Stalking Aids
+          </h4>
+          <p class='socialBtns'>
+            <a href='http://github.com/alfredkam'><i class='icon-github'></i></a>
+            <a href='https://twitter.com/alfredkam'><i class='icon-twitter'></i></a>
+            <a href='http://www.linkedin.com/in/kamalfred'><i class='icon-linkedin'></i></a>
+          </p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-12 copyright-info'>
+          Alfred Kam &#169; 2015
+        </div>
+      </div>
+  </div> 
+</footer>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-      ga('require', 'displayfeatures');
-      ga('create', 'UA-25416273-1', 'alfredkam.com');
-      ga('send', 'pageview');
-    </script>
-    <script src='/assets/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
-    <!--<script src='/assets/components/moment/min/moment.min.js' type='text/javascript'></script>-->
-    <script type='text/javascript'>
-      $('code').each(function () {
-        var html = _.escape($(this).html());
-        html = html.replace(/&amp;lt;/g,'&lt;');
-        html = html.replace(/&amp;gt;/g,'&gt;');
-        $(this).html(html);
-      });
-    </script>
-    <script src='/assets/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>
-    <script src='/assets/scripts/base.js' type='text/javascript'></script>
-    <script src='/assets/components/prismjs/prism.js' type='text/javascript'/></script>
-    <script src='/assets/components/prismjs/components/prism-markup.min.js' type="text/javascript"></script>
-    <script src='/assets/components/prismjs/components/prism-bash.min.js' type='text/javascript'></script>
-    <script src='/assets/components/prismjs/components/prism-css.min.js' type='text/javascript'></script>
-    <script src='/assets/components/prismjs/components/prism-javascript.min.js' type='text/javascript'></script>
-    <script src='/assets/components/prismjs/components/prism-python.min.js' type="text/javascript"></script>
-    <script src='/assets/components/react/react.min.js' type='text/javascript'></script>
-    <script src='/assets/components/react/JSXTransformer.js' type='text/javascript'></script>
-    <script src='/assets/scripts/searchComponent.js' type='text/jsx'></script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('require', 'displayfeatures');
+  ga('create', 'UA-25416273-1', 'alfredkam.com');
+  ga('send', 'pageview');
+</script>
+<script src='/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
+
+<script type='text/javascript'>
+  $('code').each(function () {
+    var html = _.escape($(this).html());
+    html = html.replace(/&amp;lt;/g,'&lt;');
+    html = html.replace(/&amp;gt;/g,'&gt;');
+    $(this).html(html);
+  });
+</script>
+<script src='/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>
+<script src='/scripts/base.js' type='text/javascript'></script>
+<script src='/components/prismjs/prism.js' type='text/javascript'/></script>
+<script src='/components/prismjs/components/prism-markup.min.js' type="text/javascript"></script>
+<script src='/components/prismjs/components/prism-bash.min.js' type='text/javascript'></script>
+<script src='/components/prismjs/components/prism-css.min.js' type='text/javascript'></script>
+<script src='/components/prismjs/components/prism-javascript.min.js' type='text/javascript'></script>
+<script src='/components/prismjs/components/prism-python.min.js' type="text/javascript"></script>
+<script src='/components/react/react.min.js' type='text/javascript'></script>
+<script src='/components/react/JSXTransformer.js' type='text/javascript'></script>
+<script src='/scripts/searchComponent.js' type='text/jsx'></script>
 </html>
