@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>502 on Alfred kam</title>
+    <link>http://alfredkam.com/tags/502/</link>
+    <description>Recent content in 502 on Alfred kam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Feb 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://alfredkam.com/tags/502/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>nginx with changed phpmyadmin directory setup</title>
+      <link>http://alfredkam.com/nginx-with-phpmyadmin-setup</link>
+      <pubDate>Mon, 17 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://alfredkam.com/nginx-with-phpmyadmin-setup</guid>
+      <description>&lt;p&gt;Recently decided to setup a nginx / python / mysql lightweight backend to interact with a nodejs services.   So decided to change phpmyadmin directory as well - i did run into 502 / 403 nginx errors, hope this post will help anyone who had the same issues too.&lt;/p&gt;
+&lt;p&gt;Setup process - assuming you are using ubuntu 12.04LTS&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+#install mysql &amp; nginx
+sudo apt-get install mysql-server mysql-client
+sudo apt-get install nginx
+
+#start nginx
+sudo service nginx start
+
+#install php5 &amp; phpmyadmin
+sudo apt-get install php5-fpm php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-xcache phpmyadmin
+
+#reload php5
+sudo service php5-fpm reload
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+#modify php5-fpm
+sudo vi /etc/php5/fpm/pool.d/www.conf
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+#look for listen and modify as follow
+[...]
+;listen = 127.0.0.1:9000
+listen = /tmp/php5-fpm.sock
+[...]
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+#setup nginx config
+sudo vi /etc/nginx/site-enabled/default
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+#add this after location /
+[...]
+location /pma {
+    alias /usr/share/phpmyadmin/;
+}
+
+location ~ ^/pma/(.*\.(js|css|gif|jpg|png))$ {
+    alias /usr/share/phpmyadmin/$1;
+}
+
+location ~ ^/pma(.+\.php)$ {
+    alias /usr/share/phpmyadmin$1;
+    fastcgi_pass unix:/tpm/php5-fpm.sock;
+    fastcgi_index index.php;
+
+    charset utf8;
+
+    include fastcgi_params;
+    fastcgi_param DOCUMENT_ROOT /usr/share/phpmyadmin;
+}
+
+#if you want to enable php site wide
+location ~ \.php$ {
+                try_files $uri =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/tmp/php5-fpm.sock;
+                fastcgi_index index.php;
+                include fastcgi_params;
+}
+[...]
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-markup&#34;&gt;
+sudo service nginx reload
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;FYI: The most common 502 / 403 errors are due to this line in the nginx config file. &lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&#34;language-bash&#34;&gt;
+fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock; 
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Hopefully this post will help some travellers here.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Source&lt;/b&gt;&lt;br&gt;
+&lt;a href=&#34;http://stackoverflow.com/questions/17359413/nginx-change-phpmyadmin-directory&#34;&gt;stackoverflow&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://www.howtoforge.com/installing-nginx-with-php5-and-php-fpm-and-mysql-support-lemp-on-ubuntu-12.04-lts&#34;&gt;howtoforge&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
