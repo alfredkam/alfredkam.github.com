@@ -8,7 +8,7 @@ var buildJson = function (file, done) {
         if (err) throw err;
         context = context.toString();
         var title = context.match(/title\s?\=\s?"(.*)"/)[1];
-        var href = context.match(/url\s?\=\s?"(.*)"/)[1].replace(/\s/g,"-").toLowerCase();
+        var href = '/' + context.match(/url\s?\=\s?"(.*)"/)[1].replace(/\s/g,"-").toLowerCase();
         var tags = context.match(/tags\s?=\s?\[(.*)\]/);
         tags = (tags ? tags[1].match(/([0-9a-zA-Z\-\+\.]+\s?[0-9a-zA-Z\-\+\.]+)/g) : '');
         json.push({
