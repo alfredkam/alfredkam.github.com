@@ -5,6 +5,7 @@ tags = ["react","backbonejs","marionettejs","angular","javascript"]
 date = "2014-05-28"
 type = "post"
 url = "Goodbye Marionette Hello React"
+img = "/img/unsplash/tumblr_n1iq25Wq701st5lhmo1_1280.jpg"
 +++
 
 <p>

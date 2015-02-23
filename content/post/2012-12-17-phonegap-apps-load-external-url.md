@@ -5,6 +5,7 @@ tags = ["Android", "iOS","phonegap"]
 date = "2012-12-17"
 url = "phonegap apps load external url"
 type = "post"
+img = "/img/unsplash/tumblr_n21lq8Tmpl1st5lhmo1_1280.jpg"
 +++
 <p><strong>To enable access to whitelist domain</strong><br />
 http://docs.phonegap.com/en/1.9.0/guide_whitelist_index.md.html</p>

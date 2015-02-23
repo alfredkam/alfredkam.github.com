@@ -5,6 +5,7 @@ tags = ["Dev", "JavaScript"]
 date = "2012-12-20"
 url = "best way to develop a dynamic website"
 type = "post"
+img = "/img/unsplash/tumblr_n3tsz9iUPi1st5lhmo1_1280.jpg"
 +++
 <p>The develop a dynamic website, with all those smooth page transitions similar to gmail.  As per design we will use <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, Bootstrap provides all the css tools you need to setup a quick website.</p>
 <p><strong>Frontend skills you will need</strong><br />

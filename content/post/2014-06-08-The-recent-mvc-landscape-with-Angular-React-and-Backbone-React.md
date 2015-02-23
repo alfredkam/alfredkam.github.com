@@ -5,6 +5,7 @@ tags = ["react","backbone","angular","javascript","fast rendering", "inital load
 date = "2014-06-08"
 url = "The recent MVC landscape with Angular React and Backbone React"
 type = "post"
+img = "/img/unsplash/tumblr_n6essmaWs11st5lhmo1_1280.jpg"
 +++
 <p>
     This post might bring in some arguments for both parties that favour one of the framework then the other, but this will be a worth while comparision to take a look at the recent MVC landscape.  Just to clarify - I'm still relatively new to Angular.

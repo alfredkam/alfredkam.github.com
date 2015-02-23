@@ -5,6 +5,7 @@ tags = ["Dev", "aws ec2", "Dev Notes", "ec2 instances", "password authentication
 date = "2013-02-09"
 type = "post"
 url = "allow password login on ec2"
+img = "/img/unsplash/tumblr_n4cmdjoYwt1st5lhmo1_1280.jpg"
 +++
 <p>Step 1 - ssh into server</p>
 <p><code><br />

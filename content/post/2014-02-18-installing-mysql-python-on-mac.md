@@ -5,6 +5,7 @@ url = "installing mysql-python on mac"
 type = "post"
 tags = ["documentation", "flask","mac","mysql-python","sqlalchemy"]
 date = "2014-02-18"
+img = "/img/unsplash/tumblr_n2k1499dIp1st5lhmo1_1280.jpg"
 +++
 <p>Awesome next challenge - running a flask server to connect to a MAMP [2.1.3] sql server on a mac (mavericks).  Flask is a light weight python server and uses flask-sqlalchemy to connect.  Installing mysql-python seems to be a challenge.</p>
 <pre><code class='language-bash'>

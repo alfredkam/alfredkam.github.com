@@ -5,6 +5,7 @@ url = "using git hooks to deploy server with forever"
 type = "post"
 tags = ["automatic deploy","dev-guide","eacces issue","flask","forever","git","git hooks","hooks","init.d service","nodejs","npm","python"]
 date = "2014-02-17"
+img = "/img/unsplash/tumblr_n1iq25Wq701st5lhmo1_1280.jpg"
 +++
 <p>If you love deploying with automation and you love the fact you dont need to touch your server (which you should!).  I've setup this up on an ec2 ubuntu 12.04 LTS, shouldnt differ too much with other ubuntu versions.  At this time of writing i'm setting up a nodejs / flask server</p>
 <p>On your remote server</p>

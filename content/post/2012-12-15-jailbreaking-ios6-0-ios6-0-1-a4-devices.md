@@ -5,6 +5,7 @@ title = "JailBreaking iOS 6.0 / 6.0.1 for A4 Devices"
 tags = ["Cracking Apple", "JailBreak"]
 date = "2012-12-15"
 url = "jailbreaking ios6 0 ios 6 0 1 a4 devices"
+img = "/img/unsplash/tumblr_n5e0flmR0u1st5lhmo1_1280.jpg"
 +++
 <p>Note :: Only works for A4 devices eg - iPhone 4<br />
 Note :: This is a tethered jailbreak</p>

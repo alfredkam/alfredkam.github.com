@@ -5,6 +5,7 @@ tags = ["Dev", "Cheat Sheet", "Dev Notes", "git"]
 date = "2012-12-17"
 url = "git cheat sheet"
 type = "post"
+img = "/img/unsplash/tumblr_n6et0idQ131st5lhmo1_1280.jpg"
 +++
 <pre><code class='language-markup'>
 #Setting up git from scratch

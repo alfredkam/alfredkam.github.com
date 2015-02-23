@@ -5,6 +5,7 @@ tags = ["Entrepreneurship", "Startups", "Pitching", "Story"]
 date = "2013-01-25"
 url = "why and how to tell a cool story"
 type = "post"
+img = "/img/unsplash/tumblr_n1ips91H3y1st5lhmo1_1280.jpg"
 +++
 <p>When pitching to an investor, you will always want your investor to come out to say "cool" after listening to the pitch.  "Cool" is the validation for your idea or product, but you will want to hear that from an investor who is an expert in your field.  They are the one who will be your potential to meet for follow up presentations / demos, and may become your future advisor or investor.</p>
 <p>Here is a checklist of what your pitch needs:</p>

@@ -5,6 +5,7 @@ tags = ["Dev", "Bell Curve", "Binomial Distribution", "Cheat Sheet", "Dev Notes"
 date = "2013-05-08"
 url = "js function crib sheet"
 type = "post"
+img = "/img/unsplash/tumblr_n5e0bzn4Jl1st5lhmo1_1280.jpg"
 +++
 <p>Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.</p>
 <p>The cryptsheet includes these functions and can be found here : <a href='https://github.com/alfredkam/jsFunctions'>https://github.com/alfredkam/jsFunctions</a></p>

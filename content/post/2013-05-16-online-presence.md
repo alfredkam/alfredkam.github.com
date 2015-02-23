@@ -5,6 +5,7 @@ tags = ["Entrepreneurship","Startups","Mortal","Startup 101","minimal viable pro
 date = "2013-05-16"
 type = "post"
 url = "online presence"
+img = "/img/unsplash/tumblr_n1iq25Wq701st5lhmo1_1280.jpg"
 +++
 <p>Previously my co-founder <a href="http://twitter.com/andrewcboos">Andrew Boos</a> followed up on the topic of <a href='http://andrewboos.com/the-difference-between-vcs-and-angels-reboot/'>difference of VCs and Angels</a>. Continuo on the topic of start ups, this time lets cover online presence.</p>
 <p>Your startup's online presence is relatively important to represent who you are, your cool product and how your customers can benefit from using it. In our startup <a href="http://appfuel.me">Appfuel</a>, it took us a good 2 months to get it straight. Resulting an increase of web traffic.</p>
