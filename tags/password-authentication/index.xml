@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Password-Authentication on Alfred kam </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://alfredkam.com/tags/password-authentication/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 09 Feb 2013 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Allow password authentications on Amazon ec2 instance</title>
+      <link>http://alfredkam.com/allow-password-login-on-ec2</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://alfredkam.com/allow-password-login-on-ec2</guid>
+      <description>&lt;p&gt;Step 1 - ssh into server&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&lt;br /&gt;
+ssh -i ssh_key.pem my_amazon_ec2_instance.url&lt;br /&gt;
+&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
+*This is really not a recommended way to login
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
