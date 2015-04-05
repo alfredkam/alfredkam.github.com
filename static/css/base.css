@@ -29,7 +29,6 @@ header {
   border: none;
   border-bottom: 1px solid #e5e5e5;
   border-radius: 0;
-  left: 15px;
   font-size: 20px;
   padding-bottom: 3px; }
 
@@ -205,6 +204,7 @@ body > div.container {
   width: 100%;
   top: 33px;
   padding: 15px 0;
+  left: 15px;
   border-bottom: 1px solid #cccccc; }
 
 #searchSpace .icon-cancel {
