@@ -7,7 +7,10 @@ Used to be in wordpress -> Jekyll -> Hugo
 hugo server -w
 
 ##Attach a random image for each post
+This script will automatically scrape the image director and replace the line of ```img``` with a random image.
+```bash`
 node randomImage
+```
 
 ##Deploy
 sh deploy.sh
