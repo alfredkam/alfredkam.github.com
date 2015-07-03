@@ -19,4 +19,5 @@ git commit -m "$msg"
 
 # Push source and build repos.
 git push origin hugo
-git subtree push --prefix=dist git@github.com:alfredkam/alfredkam.github.com.git master
+#git subtree push --prefix=dist git@github.com:alfredkam/alfredkam.github.com.git master
+git subtree push --prefix=dist dokku@app.carrot.so:alfredkam-blog master
