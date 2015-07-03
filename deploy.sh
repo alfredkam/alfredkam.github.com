@@ -6,6 +6,7 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 hugo -d dist
 
 cp CNAME dist/
+cp .env dist/
 
 # Add changes to git.
 git add -A
