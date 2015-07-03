@@ -7,6 +7,7 @@ hugo -d dist
 
 cp CNAME dist/
 cp .env dist/
+cp .static dist/
 
 # Add changes to git.
 git add -A
