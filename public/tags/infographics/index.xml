@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Infographics on Alfred kam</title>
-    <link>http://alfredkam.com/tags/infographics/</link>
+    <link>http://localhost:1313/tags/infographics/</link>
     <description>Recent content in Infographics on Alfred kam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 24 May 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://alfredkam.com/tags/infographics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/infographics/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Typical way of starting a startup</title>
-      <link>http://alfredkam.com/typical-way-of-starting-a-startup</link>
+      <link>http://localhost:1313/typical-way-of-starting-a-startup</link>
       <pubDate>Fri, 24 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/typical-way-of-starting-a-startup</guid>
+      <guid>http://localhost:1313/typical-way-of-starting-a-startup</guid>
       <description>&lt;p&gt;Found this gold on the net.  Felt should keep a record here :)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://alfredkam.com/img/2013/05/startup-cycle.png&#34;&gt;&lt;img src=&#34;http://alfredkam.com/img/2013/05/startup-cycle.png&#34; alt=&#34;startup-cycle&#34; width=&#34;600&#34; height=&#34;482&#34; class=&#34;alignnone size-medium wp-image-251&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/2013/05/startup-cycle.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/img/2013/05/startup-cycle.png&#34; alt=&#34;startup-cycle&#34; width=&#34;600&#34; height=&#34;482&#34; class=&#34;alignnone size-medium wp-image-251&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

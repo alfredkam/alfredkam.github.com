@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Probability Mass Function on Alfred kam</title>
-    <link>http://alfredkam.com/tags/probability-mass-function/</link>
+    <link>http://localhost:1313/tags/probability-mass-function/</link>
     <description>Recent content in Probability Mass Function on Alfred kam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 08 May 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://alfredkam.com/tags/probability-mass-function/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/probability-mass-function/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>JavaScript Function Crib Sheet</title>
-      <link>http://alfredkam.com/js-function-crib-sheet</link>
+      <link>http://localhost:1313/js-function-crib-sheet</link>
       <pubDate>Wed, 08 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/js-function-crib-sheet</guid>
+      <guid>http://localhost:1313/js-function-crib-sheet</guid>
       <description>&lt;p&gt;Getting Lazy! So created a javascript function cheat sheet to share with the travellers here.  Hope it will be help many of you.&lt;/p&gt;
 &lt;p&gt;The cryptsheet includes these functions and can be found here : &lt;a href=&#39;https://github.com/alfredkam/jsFunctions&#39;&gt;https://github.com/alfredkam/jsFunctions&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;General Laziness::&lt;br /&gt;

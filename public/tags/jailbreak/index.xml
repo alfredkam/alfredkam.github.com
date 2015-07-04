@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jailbreak on Alfred kam</title>
-    <link>http://alfredkam.com/tags/jailbreak/</link>
+    <link>http://localhost:1313/tags/jailbreak/</link>
     <description>Recent content in Jailbreak on Alfred kam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 15 Dec 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://alfredkam.com/tags/jailbreak/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/jailbreak/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>JailBreaking iOS 6.0 / 6.0.1 for A4 Devices</title>
-      <link>http://alfredkam.com/jailbreaking-ios6-0-ios-6-0-1-a4-devices</link>
+      <link>http://localhost:1313/jailbreaking-ios6-0-ios-6-0-1-a4-devices</link>
       <pubDate>Sat, 15 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://alfredkam.com/jailbreaking-ios6-0-ios-6-0-1-a4-devices</guid>
+      <guid>http://localhost:1313/jailbreaking-ios6-0-ios-6-0-1-a4-devices</guid>
       <description>&lt;p&gt;Note :: Only works for A4 devices eg - iPhone 4&lt;br /&gt;
 Note :: This is a tethered jailbreak&lt;/p&gt;
 &lt;p&gt;1) Upgrade to iOS 6.0 / 6.0.1&lt;br /&gt;

@@ -2,8 +2,15 @@
 title: Portfolio
 permalink: /portfolio/
 ---
-<div class='row'>
+<div class='row margin-none'>
     <div class='col-md-10 col-md-offset-1'>
+        <h2>Startups</h2>
+        <div class='col-md-12'>
+            <h4><a href='http://appfuel.me'>APPFUEL (ADCONNECT), Acq. By Tune</a></h4>
+            <p>
+                A start up that focuses in the mobile advertisment technology mainly in the area of cross promotion
+            </p>
+        </div>
         <h2>Publications</h3>
             <div class='row'>
                 <div class='col-md-12'>
@@ -25,24 +32,18 @@ permalink: /portfolio/
                     </p>
                 </div>
             </div>
-        <h2>Startups & Projects</h2>
+        <h2>Projects</h2>
         <div class='row'>
             <div class='col-md-12'>
-                <h4><a href='http://yako.io'>YAKO</a></h4>
+                <h4><a href='https://github.com/alfredkam/yakojs'>YAKO</a></h4>
                 <p>
-                    A game portal for educational games
-                </p>
-            </div>
-            <div class='col-md-12'>
-                <h4><a href='http://appfuel.me'>APPFUEL (ADCONNECT)</a></h4>
-                <p>
-                    A start up that focuses in the mobile advertisment technology mainly in the area of cross promotion
+                    A light weight graphing library
                 </p>
             </div>
             <div class='col-md-12'>
                 <h4><a href='http://phylo.cs.mcgill.ca'>PHYLO</a></h4>
                 <p>
-                    A browser based game build in javascript.  This game benefits from crowd source through gamers solving compare genomics puzzles by a color matching problem.  In other words this game is a human compute framework for comparative geonmics. 
+                    A browser based game build in javascript.  This game benefits from crowd source through gamers solving compare genomics puzzles by a color matching problem.  In other words this game is a human compute framework for comparative geonmics.
                 </p>
             </div>
             <div class='col-md-12'>
