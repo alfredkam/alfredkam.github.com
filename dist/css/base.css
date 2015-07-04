@@ -51,9 +51,12 @@ header {
   padding-bottom: 10px; }
 
 .navbar-header {
-  text-align: center;
-  left: -10px;
-  position: relative; }
+  position: relative;
+}
+
+.summaryPage .navbar-header {
+ text-align: center;
+}
 
 .navbar-brand {
   float: none;
@@ -239,7 +242,6 @@ body > div.container {
   #searchComponent {
     display: none; } }
 
-
-.margin-left-none {
-    margin-left: none;
+.margin-none {
+    margin: 0;
 }
