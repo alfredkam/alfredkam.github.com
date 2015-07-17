@@ -27,12 +27,6 @@ header .navbar .title a{
     font-size: 35px;
 }
 
-section.post {
-    max-height: 500px;
-    overflow-y: hidden;
-    text-overflow: ellipsis;
-}
-
 .padding-none {
     padding: 0;
 }

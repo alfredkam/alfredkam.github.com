@@ -6,12 +6,10 @@ a {
   transition: all 0.1s linear; }
 
 .center {
-  text-align: center;
-}
+  text-align: center; }
 
 body, footer {
-  font-family: "Open Sans", sans-serif;
-}
+  font-family: "Open Sans", sans-serif; }
 
 a:hover {
   text-decoration: none; }
