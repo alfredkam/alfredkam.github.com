@@ -33,12 +33,12 @@
     <body>
         <header>
     
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar" role="navigation">
         <div class='container'>
-          <div class="navbar-header title padding-none">
+          <div class="navbar--title navbar__item">
               <a href='/'>Geeking out</a>
           </div>
-          <div id='SearchComponent'>
+          <div id='SearchComponent' class='navbar__item navbar__item--align-right'>
           </div>
         </div>
     </nav>
@@ -48,11 +48,9 @@
         <div class='container'>
             
 
-  <div class='row'>
-  <div class='col-md-1'>
-  </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/the-recent-mvc-landscape-with-angular-react-and-backbone-react">The recent MVC landscape with Angular&#43;React and Backbone&#43;React</a></h1>
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/the-recent-mvc-landscape-with-angular-react-and-backbone-react">The recent MVC landscape with Angular&#43;React and Backbone&#43;React</a></h2>
     <p class="author">
       <span class="date">Sun Jun 8, 2014</span>
     </p>
@@ -236,15 +234,13 @@
 </p></p>
 
     </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
   </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/goodbye-marionette-hello-react">Goodbye Marionette &amp; Hello React</a></h1>
+</section>
+
+
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/goodbye-marionette-hello-react">Goodbye Marionette &amp; Hello React</a></h2>
     <p class="author">
       <span class="date">Wed May 28, 2014</span>
     </p>
@@ -460,15 +456,13 @@
 </p></p>
 
     </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
   </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/moving-to-jekyll">moving to jekyll</a></h1>
+</section>
+
+
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/moving-to-jekyll">moving to jekyll</a></h2>
     <p class="author">
       <span class="date">Sun May 25, 2014</span>
     </p>
@@ -478,15 +472,13 @@
 <p>I will be re-building the site from scratch, so beware for the next couple of weeks</p>
 
     </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
   </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/installing-mysql-python-on-mac">installing mysql-python on mac</a></h1>
+</section>
+
+
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/installing-mysql-python-on-mac">installing mysql-python on mac</a></h2>
     <p class="author">
       <span class="date">Tue Feb 18, 2014</span>
     </p>
@@ -534,15 +526,56 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
 <a href="http://stackoverflow.com/questions/17920115/python-mysqldb-again-symbol-not-found-mysql-affected-rows">stackoverflow</a></p>
 
     </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
   </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/nginx-with-phpmyadmin-setup">nginx with changed phpmyadmin directory setup</a></h1>
+</section>
+
+
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/nginx-nodejs-stack-setup">nginx / nodejs stack setup</a></h2>
+    <p class="author">
+      <span class="date">Mon Feb 17, 2014</span>
+    </p>
+    <div class="content">
+      <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
+<p>my nodejs uses forever to run on port 3000.</p>
+<p>here is the nginx config setup</p>
+<pre class="language-bash">
+<code>
+sudo vi /etc/nginx/site-enabled/default
+</code>
+</pre>
+<pre class="language-bash">
+<code>
+#add this line before server { ... }
+[...]
+upstream app_nodejs {
+        server localhost:3000;
+}
+[...]
+
+#now in server {...}, assuming you want to map your url root to point to nodejs
+location / {
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_set_header X-NginX-Proxy true;
+
+               proxy_pass http://app_nodejs;
+               proxy_redirect off;
+           }
+
+</code>
+</pre>
+<p>Cheers</p>
+
+    </div>
+  </div>
+</section>
+
+
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/nginx-with-phpmyadmin-setup">nginx with changed phpmyadmin directory setup</a></h2>
     <p class="author">
       <span class="date">Mon Feb 17, 2014</span>
     </p>
@@ -637,60 +670,13 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 <a href="http://www.howtoforge.com/installing-nginx-with-php5-and-php-fpm-and-mysql-support-lemp-on-ubuntu-12.04-lts">howtoforge</a></p>
 
     </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
   </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/nginx-nodejs-stack-setup">nginx / nodejs stack setup</a></h1>
-    <p class="author">
-      <span class="date">Mon Feb 17, 2014</span>
-    </p>
-    <div class="content">
-      <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
-<p>my nodejs uses forever to run on port 3000.</p>
-<p>here is the nginx config setup</p>
-<pre class="language-bash">
-<code>
-sudo vi /etc/nginx/site-enabled/default
-</code>
-</pre>
-<pre class="language-bash">
-<code>
-#add this line before server { ... }
-[...]
-upstream app_nodejs {
-        server localhost:3000;
-}
-[...]
-
-#now in server {...}, assuming you want to map your url root to point to nodejs
-location / {
-               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-               proxy_set_header Host $http_host;
-               proxy_set_header X-NginX-Proxy true;
-
-               proxy_pass http://app_nodejs;
-               proxy_redirect off;
-           }
-
-</code>
-</pre>
-<p>Cheers</p>
-
-    </div>
-  </section>
-</div>
+</section>
 
 
-  <div class='row'>
-  <div class='col-md-1'>
-  </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/using-git-hooks-to-deploy-server-with-forever">using git hooks to deploy server with forever</a></h1>
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/using-git-hooks-to-deploy-server-with-forever">using git hooks to deploy server with forever</a></h2>
     <p class="author">
       <span class="date">Mon Feb 17, 2014</span>
     </p>
@@ -831,15 +817,13 @@ git push deploy master
 <p>This should be it, and the service should automatically stop and restart itself.  If i missed anything let me know :)</p>
 
     </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
   </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/typical-way-of-starting-a-startup">Typical way of starting a startup</a></h1>
+</section>
+
+
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/typical-way-of-starting-a-startup">Typical way of starting a startup</a></h2>
     <p class="author">
       <span class="date">Fri May 24, 2013</span>
     </p>
@@ -848,15 +832,13 @@ git push deploy master
 <p><a href="/img/2013/05/startup-cycle.png"><img src="/img/2013/05/startup-cycle.png" alt="startup-cycle" width="600" height="482" class="alignnone size-medium wp-image-251" /></a></p>
 
     </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
   </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/online-presence">Online Presence</a></h1>
+</section>
+
+
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/online-presence">Online Presence</a></h2>
     <p class="author">
       <span class="date">Thu May 16, 2013</span>
     </p>
@@ -881,15 +863,13 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
 <p><a href="/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png"><img class="alignnone size-medium wp-image-233" alt="IAMA - mortal - dev - show all" src="/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png" width="600" height="114" /></a></p>
 
     </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
   </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/js-function-crib-sheet">JavaScript Function Crib Sheet</a></h1>
+</section>
+
+
+  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/js-function-crib-sheet">JavaScript Function Crib Sheet</a></h2>
     <p class="author">
       <span class="date">Wed May 8, 2013</span>
     </p>
@@ -907,13 +887,11 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
 <p>If the function your missing is not listed, comment below and i may be able to write one.</p>
 
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
 
 <div class='row'>
-  <div class='col-md-1'></div>
-  <div class='col-md-10'>
   
     
     <ul class="pagination">
@@ -947,7 +925,6 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
         
     </ul>
     
-  </div>
 </div>
 <script type="text/javascript">
    
@@ -968,14 +945,14 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
 		+ ':1313/livereload.js?mindelay=10"></'
         + 'script>')</script></body>
 <footer>
-  <div class='col-md-10 col-md-offset-1'>
-      <div class='row'>
-        <div class='col-md-4'>
+  <div class='container'>
+      <div class='footer'>
+        <div class='footer__item'>
           <h4>
             About
           </h4>
-          <div class='row'>
-            <div class='col-xs-4'>
+          <div>
+            <div class='footer__portrait'>
               <img src='http://www.gravatar.com/avatar/d9b3f7a32a3bf559aad23694c73eb8cc.png' style='width:100%'></img>
             </div>
             <p class='col-xs-8'>
@@ -983,7 +960,7 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
             </p>
           </div>
         </div>
-        <div class='col-xs-4'>
+        <div class='footer__item'>
           <h4>
             Notable Works
           </h4>
@@ -994,11 +971,11 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
             <a href='/portfolio'>> More</a>
           </p>
         </div>
-        <div class='col-sm-4'>
+        <div class='footer__item'>
           <h4>
             Stalking Aids
           </h4>
-          <p class='socialBtns'>
+          <p class='footer__social-btn'>
             <a href='http://github.com/alfredkam'><i class='icon-github'></i></a>
             <a href='https://twitter.com/alfredkam'><i class='icon-twitter'></i></a>
             <a href='http://www.linkedin.com/in/kamalfred'><i class='icon-linkedin'></i></a>

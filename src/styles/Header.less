@@ -4,6 +4,26 @@ header {
       border-top: 5px solid rgb(255,237,24);
       background-color: inherit;
       color: #212121;
+      line-height: 30px;
+
+      .container {
+        display: flex;
+        flex-direction: row;
+
+        .navbar__item {
+          flex-basis: 50%;
+        }
+        .navbar__item--align-right {
+          text-align: right;
+        }
+
+        .navbar--title {
+          a {
+            font-size: 30px;
+            line-height: 30px;
+          }
+        }
+      }
     }
   }
 }

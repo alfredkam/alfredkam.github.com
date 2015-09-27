@@ -33,12 +33,12 @@
     <body>
         <header>
     
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar" role="navigation">
         <div class='container'>
-          <div class="navbar-header title padding-none">
+          <div class="navbar--title navbar__item">
               <a href='/'>Geeking out</a>
           </div>
-          <div id='SearchComponent'>
+          <div id='SearchComponent' class='navbar__item navbar__item--align-right'>
           </div>
         </div>
     </nav>
@@ -50,11 +50,9 @@
             <h1 id="title">Startup 101</h1>
 
             
-                  <div class='row'>
-  <div class='col-md-1'>
-  </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/online-presence">Online Presence</a></h1>
+                  <section class='post row'>
+  <div class='post--wide mdl-card mdl-shadow--2dp post__content'>
+    <h2><a href="http://localhost:1313/online-presence">Online Presence</a></h2>
     <p class="author">
       <span class="date">Thu May 16, 2013</span>
     </p>
@@ -79,8 +77,8 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
 <p><a href="/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png"><img class="alignnone size-medium wp-image-233" alt="IAMA - mortal - dev - show all" src="/img/2013/05/Screen-Shot-2013-05-15-at-8.23.07-PM.png" width="600" height="114" /></a></p>
 
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
             
             
@@ -96,14 +94,14 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
         }
     </style>
 <footer>
-  <div class='col-md-10 col-md-offset-1'>
-      <div class='row'>
-        <div class='col-md-4'>
+  <div class='container'>
+      <div class='footer'>
+        <div class='footer__item'>
           <h4>
             About
           </h4>
-          <div class='row'>
-            <div class='col-xs-4'>
+          <div>
+            <div class='footer__portrait'>
               <img src='http://www.gravatar.com/avatar/d9b3f7a32a3bf559aad23694c73eb8cc.png' style='width:100%'></img>
             </div>
             <p class='col-xs-8'>
@@ -111,7 +109,7 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
             </p>
           </div>
         </div>
-        <div class='col-xs-4'>
+        <div class='footer__item'>
           <h4>
             Notable Works
           </h4>
@@ -122,11 +120,11 @@ Posting relavent information, tips, stories for the consumer drives relavent tra
             <a href='/portfolio'>> More</a>
           </p>
         </div>
-        <div class='col-sm-4'>
+        <div class='footer__item'>
           <h4>
             Stalking Aids
           </h4>
-          <p class='socialBtns'>
+          <p class='footer__social-btn'>
             <a href='http://github.com/alfredkam'><i class='icon-github'></i></a>
             <a href='https://twitter.com/alfredkam'><i class='icon-twitter'></i></a>
             <a href='http://www.linkedin.com/in/kamalfred'><i class='icon-linkedin'></i></a>

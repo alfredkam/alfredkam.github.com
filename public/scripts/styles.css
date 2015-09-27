@@ -2,6 +2,64 @@ header nav.navbar {
   border-top: 5px solid #ffed18;
   background-color: inherit;
   color: #212121;
+  line-height: 30px;
+}
+header nav.navbar .container {
+  display: flex;
+  flex-direction: row;
+}
+header nav.navbar .container .navbar__item {
+  flex-basis: 50%;
+}
+header nav.navbar .container .navbar__item--align-right {
+  text-align: right;
+}
+header nav.navbar .container .navbar--title a {
+  font-size: 30px;
+  line-height: 30px;
+}
+.row {
+  padding-top: 30px;
+}
+.post .post--wide {
+  max-width: 800px;
+  width: auto;
+}
+.post .post__content {
+  padding: 15px;
+}
+.post .post__content h1 {
+  margin-top: 15px;
+}
+.pagination {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+  justify-content: center;
+}
+.pagination li {
+  padding: 4px 10px;
+  border: 1px solid #E8E8E8;
+  margin-right: 2px;
+  border-radius: 1px;
+}
+footer {
+  border-top: 1px solid #ccc;
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+}
+.footer .footer__item {
+  flex-basis: 33%;
+}
+.footer .footer__portrait {
+  width: 100px;
+}
+.footer .footer__social-btn {
+  font-size: 25px;
 }
 body,
 footer {
@@ -9,12 +67,8 @@ footer {
   font-size: 14px;
 }
 a {
-  -moz-transition: all 0.1s linear;
   -webkit-transition: all 0.1s linear;
-  -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
-}
-a:hover {
   text-decoration: none;
 }
 .container {

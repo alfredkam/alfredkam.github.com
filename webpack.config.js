@@ -66,9 +66,8 @@ module.exports = {
           test: /\.(es6|js)$/,
           loader: 'babel-loader?stage=0&blacklist=useStrict'
       },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', "css-loader")},
-      { test: /\.less$/, loader: ExtractTextPlugin.extract( 'css?sourceMap!' +
-                    'less?sourceMap')},
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'autoprefixer-loader')},
+      { test: /\.less$/, loader: ExtractTextPlugin.extract( 'css?sourceMap!less?sourceMap!autoprefixer-loader')},
       { test: /\.json$/, loaders: [ 'json-loader' ] },
       {
           test: /\.(woff|ttf|eot|svg)$/, loader: 'file-loader'
