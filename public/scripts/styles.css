@@ -1,0 +1,26 @@
+header nav.navbar {
+  border-top: 5px solid #ffed18;
+  background-color: inherit;
+  color: #212121;
+}
+body,
+footer {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+a {
+  -moz-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+a:hover {
+  text-decoration: none;
+}
+.container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*# sourceMappingURL=styles.css.map*/

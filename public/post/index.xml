@@ -46,9 +46,9 @@
                            }
                        }
                    }
-                   
+
                    $scope.refresh();
-                   
+
                    $scope.$watchCollection(&#39;data&#39;, function(newValue, oldValue){
                        React.renderComponent(
                            MYLIST({data:newValue}),
@@ -141,7 +141,7 @@
   var StatsComponent = React.createBackboneClass({
     render : function () {
       return (
-        &amp;lt;div&amp;gt; 
+        &amp;lt;div&amp;gt;
           {/* html template */}
         &amp;lt;/div&amp;gt;
       );
@@ -151,7 +151,7 @@
   var MenuComponent = React.createBackboneClass({
     render : function () {
       return (
-        &amp;lt;div&amp;gt; 
+        &amp;lt;div&amp;gt;
           {/* html template */}
         &amp;lt;/div&amp;gt;
       );
@@ -432,13 +432,16 @@
       
       <guid>http://localhost:1313/installing-mysql-python-on-mac</guid>
       <description>&lt;p&gt;Awesome next challenge - running a flask server to connect to a MAMP [2.1.3] sql server on a mac (mavericks).  Flask is a light weight python server and uses flask-sqlalchemy to connect.  Installing mysql-python seems to be a challenge.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;
+&lt;code&gt;
 #assuming you&#39;ve already installed xcode &amp; homebrew
 brew install mysql   #use brew install mysql --universal if your not using 64bit
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
 &lt;p&gt;Go to &lt;a href=&#34;http://dev.mysql.com/downloads/mysql/&#34;&gt;dev mysql&lt;/a&gt;&lt;br /&gt;
 download the latest release and decompress the file.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;
+&lt;code&gt;
 cd /path/to/download/
 tar -xvf mysql-*.tar.gz
 cd /path/to/extract/
@@ -451,16 +454,21 @@ export PATH=$PATH:/Applications/MAMP/Library/bin
 export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
 
 sudo easy_install mysql-python
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
 &lt;p&gt;FYI: this line will cause trouble with git&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;
+&lt;code&gt;
 export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
 &lt;p&gt;Rebooting your computer will clear it.&lt;/p&gt;
 &lt;p&gt;On a side note, when your connecting to the MAMP sql, python may complain mysql.sock is missing.  It is located under&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;
+&lt;code&gt;
 /Applications/MAMP/tmp/mysql/mysql.sock
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Additional Source&lt;/strong&gt;&lt;br /&gt;
 &lt;a href=&#34;http://racingtadpole.com/blog/mamp-python-and-mysqldb/&#34;&gt;mamp-python-mysql&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://stackoverflow.com/questions/17920115/python-mysqldb-again-symbol-not-found-mysql-affected-rows&#34;&gt;stackoverflow&lt;/a&gt;&lt;/p&gt;
@@ -476,13 +484,13 @@ export DYLD_LIBRARY_PATH=/Applications/MAMP/Library/lib
       <description>&lt;p&gt;So when you have an nginx + nodejs combo, you want to use &lt;i&gt;nginx to port foward to nodejs&lt;/i&gt;&lt;/p&gt;
 &lt;p&gt;my nodejs uses forever to run on port 3000.&lt;/p&gt;
 &lt;p&gt;here is the nginx config setup&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
+&lt;pre class=&#34;language-bash&#34;&gt;
+&lt;code&gt;
 sudo vi /etc/nginx/site-enabled/default
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
+&lt;pre class=&#34;language-bash&#34;&gt;
+&lt;code&gt;
 #add this line before server { ... }
 [...]
 upstream app_nodejs {
@@ -514,8 +522,8 @@ location / {
       <guid>http://localhost:1313/nginx-with-phpmyadmin-setup</guid>
       <description>&lt;p&gt;Recently decided to setup a nginx / python / mysql lightweight backend to interact with a nodejs services.   So decided to change phpmyadmin directory as well - i did run into 502 / 403 nginx errors, hope this post will help anyone who had the same issues too.&lt;/p&gt;
 &lt;p&gt;Setup process - assuming you are using ubuntu 12.04LTS&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-markup&#34;&gt;
+&lt;pre class=&#34;language-markup&#34;&gt;
+&lt;code&gt;
 #install mysql &amp; nginx
 sudo apt-get install mysql-server mysql-client
 sudo apt-get install nginx
@@ -530,13 +538,14 @@ sudo apt-get install php5-fpm php5-mysql php5-curl php5-gd php5-intl php-pear ph
 sudo service php5-fpm reload
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-markup&#34;&gt;
+&lt;pre class=&#34;language-markup&#34;&gt;
+&lt;code&gt;
 #modify php5-fpm
 sudo vi /etc/php5/fpm/pool.d/www.conf
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+&lt;pre class=&#34;language-bash&#34;&gt;
+&lt;code&gt;
 #look for listen and modify as follow
 [...]
 ;listen = 127.0.0.1:9000
@@ -544,14 +553,14 @@ listen = /tmp/php5-fpm.sock
 [...]
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-markup&#34;&gt;
+&lt;pre class=&#34;language-markup&#34;&gt;
+&lt;code&gt;
 #setup nginx config
 sudo vi /etc/nginx/site-enabled/default
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
+&lt;pre class=&#34;language-bash&#34;&gt;
+&lt;code&gt;
 #add this after location /
 [...]
 location /pma {
@@ -584,15 +593,15 @@ location ~ \.php$ {
 [...]
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-markup&#34;&gt;
+&lt;pre class=&#34;language-markup&#34;&gt;
+&lt;code&gt;
 sudo service nginx reload
 &lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;FYI: The most common 502 / 403 errors are due to this line in the nginx config file. &lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
-fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock; 
+&lt;pre class=&#34;language-bash&#34;&gt;
+&lt;code&gt;
+fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 &lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;Hopefully this post will help some travellers here.&lt;/p&gt;
@@ -614,25 +623,25 @@ fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 #install forever and give it global access
 sudo npm install -g forever
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+&lt;pre class=&#39;language-markup&#39;&gt;&lt;code&gt;
 #setup git bare at your deployment server
 git clone --bare [repo url]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+&lt;pre class=&#39;language-markup&#39;&gt;&lt;code&gt;
 #add the hooks
 #navigate into your git folder
 cd path/to/repo/hooks
 vi pre-receive
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;&lt;code&gt;
 #!/bin/sh
 echo &#34;stopping server service&#34;
 service nodejs-www stop
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;&lt;code&gt;
 vi post-receive
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;&lt;code&gt;
 #!/bin/sh
 echo &#34;checkout the files&#34;
 
@@ -650,7 +659,7 @@ fi
 echo &#34;start service&#34;
 service nodejs-www start
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+&lt;pre class=&#39;language-markup&#39;&gt;&lt;code&gt;
 sudo chmod +x pre-receive;
 sudo chmod +x post-receive;
 &lt;/code&gt;&lt;/pre&gt;
@@ -660,7 +669,7 @@ sudo chmod +x post-receive;
 cd /etc/init.d
 sudo vi nodejs-www
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;&lt;code&gt;
 #! /bin/sh
 # /etc/init.d/nodejs-www
 #

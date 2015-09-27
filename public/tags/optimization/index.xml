@@ -46,9 +46,9 @@
                            }
                        }
                    }
-                   
+
                    $scope.refresh();
-                   
+
                    $scope.$watchCollection(&#39;data&#39;, function(newValue, oldValue){
                        React.renderComponent(
                            MYLIST({data:newValue}),
@@ -141,7 +141,7 @@
   var StatsComponent = React.createBackboneClass({
     render : function () {
       return (
-        &amp;lt;div&amp;gt; 
+        &amp;lt;div&amp;gt;
           {/* html template */}
         &amp;lt;/div&amp;gt;
       );
@@ -151,7 +151,7 @@
   var MenuComponent = React.createBackboneClass({
     render : function () {
       return (
-        &amp;lt;div&amp;gt; 
+        &amp;lt;div&amp;gt;
           {/* html template */}
         &amp;lt;/div&amp;gt;
       );

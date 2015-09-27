@@ -13,25 +13,25 @@ img = "/img/unsplash/tumblr_n1iq25Wq701st5lhmo1_1280.jpg"
 #install forever and give it global access
 sudo npm install -g forever
 </code></pre>
-<pre><code class='language-markup'>
+<pre class='language-markup'><code>
 #setup git bare at your deployment server
 git clone --bare [repo url]
 </code></pre>
-<pre><code class='language-markup'>
+<pre class='language-markup'><code>
 #add the hooks
 #navigate into your git folder
 cd path/to/repo/hooks
 vi pre-receive
 </code></pre>
-<pre><code class='language-bash'>
+<pre class='language-bash'><code>
 #!/bin/sh
 echo "stopping server service"
 service nodejs-www stop
 </code></pre>
-<pre><code class='language-bash'>
+<pre class='language-bash'><code>
 vi post-receive
 </code></pre>
-<pre><code class='language-bash'>
+<pre class='language-bash'><code>
 #!/bin/sh
 echo "checkout the files"
 
@@ -49,7 +49,7 @@ fi
 echo "start service"
 service nodejs-www start
 </code></pre>
-<pre><code class='language-markup'>
+<pre class='language-markup'><code>
 sudo chmod +x pre-receive;
 sudo chmod +x post-receive;
 </code></pre>
@@ -59,7 +59,7 @@ sudo chmod +x post-receive;
 cd /etc/init.d
 sudo vi nodejs-www
 </code></pre>
-<pre><code class='language-bash'>
+<pre class='language-bash'><code>
 #! /bin/sh
 # /etc/init.d/nodejs-www
 #

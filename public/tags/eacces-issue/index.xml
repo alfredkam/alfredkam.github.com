@@ -21,25 +21,25 @@
 #install forever and give it global access
 sudo npm install -g forever
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+&lt;pre class=&#39;language-markup&#39;&gt;&lt;code&gt;
 #setup git bare at your deployment server
 git clone --bare [repo url]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+&lt;pre class=&#39;language-markup&#39;&gt;&lt;code&gt;
 #add the hooks
 #navigate into your git folder
 cd path/to/repo/hooks
 vi pre-receive
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;&lt;code&gt;
 #!/bin/sh
 echo &#34;stopping server service&#34;
 service nodejs-www stop
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;&lt;code&gt;
 vi post-receive
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;&lt;code&gt;
 #!/bin/sh
 echo &#34;checkout the files&#34;
 
@@ -57,7 +57,7 @@ fi
 echo &#34;start service&#34;
 service nodejs-www start
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-markup&#39;&gt;
+&lt;pre class=&#39;language-markup&#39;&gt;&lt;code&gt;
 sudo chmod +x pre-receive;
 sudo chmod +x post-receive;
 &lt;/code&gt;&lt;/pre&gt;
@@ -67,7 +67,7 @@ sudo chmod +x post-receive;
 cd /etc/init.d
 sudo vi nodejs-www
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#39;language-bash&#39;&gt;
+&lt;pre class=&#39;language-bash&#39;&gt;&lt;code&gt;
 #! /bin/sh
 # /etc/init.d/nodejs-www
 #

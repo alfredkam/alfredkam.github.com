@@ -11,8 +11,6 @@
         <meta name="viewport" content="width=device-width">
         <title>Alfred kam</title>
 
-        <link rel='stylesheet' href='/components/bootstrap/dist/css/bootstrap.min.css' />
-        <link rel='stylesheet' href='/css/base.css' />
         <link rel='stylesheet' href='/components/prismjs/prism-okaidia.css' />
 
         
@@ -21,7 +19,15 @@
         
 
         
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500,300,300italic,400italic,500italic' rel='stylesheet' type='text/css'>
+
+        
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        
+        <link rel="stylesheet" href="/scripts/styles.css">
     </head>
 
     <body>
@@ -29,16 +35,15 @@
     
     <nav class="navbar navbar-default" role="navigation">
         <div class='container'>
-            <div class='col-xs-10 col-md-offset-1 padding-none index-page'>
-                <div class="navbar-header col-sm-12 title padding-none">
-                        <span><a href='/'>Geeking out</a></span>
-                </div>
-            </div>
+          <div class="navbar-header title padding-none">
+              <a href='/'>Geeking out</a>
+          </div>
+          <div id='SearchComponent'>
+          </div>
         </div>
     </nav>
     <div class='header-bg'></div>
 </header>
-<link rel='stylesheet' href='/css/index.css'/>
 
         <div class='container'>
             
@@ -137,22 +142,6 @@ http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
   <div class='col-md-1'>
   </div>
   <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/importance-of-early-adopters">Importance of Early Adopters</a></h1>
-    <p class="author">
-      <span class="date">Fri Jan 25, 2013</span>
-    </p>
-    <div class="content">
-      <p>When your startup is in the early stage, early adopters are your up most important customers.  Let them use if for free of charge because they will become your key opinion leaders, they will be the ones who will help you break, change and polish your product.  Remember to always respect them, understand why they like or dont like about it and have a fast iteration release to show dedication to serve them well.</p>
-
-    </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
-  </div>
-  <section class='post col-md-10'>
     <h1><a href="http://localhost:1313/why-and-how-to-tell-a-cool-story">Why &amp; how to tell a cool story</a></h1>
     <p class="author">
       <span class="date">Fri Jan 25, 2013</span>
@@ -177,6 +166,22 @@ http://yoursite.com<strong>#!key1=value1&key2=value2</strong><br />
              </li>
 <p><br></p>
 <p>a good pitch example will be the one from Beerlab.  <a href='http://www.youtube.com/watch?v=cC5zCJbSx0o'>Here is a link to the pitch video</a></p>
+
+    </div>
+  </section>
+</div>
+
+
+  <div class='row'>
+  <div class='col-md-1'>
+  </div>
+  <section class='post col-md-10'>
+    <h1><a href="http://localhost:1313/importance-of-early-adopters">Importance of Early Adopters</a></h1>
+    <p class="author">
+      <span class="date">Fri Jan 25, 2013</span>
+    </p>
+    <div class="content">
+      <p>When your startup is in the early stage, early adopters are your up most important customers.  Let them use if for free of charge because they will become your key opinion leaders, they will be the ones who will help you break, change and polish your product.  Remember to always respect them, understand why they like or dont like about it and have a fast iteration release to show dedication to serve them well.</p>
 
     </div>
   </section>
@@ -226,6 +231,76 @@ Backbone Router<br />
 - http://coenraets.org/blog/2011/12/backbone-js-wine-cellar-tutorial-part-1-getting-started/<br />
 - http://blog.andyet.com/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/<br />
 - http://backbonetutorials.com/what-is-a-model/</p>
+
+    </div>
+  </section>
+</div>
+
+
+  <div class='row'>
+  <div class='col-md-1'>
+  </div>
+  <section class='post col-md-10'>
+    <h1><a href="http://localhost:1313/phonegap-apps-load-external-url">PhoneGap Apps &#43; Load External Url</a></h1>
+    <p class="author">
+      <span class="date">Mon Dec 17, 2012</span>
+    </p>
+    <div class="content">
+      <p><strong>To enable access to whitelist domain</strong><br />
+http://docs.phonegap.com/en/1.9.0/guide_whitelist_index.md.html</p>
+<p><strong>To open site in app itself<br />
+for Android</strong></p>
+<p>ref: <a href="http://stackoverflow.com/questions/8596772/how-can-i-load-a-webpage-inside-the-phonegap-webview" title="Stackoverflow">Stack Over Flow</a></p>
+<p><strong>for iOS</strong><br />
+in AppDelegate.m<br />
+Change</p>
+<p>
+<pre class='language-javascript'>
+<code>
+  - (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType 
+  {
+    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
+  }
+</code>
+</pre>
+<p>with </p>
+<pre class='language-javascript'>
+  <code>
+      - (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+      {
+        NSURL *url = [request URL];
+        if ([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) {
+          return YES;
+        }
+        else {
+          return [ super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType ];
+        }
+      }
+</code>
+</pre>
+<p>
+  ref: <a href="http://stackoverflow.com/questions/5911255/phonegap-for-iphone-problem-loading-external-url" title="stack over flow">stack over flow</a>
+</p>
+<p>
+  <strong>if to open site in app and open in browser<br />
+in iOS</strong></p>
+<pre class='language-javascript'>
+  <code>
+    - (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(    UIWebViewNavigationType)navigationType
+    {
+      NSURL *url = [request URL];
+      if ( ([url fragment] != NULL) && ([[url fragment] rangeOfString:@"phonegap=external"].location != NSNotFound))
+      {
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            [[UIApplication sharedApplication] openURL:url];
+            return NO;
+        }
+    }
+    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
+}</code>
+</pre>
+<p>and in the html href include hash <strong>#phonegap=external</strong></p>
+<p>ref: <a href="http://www.rigelgroupllc.com/blog/2012/05/22/opening-links-in-phonegap-apps-in-mobile-safari/">reference</a></p>
 
     </div>
   </section>
@@ -311,76 +386,6 @@ git revert &lt; commit_hash &gt;                       #reverts to the previous 
 git filter-branch &ndash;prune-empty &ndash;subdirectory-filter lib master
 </code></pre>
 <p>additional info - <a href="https://help.github.com/articles/splitting-a-subpath-out-into-a-new-repo">github:help</a></p></p>
-
-    </div>
-  </section>
-</div>
-
-
-  <div class='row'>
-  <div class='col-md-1'>
-  </div>
-  <section class='post col-md-10'>
-    <h1><a href="http://localhost:1313/phonegap-apps-load-external-url">PhoneGap Apps &#43; Load External Url</a></h1>
-    <p class="author">
-      <span class="date">Mon Dec 17, 2012</span>
-    </p>
-    <div class="content">
-      <p><strong>To enable access to whitelist domain</strong><br />
-http://docs.phonegap.com/en/1.9.0/guide_whitelist_index.md.html</p>
-<p><strong>To open site in app itself<br />
-for Android</strong></p>
-<p>ref: <a href="http://stackoverflow.com/questions/8596772/how-can-i-load-a-webpage-inside-the-phonegap-webview" title="Stackoverflow">Stack Over Flow</a></p>
-<p><strong>for iOS</strong><br />
-in AppDelegate.m<br />
-Change</p>
-<p>
-<pre class='language-javascript'>
-<code>
-  - (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType 
-  {
-    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
-  }
-</code>
-</pre>
-<p>with </p>
-<pre class='language-javascript'>
-  <code>
-      - (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-      {
-        NSURL *url = [request URL];
-        if ([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) {
-          return YES;
-        }
-        else {
-          return [ super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType ];
-        }
-      }
-</code>
-</pre>
-<p>
-  ref: <a href="http://stackoverflow.com/questions/5911255/phonegap-for-iphone-problem-loading-external-url" title="stack over flow">stack over flow</a>
-</p>
-<p>
-  <strong>if to open site in app and open in browser<br />
-in iOS</strong></p>
-<pre class='language-javascript'>
-  <code>
-    - (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(    UIWebViewNavigationType)navigationType
-    {
-      NSURL *url = [request URL];
-      if ( ([url fragment] != NULL) && ([[url fragment] rangeOfString:@"phonegap=external"].location != NSNotFound))
-      {
-        if ([[UIApplication sharedApplication] canOpenURL:url]) {
-            [[UIApplication sharedApplication] openURL:url];
-            return NO;
-        }
-    }
-    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
-}</code>
-</pre>
-<p>and in the html href include hash <strong>#phonegap=external</strong></p>
-<p>ref: <a href="http://www.rigelgroupllc.com/blog/2012/05/22/opening-links-in-phonegap-apps-in-mobile-safari/">reference</a></p>
 
     </div>
   </section>
@@ -537,24 +542,8 @@ put it in the AutoInstall folder and reboot using the redsn0w just boot option</
   ga('create', 'UA-25416273-1', 'alfredkam.com');
   ga('send', 'pageview');
 </script>
-<script src='https://code.jquery.com/jquery-2.1.4.min.js' type='text/javascript'></script>
-<script src='/components/lodash/dist/lodash.min.js' type='text/javascript'></script>
-
-<script type='text/javascript'>
-  $('code').each(function () {
-    var html = _.escape($(this).html());
-    html = html.replace(/&amp;lt;/g,'&lt;');
-    html = html.replace(/&amp;gt;/g,'&gt;');
-    $(this).html(html);
-  });
-</script>
-<script src='/components/bootstrap/dist/js/bootstrap.min.js' type='text/javascript'></script>
-<script src='/components/prismjs/prism.js' type='text/javascript'/></script>
-<script src='/components/prismjs/components/prism-markup.min.js' type="text/javascript"></script>
-<script src='/components/prismjs/components/prism-bash.min.js' type='text/javascript'></script>
-<script src='/components/prismjs/components/prism-css.min.js' type='text/javascript'></script>
-<script src='/components/prismjs/components/prism-javascript.min.js' type='text/javascript'></script>
-<script src='/components/prismjs/components/prism-python.min.js' type="text/javascript"></script>
+<scrpit src='/scripts/vendor.js' type='text/javascript'></script>
+<script src='/scripts/app.js' type='text/javascript'></script>
 
 </html>
 

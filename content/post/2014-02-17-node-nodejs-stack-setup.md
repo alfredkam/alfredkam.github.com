@@ -10,13 +10,13 @@ img = "/img/unsplash/tumblr_n5e0gloGfW1st5lhmo1_1280.jpg"
 <p>So when you have an nginx + nodejs combo, you want to use <i>nginx to port foward to nodejs</i></p>
 <p>my nodejs uses forever to run on port 3000.</p>
 <p>here is the nginx config setup</p>
-<pre>
-<code class="language-bash">
+<pre class="language-bash">
+<code>
 sudo vi /etc/nginx/site-enabled/default
 </code>
 </pre>
-<pre>
-<code class="language-bash">
+<pre class="language-bash">
+<code>
 #add this line before server { ... }
 [...]
 upstream app_nodejs {

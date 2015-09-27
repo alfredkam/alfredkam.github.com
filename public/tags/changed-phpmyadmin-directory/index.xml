@@ -17,8 +17,8 @@
       <guid>http://localhost:1313/nginx-with-phpmyadmin-setup</guid>
       <description>&lt;p&gt;Recently decided to setup a nginx / python / mysql lightweight backend to interact with a nodejs services.   So decided to change phpmyadmin directory as well - i did run into 502 / 403 nginx errors, hope this post will help anyone who had the same issues too.&lt;/p&gt;
 &lt;p&gt;Setup process - assuming you are using ubuntu 12.04LTS&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-markup&#34;&gt;
+&lt;pre class=&#34;language-markup&#34;&gt;
+&lt;code&gt;
 #install mysql &amp; nginx
 sudo apt-get install mysql-server mysql-client
 sudo apt-get install nginx
@@ -33,13 +33,14 @@ sudo apt-get install php5-fpm php5-mysql php5-curl php5-gd php5-intl php-pear ph
 sudo service php5-fpm reload
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-markup&#34;&gt;
+&lt;pre class=&#34;language-markup&#34;&gt;
+&lt;code&gt;
 #modify php5-fpm
 sudo vi /etc/php5/fpm/pool.d/www.conf
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+&lt;pre class=&#34;language-bash&#34;&gt;
+&lt;code&gt;
 #look for listen and modify as follow
 [...]
 ;listen = 127.0.0.1:9000
@@ -47,14 +48,14 @@ listen = /tmp/php5-fpm.sock
 [...]
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-markup&#34;&gt;
+&lt;pre class=&#34;language-markup&#34;&gt;
+&lt;code&gt;
 #setup nginx config
 sudo vi /etc/nginx/site-enabled/default
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
+&lt;pre class=&#34;language-bash&#34;&gt;
+&lt;code&gt;
 #add this after location /
 [...]
 location /pma {
@@ -87,15 +88,15 @@ location ~ \.php$ {
 [...]
 &lt;/code&gt;
 &lt;/pre&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-markup&#34;&gt;
+&lt;pre class=&#34;language-markup&#34;&gt;
+&lt;code&gt;
 sudo service nginx reload
 &lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;FYI: The most common 502 / 403 errors are due to this line in the nginx config file. &lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&#34;language-bash&#34;&gt;
-fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock; 
+&lt;pre class=&#34;language-bash&#34;&gt;
+&lt;code&gt;
+fastcgi_pass unix:/tmp/php5-fpm.sock; #example using unix:/var/run/php-fpm.sock;
 &lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;Hopefully this post will help some travellers here.&lt;/p&gt;
