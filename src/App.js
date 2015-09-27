@@ -1,4 +1,3 @@
-import './register-es';
 import 'prismjs';
 import React from 'react';
 import $ from 'zepto';

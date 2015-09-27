@@ -29,6 +29,11 @@ header .header-bg {
   height: 200px;
   width: 100%;
 }
+@media (max-width: 800px) {
+  .navbar .container {
+    padding: 0 10px;
+  }
+}
 .row {
   padding-top: 30px;
 }
@@ -41,6 +46,11 @@ header .header-bg {
 }
 .posts .posts__content h1 {
   margin-top: 15px;
+}
+@media (max-width: 800px) {
+  section.posts {
+    padding: 10px;
+  }
 }
 .pagination {
   list-style: none;
@@ -72,6 +82,19 @@ footer {
 .footer .footer__social-btn {
   font-size: 25px;
 }
+@media (max-width: 800px) {
+  footer .container {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 500px) {
+  .footer {
+    flex-direction: column;
+  }
+  .footer .footer__item {
+    border-bottom: 1px solid #eee;
+  }
+}
 .post .post__header-img__content {
   position: relative;
 }
@@ -93,6 +116,21 @@ footer {
 .post .post__header-wrapper {
   margin-bottom: 10px;
 }
+@media (max-width: 900px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 800px) {
+  .post__content {
+    padding: 10px;
+  }
+}
+@media (max-width: 700px) {
+  h1 {
+    font-size: 30px;
+  }
+}
 body,
 footer {
   font-family: 'Roboto', sans-serif;
@@ -110,6 +148,16 @@ a:hover {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+}
+@media (max-width: 600px) {
+  h2 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 400px) {
+  div#SearchComponent {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map*/

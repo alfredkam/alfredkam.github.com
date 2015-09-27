@@ -19,3 +19,19 @@ footer {
     font-size: 25px;
   }
 }
+
+@media (max-width: 800px) {
+  footer .container {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer {
+    flex-direction: column;
+
+    & &__item {
+      border-bottom: 1px solid #eee;
+    }
+  }
+}
