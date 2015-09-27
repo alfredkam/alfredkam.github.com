@@ -173,7 +173,7 @@
   var StatsComponent = React.createBackboneClass({
     render : function () {
       return (
-        &amp;lt;div&amp;gt; 
+        &amp;lt;div&amp;gt;
           {/* html template */}
         &amp;lt;/div&amp;gt;
       );
@@ -183,7 +183,7 @@
   var MenuComponent = React.createBackboneClass({
     render : function () {
       return (
-        &amp;lt;div&amp;gt; 
+        &amp;lt;div&amp;gt;
           {/* html template */}
         &amp;lt;/div&amp;gt;
       );

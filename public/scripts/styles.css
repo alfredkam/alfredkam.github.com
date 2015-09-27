@@ -1,6 +1,9 @@
+header nav {
+  z-index: 2;
+  position: relative;
+}
 header nav.navbar {
-  border-top: 5px solid #ffed18;
-  background-color: inherit;
+  padding-top: 5px;
   color: #212121;
   line-height: 30px;
 }
@@ -18,17 +21,25 @@ header nav.navbar .container .navbar--title a {
   font-size: 30px;
   line-height: 30px;
 }
+header .header-bg {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  background-color: #ffed18;
+  height: 200px;
+  width: 100%;
+}
 .row {
   padding-top: 30px;
 }
-.post .post--wide {
+.posts .posts--wide {
   max-width: 800px;
   width: auto;
 }
-.post .post__content {
+.posts .posts__content {
   padding: 15px;
 }
-.post .post__content h1 {
+.posts .posts__content h1 {
   margin-top: 15px;
 }
 .pagination {
@@ -37,14 +48,14 @@ header nav.navbar .container .navbar--title a {
   padding-left: 0;
   justify-content: center;
 }
-.pagination li {
+.pagination li a {
   padding: 4px 10px;
   border: 1px solid #E8E8E8;
   margin-right: 2px;
   border-radius: 1px;
 }
 footer {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #eee;
   margin-top: 40px;
   padding-bottom: 40px;
 }
@@ -61,6 +72,27 @@ footer {
 .footer .footer__social-btn {
   font-size: 25px;
 }
+.post .post__header-img__content {
+  position: relative;
+}
+.post .post__header-img--black {
+  background: #000;
+  height: 273px;
+  width: 100%;
+  position: absolute;
+  opacity: 0.5;
+  top: 0;
+}
+.post .post--title {
+  position: absolute;
+  top: 55px;
+  text-align: center;
+  color: #ee7063;
+  width: 100%;
+}
+.post .post__header-wrapper {
+  margin-bottom: 10px;
+}
 body,
 footer {
   font-family: 'Roboto', sans-serif;
@@ -70,6 +102,9 @@ a {
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
   text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 .container {
   max-width: 800px;

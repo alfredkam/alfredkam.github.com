@@ -21,64 +21,62 @@ img = "/img/unsplash/tumblr_n6essmaWs11st5lhmo1_1280.jpg"
     Link to <a href='http://plnkr.co/edit/1mwjMNh0RQP8PVrinOmD?p=preview'>Backbone+React Demo</a><br>
 </p>
 <div class='row'>
-    <div class='col-md-12'>
-        <pre class='col-md-6'>
-            <code class='language-javascript'>
-                //Angular Example
-                angular.module('fasterAngular', []).
-                controller('mycontroller', ['$scope', function($scope){
-                   $scope.framework = 'ReactJs';
-                   $scope.data = [];
-                   // Fill the data map with random data
-                   $scope.refresh = function(){
-                       for(var i = 0; i < 1500; ++i) {
-                           $scope.data[i] = {};
-                           for(var j = 0; j < 5; ++j) {
-                               $scope.data[i][j] = Math.random();
-                           }
-                       }
-                   }
+    <div>
+<pre class='language-javascript'>
+<code>//Angular Example
+angular.module('fasterAngular', []).
+controller('mycontroller', ['$scope', function($scope){
+   $scope.framework = 'ReactJs';
+   $scope.data = [];
+   // Fill the data map with random data
+   $scope.refresh = function(){
+       for(var i = 0; i < 1500; ++i) {
+           $scope.data[i] = {};
+           for(var j = 0; j < 5; ++j) {
+               $scope.data[i][j] = Math.random();
+           }
+       }
+   }
 
-                   $scope.refresh();
+   $scope.refresh();
 
-                   $scope.$watchCollection('data', function(newValue, oldValue){
-                       React.renderComponent(
-                           MYLIST({data:newValue}),
-                           document.getElementById("fastRepeatArea")
-                       );
-                   })
-                }])
-            </code>
-        </pre>
+   $scope.$watchCollection('data', function(newValue, oldValue){
+       React.renderComponent(
+           MYLIST({data:newValue}),
+           document.getElementById("fastRepeatArea")
+       );
+   })
+}])
+</code>
+</pre>
 
-        <pre class='col-md-6'>
-            <code class='language-javascript'>
-                //Backbone example
-                $(document).ready(function () {
-                  new (Backbone.Router.extend({
-                    initialize : function () {
-                        var data = [];
-                        var refresh = function () {
-                          for(var i = 0; i < 1500; ++i) {
-                                  data[i] = {};
-                                  for(var j = 0; j < 5; ++j) {
-                                      data[i][j] = Math.random();
-                                  }
-                              }
-                          React.renderComponent(
-                            MYLIST({data:data}),
-                            document.getElementById("fastRepeatArea")
-                          );
-                        };
-                        refresh();
-                        $('button#refreshBtn').click(function () {
-                          refresh();
-                        });
-                    },
-                  }))();
-                });
-            </code>
-        </pre>
+<pre class='language-javascript'>
+<code>//Backbone example
+$(document).ready(function () {
+  new (Backbone.Router.extend({
+    initialize : function () {
+        var data = [];
+        var refresh = function () {
+          for(var i = 0; i < 1500; ++i) {
+                  data[i] = {};
+                  for(var j = 0; j < 5; ++j) {
+                      data[i][j] = Math.random();
+                  }
+              }
+          React.renderComponent(
+            MYLIST({data:data}),
+            document.getElementById("fastRepeatArea")
+          );
+        };
+        refresh();
+        $('button#refreshBtn').click(function () {
+          refresh();
+        });
+    },
+  }))();
+});
+</code>
+</pre>
     </div>
 </div>
 <p>
@@ -92,24 +90,25 @@ img = "/img/unsplash/tumblr_n6essmaWs11st5lhmo1_1280.jpg"
 </p>
 <p>
     I believe this pretty much dictates which combination is the go to framework for heavy web apps.  Every second counts to keep your user on your site!
-</p>ntender in the market called Facebook React, I'll just call it React for short.  React is a 'View' Framework.  So in terms of a MVC, its the 'V' Component.  Suprisingly React further simplified the entire landscape of 'View' framework.  It only expose the real nodes that you have
+</p>
+<p>
+  The contender in the market called Facebook React, I'll just call it React for short.  React is a 'View' Framework.  So in terms of a MVC, its the 'V' Component.  Suprisingly React further simplified the entire landscape of 'View' framework.  It only expose the real nodes that you have
 </p>
 <p>
   Lets see how this will look like in React, ive also included the propeller <a href='https://github.com/usepropeller/react.backbone'>react.backbone</a>.  It allows us to feed in backbone models into react and databind with mixin.
 </p>
 
-<pre>
-  <code class='language-markup'>
-      <!-- html structure -->
-      &#60;html&#62;
-        &#60;body&#62;
-        &#60;/body&#62;
-      &#60;/html&#62;
-  </code>
-  <code class='language-javascript'>
-    //javascript code
-    /** @jsx React.DOM **/
-    'use strict';
+<pre><code class='language-markup'>
+<!-- html structure -->
+&#60;html&#62;
+  &#60;body&#62;
+  &#60;/body&#62;
+&#60;/html&#62;
+</code></pre>
+<pre class='language-javascript'><code>
+//javascript code
+/** @jsx React.DOM **/
+'use strict';
 
     define ([
       'jquery', backbone', 'react', 'react.backbone'
@@ -177,7 +176,7 @@ img = "/img/unsplash/tumblr_n6essmaWs11st5lhmo1_1280.jpg"
         $('body')[0]
       });
     });
-  </code>
+</code>
 </pre>
 <p>
   The code base is smaller, easier to understand and to control.  Now some may ask about Angular + React comparing with Backbone + React.  For this I'll leave it to next post, but this is now pretty clear Marionette is out of the game.

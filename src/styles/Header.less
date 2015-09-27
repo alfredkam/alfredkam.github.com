@@ -1,8 +1,11 @@
 header {
   nav {
+    z-index: 2;
+    position: relative;
     &.navbar {
-      border-top: 5px solid rgb(255,237,24);
-      background-color: inherit;
+      // border-top: 5px solid rgb(255,237,24);
+      // background-color: inherit;
+      padding-top: 5px;
       color: #212121;
       line-height: 30px;
 
@@ -25,5 +28,13 @@ header {
         }
       }
     }
+  }
+  .header-bg {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    background-color: rgb(255,237,24);
+    height: 200px;
+    width: 100%;
   }
 }

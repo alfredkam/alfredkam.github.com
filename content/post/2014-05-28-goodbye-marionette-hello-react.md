@@ -166,7 +166,7 @@ img = "/img/unsplash/tumblr_n1iq25Wq701st5lhmo1_1280.jpg"
       var StatsComponent = React.createBackboneClass({
         render : function () {
           return (
-            <div> 
+            <div>
               {/* html template */}
             </div>
           );
@@ -176,7 +176,7 @@ img = "/img/unsplash/tumblr_n1iq25Wq701st5lhmo1_1280.jpg"
       var MenuComponent = React.createBackboneClass({
         render : function () {
           return (
-            <div> 
+            <div>
               {/* html template */}
             </div>
           );
