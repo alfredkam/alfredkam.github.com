@@ -9,6 +9,7 @@ footer {
   flex-direction: row;
   & &__item {
     flex-basis: 33%;
+    position: relative;
   }
 
   & &__portrait {
@@ -28,10 +29,11 @@ footer {
 
 @media (max-width: 500px) {
   .footer {
-    flex-direction: column;
+    display: block;
 
     & &__item {
       border-bottom: 1px solid #eee;
+      height: auto;
     }
   }
 }
