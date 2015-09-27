@@ -1,5 +1,5 @@
 # Pull image
-FROM ubuntu:14.04
+FROM ubuntu
 
 # Install pygments (for syntax highlighting)
 RUN apt-get -qq update \
@@ -15,15 +15,21 @@ RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/ \
 	&& ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
 	&& rm /usr/local/${HUGO_BINARY}.tar.gz
 
+
+ADD package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
+
 # Create working directory
-RUN mkdir /usr/share/blog
-WORKDIR /usr/share/blog
+WORKDIR /opt/app
+ADD . /opt/app
 
 # Expose default hugo port
 EXPOSE 1313
 
 # Automatically build site
-ONBUILD ADD site/ /usr/share/blog
+CMD node /opt/app/node_modules/webpack/bin/webpack .
+ONBUILD ADD public/ /opt/app
 ONBUILD RUN hugo -d /usr/share/nginx/html/
 
 # By default, serve site
