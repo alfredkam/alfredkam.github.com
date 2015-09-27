@@ -1,3 +1,46 @@
+.search .icon-search {
+  color: #ff4081;
+  cursor: pointer;
+  font-size: 16px;
+}
+.search .search__component {
+  line-height: 18px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid #ff4081;
+  background-color: inherit;
+  color: #ff4081;
+}
+.search .search__component:focus {
+  outline: 0;
+}
+.search .search__component:before {
+  left: 0;
+  -webkit-transition: left 0.3s;
+  transition: left 0.3s;
+}
+.search .search__scrollbox {
+  text-align: left;
+  width: 400px;
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+}
+.search .search__scrollbox .search__scrollbox__item {
+  cursor: pointer;
+  padding: 0.5em;
+  overflow-wrap: break-word;
+}
+.search .search__scrollbox .search__scrollbox__item:hover {
+  background: #ff4081;
+  color: #fff;
+  text-decoration: none;
+}
+@media (max-width: 800px) {
+  .search__scrollbox {
+    right: 0;
+  }
+}
 header nav {
   z-index: 2;
   position: relative;
@@ -154,7 +197,7 @@ a:hover {
     font-size: 30px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   div#SearchComponent {
     display: none;
   }
