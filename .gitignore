@@ -4,3 +4,5 @@ static/scripts
 
 # webpack
 *.hot-update.js.map
+*.hot-update.json
+*.hot-update.js
