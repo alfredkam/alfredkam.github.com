@@ -1,6 +1,8 @@
 # Pull images
 FROM ubuntu:14.04
 FROM node:4.0.0
+MAINTAINER Alfred Kam <kam.alfred@gmail.com>
+
 
 # Install pygments (for syntax highlighting)
 RUN apt-get -qq update \
@@ -29,9 +31,9 @@ ADD . /opt/app
 EXPOSE 1313
 
 # Automatically build site
-CMD node /opt/app/node_modules/webpack/bin/webpack .
 ONBUILD ADD public/ /opt/app
 ONBUILD RUN hugo -d /usr/share/nginx/html/
+CMD node /opt/app/node_modules/webpack/bin/webpack ./webpack.config.js
 
 # By default, serve site
 ENV HUGO_BASE_URL http://localhost:1313
