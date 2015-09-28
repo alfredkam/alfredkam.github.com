@@ -32,8 +32,8 @@ EXPOSE 1313
 
 # Automatically build site
 ONBUILD ADD public/ /opt/app
+CMD node /opt/app/node_modules/webpack/bin/webpack
 ONBUILD RUN hugo -d /usr/share/nginx/html/
-CMD node /opt/app/node_modules/webpack/bin/webpack ./webpack.config.js
 
 # By default, serve site
 ENV HUGO_BASE_URL http://localhost:1313
