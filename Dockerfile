@@ -1,10 +1,13 @@
 # Pull image
-FROM ubuntu
+FROM ubuntu:14.04
+FROM node:4.0.0
 
 # Install pygments (for syntax highlighting)
 RUN apt-get -qq update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends python-pygments \
 	&& rm -rf /var/lib/apt/lists/*
+
+RUN sudo apt-get -y install build-essential libssl-dev
 
 # Download and install hugo
 ENV HUGO_VERSION 0.13
@@ -15,12 +18,7 @@ RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/ \
 	&& ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
 	&& rm /usr/local/${HUGO_BINARY}.tar.gz
 
-# Download and isntall node
-RUN apt-get -y install nodejs
-RUN apt-get -y install npm
-RUN ln -s /usr/bin/nodejs /usr/bin/node
-
-
+# Install node packages
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install
 RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
