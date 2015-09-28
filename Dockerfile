@@ -1,4 +1,4 @@
-# Pull image
+# Pull images
 FROM ubuntu:14.04
 FROM node:4.0.0
 
@@ -6,8 +6,6 @@ FROM node:4.0.0
 RUN apt-get -qq update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends python-pygments \
 	&& rm -rf /var/lib/apt/lists/*
-
-RUN sudo apt-get -y install build-essential libssl-dev
 
 # Download and install hugo
 ENV HUGO_VERSION 0.13
