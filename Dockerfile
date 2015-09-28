@@ -15,6 +15,11 @@ RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/ \
 	&& ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
 	&& rm /usr/local/${HUGO_BINARY}.tar.gz
 
+# Download and isntall node
+RUN apt-get -y install nodejs
+RUN apt-get -y install npm
+RUN ln -s /usr/bin/nodejs /usr/bin/node
+
 
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install
