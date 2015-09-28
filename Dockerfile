@@ -33,7 +33,7 @@ EXPOSE 1313
 # Automatically build site
 ONBUILD ADD public/ /opt/app
 RUN mkdir -p /opt/app/static/scripts
-CMD node /opt/app/node_modules/webpack/bin/webpack ./webpack.config.js
+CMD node /opt/app/node_modules/webpack/bin/webpack
 ONBUILD RUN hugo -d /usr/share/nginx/html/
 
 # By default, serve site
