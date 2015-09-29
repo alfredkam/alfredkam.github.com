@@ -30,6 +30,8 @@ RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/ \
 
 # Install node packages
 ADD package.json /tmp/package.json
+ADD startup.sh /tmp/startup.sh
+RUN chmod 777 /tmp/startup.sh
 RUN cd /tmp && npm install
 RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
@@ -38,18 +40,18 @@ WORKDIR /opt/app
 ADD . /opt/app
 
 # Automatically build site + webpack content
-ONBUILD ADD public/ /opt/app
-ONBUILD RUN mkdir -p /opt/app/static/scripts
-ONBUILD RUN node /opt/app/node_modules/webpack/bin/webpack
-ONBUILD RUN hugo -d /opt/dist
+RUN mkdir -p public/
+RUN mkdir -p /opt/app/static/scripts
+RUN node /opt/app/node_modules/webpack/bin/webpack
+RUN hugo -d /opt/app/public
 
 # By default, serve site
 # ENV HUGO_BASE_URL http://alfredkam.com
 # CMD hugo server -b ${HUGO_BASE_URL}
 
 # Add file for serving
-ONBUILD ADD /opt/app/public/ /var/www/html
-CMD ['nginx']
+RUN cp -r /opt/app/public/* /var/www/html/
+ENTRYPOINT ["/tmp/startup.sh"]
 
 # Expose default port
 EXPOSE 80
