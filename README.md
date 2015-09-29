@@ -17,4 +17,6 @@ node buildJson #for search
 ```
 
 ##Deploy
+```bash
 git push <dokku> hugo:master
+```
