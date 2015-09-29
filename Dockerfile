@@ -39,17 +39,14 @@ RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 WORKDIR /opt/app
 ADD . /opt/app
 
-# Automatically build site + webpack content
+# Base on `config.toml`, automatically build a production copy of the site
+# And Webpack the javascript bundle
 RUN mkdir -p public/
 RUN mkdir -p /opt/app/static/scripts
 RUN node /opt/app/node_modules/webpack/bin/webpack
 RUN hugo -d /opt/app/public
 
-# By default, serve site
-# ENV HUGO_BASE_URL http://alfredkam.com
-# CMD hugo server -b ${HUGO_BASE_URL}
-
-# Add file for serving
+# Add static files to serve
 RUN cp -r /opt/app/public/* /var/www/html/
 ENTRYPOINT ["/tmp/start-nginx.sh"]
 
