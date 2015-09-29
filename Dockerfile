@@ -30,8 +30,8 @@ RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/ \
 
 # Install node packages
 ADD package.json /tmp/package.json
-ADD startup.sh /tmp/startup.sh
-RUN chmod 777 /tmp/startup.sh
+ADD start-nginx.sh /tmp/start-nginx.sh
+RUN chmod 777 /tmp/start-nginx.sh
 RUN cd /tmp && npm install
 RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
@@ -51,7 +51,7 @@ RUN hugo -d /opt/app/public
 
 # Add file for serving
 RUN cp -r /opt/app/public/* /var/www/html/
-ENTRYPOINT ["/tmp/startup.sh"]
+ENTRYPOINT ["/tmp/start-nginx.sh"]
 
 # Expose default port
 EXPOSE 80
