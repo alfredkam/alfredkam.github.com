@@ -1,7 +1,7 @@
 baseurl = "http://alfredkam.com"
 languageCode = "en-us"
 title = "Alfred kam"
-description = "Ups and Downs of Entrepreneurship"
+description = "Entrepreneurship, Engineering and Coffee"
 contentdir = "content"
 layoutdir = "layouts"
 publishdir = "public"

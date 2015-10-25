@@ -17,12 +17,6 @@ $('code').each(function () {
   $(this).html(html);
 });
 
-$(document).ready(function () {
-    // $('#navCollapse').collapse({
-    //     toggle: false
-    // });
-});
-
 React.render(
   <Search data={SearchData} />,
   document.getElementById('SearchComponent')
