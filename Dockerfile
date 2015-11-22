@@ -16,6 +16,13 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
+# Install NewRelic
+RUN (wget -O - https://download.newrelic.com/548C16BF.gpg | apt-key add - && \
+  sh -c 'echo "deb http://apt.newrelic.com/debian/ newrelic non-free" > /etc/apt/sources.list.d/newrelic.list' && \
+	apt-get update && \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y newrelic-sysmond && \
+	apt-get clean)
+
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx"]
 
@@ -30,8 +37,8 @@ RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/ \
 
 # Install node packages
 ADD package.json /tmp/package.json
-ADD start-nginx.sh /tmp/start-nginx.sh
-RUN chmod 777 /tmp/start-nginx.sh
+ADD start-server.sh /tmp/start-server.sh
+RUN chmod 777 /tmp/start-server.sh
 RUN cd /tmp && npm install
 RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
@@ -48,7 +55,7 @@ RUN hugo -d /opt/app/public
 
 # Add static files to serve
 RUN cp -r /opt/app/public/* /var/www/html/
-ENTRYPOINT ["/tmp/start-nginx.sh"]
+ENTRYPOINT ["/tmp/start-server.sh"]
 
 # Expose default port
 EXPOSE 80
