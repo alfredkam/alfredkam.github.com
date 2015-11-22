@@ -8,7 +8,7 @@ RUN apt-get -qq update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends python-pygments \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Install Nginx
+# Install NGINX
 RUN \
   apt-get update && \
   apt-get install -y nginx && \
@@ -16,7 +16,7 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
-# Install NewRelic
+# Install New Relic
 RUN (wget -O - https://download.newrelic.com/548C16BF.gpg | apt-key add - && \
   sh -c 'echo "deb http://apt.newrelic.com/debian/ newrelic non-free" > /etc/apt/sources.list.d/newrelic.list' && \
 	apt-get update && \
@@ -26,7 +26,7 @@ RUN (wget -O - https://download.newrelic.com/548C16BF.gpg | apt-key add - && \
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx"]
 
-# Download and install hugo
+# Download and install HUGO
 ENV HUGO_VERSION 0.13
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux_amd64
 
@@ -35,7 +35,7 @@ RUN tar xzf /usr/local/${HUGO_BINARY}.tar.gz -C /usr/local/ \
 	&& ln -s /usr/local/${HUGO_BINARY}/${HUGO_BINARY} /usr/local/bin/hugo \
 	&& rm /usr/local/${HUGO_BINARY}.tar.gz
 
-# Install node packages
+# Install NODE packages
 ADD package.json /tmp/package.json
 ADD start-server.sh /tmp/start-server.sh
 RUN chmod 777 /tmp/start-server.sh
